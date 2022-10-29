@@ -86,9 +86,9 @@ public class Highlight : MonoBehaviour
         if (state.HasFlag(State.SelectedTarget))
             return Color.red;
         if (state.HasFlag(State.AreaOfEffect))
-            return Color.yellow;
-        if (state.HasFlag(State.Target))
             return new Color(1, 1, 0);
+        if (state.HasFlag(State.Target))
+            return Color.blue;
         if (state.HasFlag(State.Unit))
             return Color.green;
         if (state.HasFlag(State.Cursor))

@@ -7,9 +7,63 @@ public class CameraController : MonoBehaviour
 {
 
     /// <summary>
+    /// Enumeración de los estados de la cámara
+    /// <list type="bullet">
+    /// <item><c>Input</c>: la cámara se está moviendo de acuerdo a la entrada del jugador</item>
+    /// <item><c>Fixed</c>: la cámara no se mueve e ignora la entrada del jugador</item>
+    /// <item><c>Cell</c>: la cámara se está moviendo hacia una celda fija e ignora la entrada del jugador</item>
+    /// <item><c>Unit</c>: la cámara está siguiendo el movimiento de una unidad e ignora la entrada del jugador</item>
+    /// </list>
+    /// </summary>
+    public enum State
+    {
+        Input,
+        Fixed,
+        Cell,
+        Unit
+    }
+
+    /// <summary>
+    /// Estado actual de la cámara
+    /// </summary>
+    public static State state;
+
+    /// <summary>
     /// Posición actual de la cámara
     /// </summary>
     public static Vector3 position;
+
+    /// <summary>
+    /// Ejemplar único de <c>CameraController</c>
+    /// </summary>
+    private static CameraController instance;
+
+    /// <summary>
+    /// Mueve la cámara para que mire a la celda especificada
+    /// </summary>
+    /// <param name="cell">La celda que va a ser observada por la cámara</param>
+    public static void LookAt(Cell cell)
+    {
+        instance.positionEnd = cell.transform.position;
+        if (instance.positionEnd == instance.anchor) state = State.Fixed;
+        else
+        {
+            instance.positionStart = instance.anchor;
+            instance.speed = instance.movementSpeed / Vector3.Magnitude(instance.positionEnd - instance.positionStart);
+            instance.time = 0;
+            state = State.Cell;
+        }
+    }
+
+    /// <summary>
+    /// Hace que la cámara siga a una unidad hasta que termine de moverse
+    /// </summary>
+    /// <param name="unit">La unidad que seguirá la cámara</param>
+    public static void Follow(Unit unit)
+    {
+        instance.unit = unit;
+        state = State.Unit;
+    }
 
     /// <summary>
     /// Velocidad con la que se mueve la cámara
@@ -63,6 +117,38 @@ public class CameraController : MonoBehaviour
     /// </summary>
     private float zoom;
 
+    /// <summary>
+    /// Tiempo actual del cambio
+    /// <para>Empieza en 0 y termina en 1</para>
+    /// </summary>
+    private float time;
+
+    /// <summary>
+    /// Velocidad actual del cambio
+    /// <para>Determina qué tan rápido se completa el cambio</para>
+    /// </summary>
+    private float speed;
+
+    /// <summary>
+    /// Posición inicial del punto que observa la cámara antes del cambio
+    /// </summary>
+    private Vector3 positionStart;
+
+    /// <summary>
+    /// Posición final del punto que observa la cámara después del cambio
+    /// </summary>
+    private Vector3 positionEnd;
+
+    /// <summary>
+    /// Unidad que sigue actualmente la cámara
+    /// </summary>
+    private Unit unit;
+
+    public void Awake()
+    {
+        instance = this;
+    }
+
     public void Start()
     {
         anchor = Vector3.zero;
@@ -73,13 +159,38 @@ public class CameraController : MonoBehaviour
     {
         if (Input.GetButtonDown("ResetCamera"))
             ResetRotationAndZoom();
-        rotation += Time.deltaTime * rotationSpeed * Input.GetAxis("Rotation");
-        zoom -= Time.deltaTime * zoomSpeed * Input.GetAxis("Zoom");
+        rotation += rotationSpeed * Time.deltaTime * Input.GetAxis("Rotation");
+        zoom -= zoomSpeed * Time.deltaTime * Input.GetAxis("Zoom");
         EnsureRotationAndZoomLimits();
         float cosine = Mathf.Cos(rotation);
         float sine = Mathf.Sin(rotation);
-        anchor += Time.deltaTime * movementSpeed * (Input.GetAxis("Vertical") * new Vector3(-sine, 0, -cosine) + Input.GetAxis("Horizontal") * new Vector3(-cosine, 0, sine));
-        EnsureAnchorLimits();
+        switch (state)
+        {
+            case State.Input:
+                anchor += movementSpeed * Time.deltaTime * (Input.GetAxis("Vertical") * new Vector3(-sine, 0, -cosine) + Input.GetAxis("Horizontal") * new Vector3(-cosine, 0, sine));
+                EnsureAnchorLimits();
+                break;
+            case State.Fixed:
+                //if (Level.Instance.state == Level.State.PlayerTurn) state = State.Input;
+                break;
+            case State.Cell:
+                anchor = Vector3.Lerp(positionStart, positionEnd, time);
+                time += speed * Time.deltaTime;
+                if (time >= 1)
+                {
+                    anchor = positionEnd;
+                    state = State.Fixed;
+                }
+                break;
+            case State.Unit:
+                anchor = new Vector3(unit.transform.position.x, 0, unit.transform.position.z);
+                if (unit.movementController.state == MovementController.State.Stationary)
+                {
+                    unit = null;
+                    state = State.Fixed;
+                }
+                break;
+        }
         Vector3 position = new Vector3(4 * sine, 8, 4 * cosine);
         transform.SetPositionAndRotation(anchor + zoom * position, Quaternion.LookRotation(-position));
         CameraController.position = transform.position;

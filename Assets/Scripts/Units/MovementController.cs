@@ -7,7 +7,7 @@ public class MovementController : MonoBehaviour
 {
 
     /// <summary>
-    /// Enumeración de los estados de movimiento
+    /// Enumeración de los estados del movimiento de una unidad
     /// <list type="bullet">
     /// <item><c>Stationary</c>: la unidad no tiene movimiento</item>
     /// <item><c>Rotation</c>: la unidad rota en su lugar</item>
@@ -196,7 +196,7 @@ public class MovementController : MonoBehaviour
             path[index - 1].unit = unit;
             path = null;
             state = State.Stationary;
-            //unit.actionController.StopAction();
+            unit.actionController.action.Execute();
         }
         else MoveThroughNextCell();
     }

@@ -27,6 +27,11 @@ public abstract class Unit : MonoBehaviour
     public uint initialDelay;
 
     /// <summary>
+    /// Máxima distancia que la unidad se puede mover en un turno
+    /// </summary>
+    public uint movement;
+
+    /// <summary>
     /// La celda sobre la que se encuentra la unidad
     /// </summary>
     public Cell cell;
@@ -46,9 +51,15 @@ public abstract class Unit : MonoBehaviour
     /// </summary>
     public MovementController movementController;
 
+    /// <summary>
+    /// Controlador de las acciones de la unidad
+    /// </summary>
+    public ActionController actionController;
+
     public void Start()
     {
         movementController = GetComponent<MovementController>();
+        actionController = GetComponent<ActionController>();
         if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, 1, Utilities.mapLayer))
         {
             cell = hit.collider.GetComponent<Cell>();

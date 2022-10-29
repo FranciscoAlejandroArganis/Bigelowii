@@ -1348,6 +1348,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1800856387}
     m_Modifications:
+    - target: {fileID: 492525599240271820, guid: 2034d2d26fc11354496d5ff56461de32, type: 3}
+      propertyPath: terrain
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3966416732305649603, guid: 2034d2d26fc11354496d5ff56461de32, type: 3}
       propertyPath: m_Name
       value: Cell
@@ -3177,7 +3181,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5261742113571908310}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5833333, z: 0}
+  m_LocalPosition: {x: 0, y: 0.75, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1886585410}
@@ -3192,6 +3196,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4777939046642675820}
+  - component: {fileID: 5261742113571908311}
+  - component: {fileID: 5261742113571908313}
+  - component: {fileID: 5261742113571908312}
   - component: {fileID: 8494208544912310217}
   - component: {fileID: 5910282794587982595}
   m_Layer: 0
@@ -3201,6 +3208,56 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &5261742113571908311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5261742113571908310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6f6ed34007c28f4a87b3fd3bc7bcdb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  maxHealth: 0
+  delay: 0
+  initialDelay: 0
+  movement: 3
+  cell: {fileID: 0}
+  player: 1
+  team: 1
+  movementController: {fileID: 0}
+  actionController: {fileID: 0}
+--- !u!114 &5261742113571908312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5261742113571908310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eba4a1e46605a54e992c30cce885f80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: 0
+--- !u!114 &5261742113571908313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5261742113571908310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 384983c68679773489b333d2e3adbded, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: 0
+  movementSpeed: 1
+  rotationSpeed: 200
 --- !u!23 &5910282794587982595
 MeshRenderer:
   m_ObjectHideFlags: 0
