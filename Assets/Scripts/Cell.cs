@@ -27,6 +27,21 @@ public class Cell : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
     /// </summary>
     public Unit unit;
 
+    /// <summary>
+    /// <c>true</c> si la celda ha pasado por la cola del recorrido BFS
+    /// </summary>
+    public bool visited;
+
+    /// <summary>
+    /// La celda desde donde se alacanzó esta celda en el recorrido BFS
+    /// </summary>
+    public Cell predecesor;
+
+    /// <summary>
+    /// Longitud del camino desde la celda donde inció el recorrido BFS hasta esta celda
+    /// </summary>
+    public uint distance;
+
     public void Start()
     {
         highlight = GetComponentInChildren<Highlight>();
