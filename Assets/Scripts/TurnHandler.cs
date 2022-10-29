@@ -22,7 +22,7 @@ public class TurnHandler : MonoBehaviour
     }
 
     /// <summary>
-    /// El estado actual del manejador de turnos
+    /// Estado actual del manejador de turnos
     /// </summary>
     public static State state;
 

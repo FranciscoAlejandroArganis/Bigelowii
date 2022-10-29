@@ -22,6 +22,11 @@ public class Cell : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
     /// </summary>
     public Cell[] neighbors;
 
+    /// <summary>
+    /// Unidad que se encuentra sobre la celda
+    /// </summary>
+    public Unit unit;
+
     public void Start()
     {
         highlight = GetComponentInChildren<Highlight>();
@@ -33,6 +38,32 @@ public class Cell : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
             neighbors[index] = intersection ? hit.collider.GetComponent<Cell>() : null;
             index++;
         }
+    }
+
+    /// <summary>
+    /// Determina si la celda especificada es adyacente a esta celda y regresa su índice de adyacencia
+    /// </summary>
+    /// <param name="cell">La celda de la que se determina el índice de adyacencia</param>
+    /// <returns>El índice de adyacencia de <c>cell</c> o 6 si no es un vecino de esta celda</returns>
+    public uint EdgeIndex(Cell cell)
+    {
+        uint index = 0;
+        while (index < 6)
+        {
+            if (cell == neighbors[index]) break;
+            index++;
+        }
+        return index;
+    }
+
+    /// <summary>
+    /// Regresa la posición que tendría la unidad si estuviera encima de la celda
+    /// </summary>
+    /// <param name="unit">La unidad de la que se determina su posición</param>
+    /// <returns>La posición que debe tener la unidad al estar sobre la celda</returns>
+    public Vector3 UnitPosition(Unit unit)
+    {
+        return new Vector3(transform.position.x, unit.transform.position.y, transform.position.z);
     }
 
     public void OnPointerEnter(PointerEventData eventData)

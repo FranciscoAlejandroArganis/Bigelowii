@@ -7,6 +7,11 @@ public class CameraController : MonoBehaviour
 {
 
     /// <summary>
+    /// Posición actual de la cámara
+    /// </summary>
+    public static Vector3 position;
+
+    /// <summary>
     /// Velocidad con la que se mueve la cámara
     /// </summary>
     public float movementSpeed;
@@ -77,6 +82,7 @@ public class CameraController : MonoBehaviour
         EnsureAnchorLimits();
         Vector3 position = new Vector3(4 * sine, 8, 4 * cosine);
         transform.SetPositionAndRotation(anchor + zoom * position, Quaternion.LookRotation(-position));
+        CameraController.position = transform.position;
     }
 
     /// <summary>
