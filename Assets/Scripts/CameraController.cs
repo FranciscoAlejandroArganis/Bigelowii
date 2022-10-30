@@ -39,18 +39,62 @@ public class CameraController : MonoBehaviour
     private static CameraController instance;
 
     /// <summary>
+    /// La posición en el mapa que está observando la cámara actualmente
+    /// </summary>
+    private static Vector3 anchor;
+
+    /// <summary>
+    /// Valor actual de la rotación de la cámara
+    /// <para>Entre 0 y 2pi</para>
+    /// </summary>
+    private static float rotation;
+
+    /// <summary>
+    /// Valor actual del zoom de la cámara
+    /// <para>Entre .5 y 1.5</para>
+    /// </summary>
+    private static float zoom;
+
+    /// <summary>
+    /// Tiempo actual del cambio
+    /// <para>Empieza en 0 y termina en 1</para>
+    /// </summary>
+    private static float time;
+
+    /// <summary>
+    /// Velocidad actual del cambio
+    /// <para>Determina qué tan rápido se completa el cambio</para>
+    /// </summary>
+    private static float speed;
+
+    /// <summary>
+    /// Posición inicial del punto que observa la cámara antes del cambio
+    /// </summary>
+    private static Vector3 positionStart;
+
+    /// <summary>
+    /// Posición final del punto que observa la cámara después del cambio
+    /// </summary>
+    private static Vector3 positionEnd;
+
+    /// <summary>
+    /// Unidad que sigue actualmente la cámara
+    /// </summary>
+    private static Unit unit;
+
+    /// <summary>
     /// Mueve la cámara para que mire a la celda especificada
     /// </summary>
     /// <param name="cell">La celda que va a ser observada por la cámara</param>
     public static void LookAt(Cell cell)
     {
-        instance.positionEnd = cell.transform.position;
-        if (instance.positionEnd == instance.anchor) state = State.Fixed;
+        positionEnd = cell.transform.position;
+        if (positionEnd == anchor) state = State.Fixed;
         else
         {
-            instance.positionStart = instance.anchor;
-            instance.speed = instance.movementSpeed / Vector3.Magnitude(instance.positionEnd - instance.positionStart);
-            instance.time = 0;
+            positionStart = anchor;
+            speed = instance.movementSpeed / Vector3.Magnitude(positionEnd - positionStart);
+            time = 0;
             state = State.Cell;
         }
     }
@@ -61,7 +105,7 @@ public class CameraController : MonoBehaviour
     /// <param name="unit">La unidad que seguirá la cámara</param>
     public static void Follow(Unit unit)
     {
-        instance.unit = unit;
+        CameraController.unit = unit;
         state = State.Unit;
     }
 
@@ -100,50 +144,6 @@ public class CameraController : MonoBehaviour
     /// </summary>
     public float upperZ;
 
-    /// <summary>
-    /// La posición en el mapa que está observando la cámara actualmente
-    /// </summary>
-    private Vector3 anchor;
-
-    /// <summary>
-    /// Valor actual de la rotación de la cámara
-    /// <para>Entre 0 y 2pi</para>
-    /// </summary>
-    private float rotation;
-
-    /// <summary>
-    /// Valor actual del zoom de la cámara
-    /// <para>Entre .5 y 1.5</para>
-    /// </summary>
-    private float zoom;
-
-    /// <summary>
-    /// Tiempo actual del cambio
-    /// <para>Empieza en 0 y termina en 1</para>
-    /// </summary>
-    private float time;
-
-    /// <summary>
-    /// Velocidad actual del cambio
-    /// <para>Determina qué tan rápido se completa el cambio</para>
-    /// </summary>
-    private float speed;
-
-    /// <summary>
-    /// Posición inicial del punto que observa la cámara antes del cambio
-    /// </summary>
-    private Vector3 positionStart;
-
-    /// <summary>
-    /// Posición final del punto que observa la cámara después del cambio
-    /// </summary>
-    private Vector3 positionEnd;
-
-    /// <summary>
-    /// Unidad que sigue actualmente la cámara
-    /// </summary>
-    private Unit unit;
-
     public void Awake()
     {
         instance = this;
@@ -171,7 +171,7 @@ public class CameraController : MonoBehaviour
                 EnsureAnchorLimits();
                 break;
             case State.Fixed:
-                //if (Level.Instance.state == Level.State.PlayerTurn) state = State.Input;
+                if (LevelHandler.state == LevelHandler.State.Human) state = State.Input;
                 break;
             case State.Cell:
                 anchor = Vector3.Lerp(positionStart, positionEnd, time);

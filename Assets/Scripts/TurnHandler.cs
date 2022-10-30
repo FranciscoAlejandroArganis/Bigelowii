@@ -1,9 +1,7 @@
-using UnityEngine;
-
 /// <summary>
 /// Componente encargado de manejar un turno
 /// </summary>
-public class TurnHandler : MonoBehaviour
+public class TurnHandler
 {
 
     /// <summary>
@@ -22,8 +20,18 @@ public class TurnHandler : MonoBehaviour
     }
 
     /// <summary>
-    /// Estado actual del manejador de turnos
+    /// Estado actual del turno
     /// </summary>
     public static State state;
+
+    /// <summary>
+    /// La unidad de la que es el turno actual
+    /// </summary>
+    public static Unit activeUnit;
+
+    /// <summary>
+    /// La unidad seleccionada
+    /// </summary>
+    public static Unit selectedUnit;
 
 }

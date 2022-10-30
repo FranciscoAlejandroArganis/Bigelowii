@@ -7,7 +7,7 @@ public class Move : CellTargetedAction
     /// <summary>
     /// Enumeración de los estados de la acción
     /// <list type="bullet">
-    /// <item><c>Start</c>: la unidad empieza el desplazamiento a través del camino</item>
+    /// <item><c>Start</c>: empieza el desplazamiento a través del camino</item>
     /// <item><c>End</c>: la unidad ha alcanzado su destino</item>
     /// </list>
     /// </summary>
@@ -32,6 +32,10 @@ public class Move : CellTargetedAction
     /// </summary>
     private uint counter;
 
+    /// <summary>
+    /// Construye una nueva acción de moverse
+    /// </summary>
+    /// <param name="unit">La unidad que realiza la acción</param>
     public Move(Unit unit) : base(unit)
     {
         search = new PathSearch(unit.movement);

@@ -75,8 +75,10 @@ public class ActionController : MonoBehaviour
     /// <param name="action">La acción que realizará la unidad</param>
     public void StartAction(Action action)
     {
+        LevelHandler.state = LevelHandler.State.Standby;
         unit.cell.highlight.Add(Highlight.State.Unit);
-        action.GetTarget().highlight.Add(Highlight.State.SelectedTarget);
+        if (action is TargetedAction)
+            action.GetTarget().highlight.Add(Highlight.State.SelectedTarget);
         this.action = action;
         state = State.Camera;
         CameraController.LookAt(unit.cell);
@@ -88,7 +90,12 @@ public class ActionController : MonoBehaviour
     public void StopAction()
     {
         unit.cell.highlight.Remove(Highlight.State.Unit);
-        action.GetTarget().highlight.Remove(Highlight.State.SelectedTarget);
+        if (action is TargetedAction)
+            action.GetTarget().highlight.Remove(Highlight.State.SelectedTarget);
+        if (TurnHandler.activeUnit)
+            LevelHandler.state = LevelHandler.State.Human;
+        else
+            LevelHandler.state = LevelHandler.State.Event;
         action = null;
         state = State.Idle;
     }

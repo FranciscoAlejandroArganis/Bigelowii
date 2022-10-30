@@ -19,12 +19,12 @@ public abstract class Unit : MonoBehaviour
     /// <summary>
     /// Las unidades de tiempo que tiene que esperar entre cada turno
     /// </summary>
-    public uint delay;
+    public int delay;
 
     /// <summary>
     /// Las unidades de tiempo que tiene que esperar antes de su primer turno
     /// </summary>
-    public uint initialDelay;
+    public int initialDelay;
 
     /// <summary>
     /// Máxima distancia que la unidad se puede mover en un turno
