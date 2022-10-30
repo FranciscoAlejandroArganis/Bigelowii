@@ -1,4 +1,3 @@
-using UnityEngine;
 /// <summary>
 /// Acción en la que una unidad empieza su nuevo turno
 /// </summary>
@@ -17,4 +16,8 @@ public class Awake : UntargetedAction
         unit.actionController.StopAction();
     }
 
+    public override void SetEventButton(EventButton eventButton)
+    {
+        eventButton.image.sprite = unit.GetUnitSprite();
+    }
 }

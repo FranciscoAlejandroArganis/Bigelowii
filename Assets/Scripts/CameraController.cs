@@ -34,11 +34,6 @@ public class CameraController : MonoBehaviour
     public static Vector3 position;
 
     /// <summary>
-    /// Ejemplar único de <c>CameraController</c>
-    /// </summary>
-    private static CameraController instance;
-
-    /// <summary>
     /// La posición en el mapa que está observando la cámara actualmente
     /// </summary>
     private static Vector3 anchor;
@@ -81,6 +76,11 @@ public class CameraController : MonoBehaviour
     /// Unidad que sigue actualmente la cámara
     /// </summary>
     private static Unit unit;
+
+    /// <summary>
+    /// Ejemplar único de <c>CameraController</c>
+    /// </summary>
+    private static CameraController instance;
 
     /// <summary>
     /// Mueve la cámara para que mire a la celda especificada

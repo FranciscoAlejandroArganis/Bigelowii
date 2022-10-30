@@ -15,6 +15,11 @@ public class Event
     public Action action;
 
     /// <summary>
+    /// El botón que muestra este evento en el panel de la línea de tiempo
+    /// </summary>
+    public EventButton eventButton;
+
+    /// <summary>
     /// Construye un nuevo evento ccon el tiempo y acción especificados
     /// </summary>
     /// <param name="time">El tiempo en el que ocurre el evento</param>
@@ -23,6 +28,8 @@ public class Event
     {
         this.action = action;
         this.time = time;
+        eventButton = UI.NewEventButton();
+        action.SetEventButton(eventButton);
     }
 
     public static bool operator >(Event a, Event b)

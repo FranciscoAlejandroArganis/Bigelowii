@@ -1,3 +1,5 @@
+using System;
+
 /// <summary>
 /// Acción en la que una unidad se mueve hacia la celda objetivo
 /// </summary>
@@ -89,4 +91,8 @@ public class Move : CellTargetedAction
         return cell != unit.cell;
     }
 
+    public override void SetEventButton(EventButton eventButton)
+    {
+        throw new NotImplementedException();
+    }
 }

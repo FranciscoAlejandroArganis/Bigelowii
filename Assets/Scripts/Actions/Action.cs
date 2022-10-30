@@ -46,4 +46,10 @@ public abstract class Action
     /// </summary>
     public abstract void ClearTargets();
 
+    /// <summary>
+    /// Asigna las propiedades del botón de evento especificado
+    /// </summary>
+    /// <param name="eventButton">El botón al que se le asignan las propiedades</param>
+    public abstract void SetEventButton(EventButton eventButton);
+
 }

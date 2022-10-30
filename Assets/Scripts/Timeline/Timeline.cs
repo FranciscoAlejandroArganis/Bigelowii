@@ -47,6 +47,7 @@ public class Timeline
     /// </summary>
     public static void Dequeue()
     {
+        events[0].eventButton.time = -(events[1].time + 1);
         events.RemoveAt(0);
     }
 
@@ -55,7 +56,15 @@ public class Timeline
     /// </summary>
     public static void Update()
     {
-        //
+        int time = events[0].time;
+        int index = 0;
+        foreach (Event timelineEvent in events)
+        {
+            timelineEvent.time -= time;
+            timelineEvent.eventButton.time = timelineEvent.time + index;
+            index++;
+        }
+        UI.timeline.UpdateEventButtons();
     }
 
     /// <summary>

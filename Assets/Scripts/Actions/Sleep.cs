@@ -1,4 +1,5 @@
-using UnityEngine;
+using System;
+
 /// <summary>
 /// Acción en la que una unidad termina su turno actual
 /// </summary>
@@ -47,4 +48,8 @@ public class Sleep : UntargetedAction
         }
     }
 
+    public override void SetEventButton(EventButton eventButton)
+    {
+        throw new NotImplementedException();
+    }
 }
