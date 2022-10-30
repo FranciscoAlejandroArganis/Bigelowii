@@ -144,13 +144,9 @@ public class CameraController : MonoBehaviour
     /// </summary>
     public float upperZ;
 
-    public void Awake()
-    {
-        instance = this;
-    }
-
     public void Start()
     {
+        instance = this;
         anchor = Vector3.zero;
         ResetRotationAndZoom();
     }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using static UnityEngine.UI.CanvasScaler;
 
 /// <summary>
 /// Unidad
@@ -65,6 +66,68 @@ public abstract class Unit : MonoBehaviour
             cell = hit.collider.GetComponent<Cell>();
             cell.unit = this;
         }
+    }
+
+    /// <summary>
+    /// Regresa el sprite de la unidad
+    /// </summary>
+    /// <returns>El sprite de la unidad</returns>
+    public abstract Sprite GetUnitSprite();
+
+    /// <summary>
+    /// Asigna las propiedades del botón especificado en la tarjeta de comandos
+    /// </summary>
+    /// <param name="commandButton">El botón al que se le asignan las propiedades</param>
+    /// <param name="card">El índice de la tarjeta</param>
+    /// <param name="button">El índice del botón</param>
+    public abstract void SetCommandButton(CommandButton commandButton, uint card, uint button);
+
+    /// <summary>
+    /// Asigna las propiedades de un botón vacío
+    /// </summary>
+    /// <param name="commandButton">El botón al que se le asignan las propiedades</param>
+    protected void SetEmptyButton(CommandButton commandButton)
+    {
+        commandButton.image.sprite = UI.sprites.empty;
+        commandButton.action = null;
+        commandButton.type = CommandButton.Type.Empty;
+        commandButton.transition = 0;
+    }
+
+    /// <summary>
+    /// Asigna las propiedades de un botón de movimiento
+    /// </summary>
+    /// <param name="commandButton">El botón al que se le asignan las propiedades</param>
+    protected void SetMoveButton(CommandButton commandButton)
+    {
+        commandButton.image.sprite = UI.sprites.move;
+        commandButton.action = new Move(this);
+        commandButton.type = CommandButton.Type.Command;
+        commandButton.transition = 1;
+    }
+
+    /// <summary>
+    /// Asigna las propiedades de un botón de terminar turno
+    /// </summary>
+    /// <param name="commandButton">El botón al que se le asignan las propiedades</param>
+    protected void SetEndTurnButton(CommandButton commandButton)
+    {
+        commandButton.image.sprite = UI.sprites.endTurn;
+        commandButton.action = new Sleep(this);
+        commandButton.type = CommandButton.Type.Command;
+        commandButton.transition = 1;
+    }
+
+    /// <summary>
+    /// Asigna las propiedades de un botón de cancelar
+    /// </summary>
+    /// <param name="commandButton">El botón al que se le asignan las propiedades</param>
+    protected void SetCancelButton(CommandButton commandButton)
+    {
+        commandButton.image.sprite = UI.sprites.cancel;
+        commandButton.action = null;
+        commandButton.type = CommandButton.Type.Cancel;
+        commandButton.transition = 0;
     }
 
 }
