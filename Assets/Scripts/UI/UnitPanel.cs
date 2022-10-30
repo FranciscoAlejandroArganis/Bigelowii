@@ -23,11 +23,6 @@ public class UnitPanel : Panel
     public Unit unit;
 
     /// <summary>
-    /// Índice de la tarjeta que se muestra actualmente en el panel
-    /// </summary>
-    public uint card;
-
-    /// <summary>
     /// Arreglo con los botones de la tarjeta de comandos
     /// </summary>
     private CommandButton[] commandCard;
@@ -44,6 +39,7 @@ public class UnitPanel : Panel
             time += speed * Time.deltaTime;
             if (time >= 1)
             {
+                unit = null;
                 panel.SetActive(false);
                 state = State.Hidden;
             }
@@ -87,7 +83,7 @@ public class UnitPanel : Panel
         {
             CommandButton commandButton = commandCard[button];
             unit.SetCommandButton(commandButton, card, button);
-            commandButton.button.interactable = TurnHandler.activeUnit == unit && commandButton.type != CommandButton.Type.Empty;
+            commandButton.button.interactable = Turn.activeUnit == unit && commandButton.type != CommandButton.Type.Empty;
             button++;
         }
     }

@@ -128,6 +128,18 @@ public class EventButton : Button
             Destroy(gameObject);
     }
 
-    public override void OnClick() { }
+    public override void OnClick()
+    {
+        if (Level.state == Level.State.Human)
+        {
+            if (Turn.state != Turn.State.Unit)
+            {
+                if (Turn.state == Turn.State.Target)
+                    Turn.CancelAction();
+                Turn.DeselectUnit();
+            }
+            Turn.SelectUnit(action.unit);
+        }
+    }
 
 }

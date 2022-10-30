@@ -42,7 +42,7 @@ public class Sleep : UntargetedAction
                 Timeline.Update();
                 break;
             case State.End:
-                TurnHandler.activeUnit = null;
+                Turn.activeUnit = null;
                 unit.actionController.StopAction();
                 break;
         }

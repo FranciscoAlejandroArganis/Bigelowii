@@ -167,7 +167,7 @@ public class CameraController : MonoBehaviour
                 EnsureAnchorLimits();
                 break;
             case State.Fixed:
-                if (LevelHandler.state == LevelHandler.State.Human) state = State.Input;
+                if (Level.state == Level.State.Human) state = State.Input;
                 break;
             case State.Cell:
                 anchor = Vector3.Lerp(positionStart, positionEnd, time);

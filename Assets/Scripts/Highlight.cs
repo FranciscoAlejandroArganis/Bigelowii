@@ -32,7 +32,7 @@ public class Highlight : MonoBehaviour
     /// <summary>
     /// Resalte actual de la celda
     /// </summary>
-    private State state;
+    public State state;
 
     /// <summary>
     /// Componente que renderiza la malla

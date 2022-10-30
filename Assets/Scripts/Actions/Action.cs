@@ -52,4 +52,22 @@ public abstract class Action
     /// <param name="eventButton">El botón al que se le asignan las propiedades</param>
     public abstract void SetEventButton(EventButton eventButton);
 
+    /// <summary>
+    /// Resalta la celda especificada para indicar el objetivo seleccionado
+    /// </summary>
+    /// <param name="cell">La celda que se resalta</param>
+    public virtual void AddTargetHighlight(Cell cell)
+    {
+        cell.highlight.Add(Highlight.State.SelectedTarget);
+    }
+
+    /// <summary>
+    /// Elimina el resalte de objetivo seleccionado de la celda especificada
+    /// </summary>
+    /// <param name="cell">La celda de la que se elimina el reslate</param>
+    public virtual void RemoveTargetHighlight(Cell cell)
+    {
+        cell.highlight.Remove(Highlight.State.SelectedTarget);
+    }
+
 }

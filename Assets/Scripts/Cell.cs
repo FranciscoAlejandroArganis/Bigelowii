@@ -83,18 +83,94 @@ public class Cell : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        highlight.Add(Highlight.State.Cursor);
+        if (Level.state == Level.State.Human)
+        {
+            highlight.Add(Highlight.State.Cursor);
+            switch (Turn.state)
+            {
+                case Turn.State.Unit:
+                    if (unit)
+                    {
+                        highlight.Add(Highlight.State.Unit);
+                        UI.primaryUnit.unit = unit;
+                        UI.primaryUnit.Show();
+                    }
+                    break;
+                case Turn.State.Action:
+                    break;
+                case Turn.State.Target:
+                    if (highlight.state.HasFlag(Highlight.State.Target))
+                    {
+                        Turn.action.AddTargetHighlight(this);
+                        if (unit && unit != Turn.selectedUnit)
+                        {
+                            UI.secondaryUnit.unit = unit;
+                            UI.secondaryUnit.Show();
+                        }
+                    }
+                    break;
+            }
+        }
     }
-    
+
     public void OnPointerExit(PointerEventData eventData)
     {
         highlight.Remove(Highlight.State.Cursor);
+        if (Level.state == Level.State.Human)
+        {
+            switch (Turn.state)
+            {
+                case Turn.State.Unit:
+                    if (unit)
+                    {
+                        highlight.Remove(Highlight.State.Unit);
+                        UI.primaryUnit.Hide();
+                    }
+                    break;
+                case Turn.State.Action:
+                    break;
+                case Turn.State.Target:
+                    if (highlight.state.HasFlag(Highlight.State.Target))
+                    {
+                        Turn.action.RemoveTargetHighlight(this);
+                        if (unit && unit != Turn.selectedUnit)
+                            UI.secondaryUnit.Hide();
+                    }
+                    break;
+            }
+        }
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        //
+        if (Level.state == Level.State.Human)
+        {
+            switch (Turn.state)
+            {
+                case Turn.State.Unit:
+                    if (unit)
+                        Turn.SelectUnit(unit);
+                    break;
+                case Turn.State.Action:
+                    if (unit)
+                    {
+                        if (unit != Turn.selectedUnit)
+                        {
+                            Turn.DeselectUnit();
+                            Turn.SelectUnit(unit);
+                        }
+                    }
+                    else
+                        Turn.DeselectUnit();
+                    break;
+                case Turn.State.Target:
+                    if (highlight.state.HasFlag(Highlight.State.Target))
+                        Turn.SelectTarget(this);
+                    else
+                        Turn.CancelAction();
+                    break;
+            }
+        }
     }
-
 
 }

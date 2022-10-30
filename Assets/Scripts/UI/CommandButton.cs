@@ -1,3 +1,4 @@
+using UnityEngine.UIElements;
 /// <summary>
 /// Botón de la tarjeta de comandos
 /// </summary>
@@ -34,6 +35,15 @@ public class CommandButton : Button
     /// </summary>
     public uint transition;
 
-    public override void OnClick() { }
+    public override void OnClick()
+    {
+        if (Level.state == Level.State.Human)
+        {
+            if (type == Type.Cancel)
+                Turn.CancelAction();
+            else if (Turn.SelectAction(action))
+                UI.primaryUnit.SetCommandCard(transition);
+        }
+    }
 
 }

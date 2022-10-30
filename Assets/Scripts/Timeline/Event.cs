@@ -29,6 +29,7 @@ public class Event
         this.action = action;
         this.time = time;
         eventButton = UI.NewEventButton();
+        eventButton.action = action;
         action.SetEventButton(eventButton);
     }
 

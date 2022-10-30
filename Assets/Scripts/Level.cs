@@ -3,7 +3,7 @@ using UnityEngine;
 /// <summary>
 /// Componente encargado de manejar el progreso del nivel
 /// </summary>
-public class LevelHandler : MonoBehaviour
+public class Level : MonoBehaviour
 {
 
     /// <summary>

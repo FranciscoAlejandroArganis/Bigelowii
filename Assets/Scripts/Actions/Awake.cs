@@ -12,7 +12,7 @@ public class Awake : UntargetedAction
 
     public override void Execute()
     {
-        TurnHandler.activeUnit = unit;
+        Turn.activeUnit = unit;
         unit.actionController.StopAction();
     }
 
