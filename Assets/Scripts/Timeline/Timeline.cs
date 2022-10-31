@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 /// <summary>
 /// Línea de tiempo
@@ -10,6 +12,11 @@ public class Timeline
     /// Lista ordenada de eventos de la línea de tiempo
     /// </summary>
     private static List<Event> events = new List<Event>();
+
+    /// <summary>
+    /// Predicado que indica si un evento debe eliminarse
+    /// </summary>
+    private static Predicate<Event> predicate;
 
     /// <summary>
     /// Agrega el evento especificado desde el final de la línea de tiempo
@@ -68,6 +75,17 @@ public class Timeline
     }
 
     /// <summary>
+    /// Elimina de la línea de tiempo todos los eventos que satisfacen el predicado especificado
+    /// </summary>
+    /// <param name="predicate">El predicado que indica si un evento debe eliminarse</param>
+    public static void RemoveEvents(Predicate<Event> predicate)
+    {
+        Timeline.predicate = predicate;
+        events.RemoveAll(EventMatch);
+        Timeline.predicate = null;
+    }
+
+    /// <summary>
     /// Inserta hacia atrás el evento en <c>index</c>
     /// </summary>
     /// <param name="index">El índice del evento que se inserta</param>
@@ -80,7 +98,8 @@ public class Timeline
             {
                 events[index] = events[index - 1];
                 index--;
-                if (index == 0 || events[index - 1] <= timelineEvent) break;
+                if (index == 0 || events[index - 1] <= timelineEvent)
+                    break;
             }
             events[index] = timelineEvent;
         }
@@ -99,10 +118,28 @@ public class Timeline
             {
                 events[index] = events[index + 1];
                 index++;
-                if (index + 1 == events.Count || timelineEvent <= events[index + 1]) break;
+                if (index + 1 == events.Count || timelineEvent <= events[index + 1])
+                    break;
             }
             events[index] = timelineEvent;
         }
+    }
+
+    /// <summary>
+    /// Determina si el evento especifcado se debe eliminar de la línea de tiempo
+    /// <para>Si el evento debe eliminarse, se destruye su botón</para>
+    /// </summary>
+    /// <param name="timelineEvent">El evento que se prueba</param>
+    /// <returns><c>true</c> si el evento debe eliminarse</returns>
+    private static bool EventMatch(Event timelineEvent)
+    {
+        if (predicate(timelineEvent))
+        {
+            timelineEvent.eventButton.animator.SetTrigger("Disappear");
+            GameObject.Destroy(timelineEvent.eventButton.gameObject, 1);
+            return true;
+        }
+        return false;
     }
 
 }

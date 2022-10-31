@@ -43,6 +43,21 @@ public class Move : CellTargetAction
         search = new PathSearch(unit.movement);
     }
 
+    public override void Execute()
+    {
+        switch (state)
+        {
+            case State.Start:
+                state = State.End;
+                unit.movementController.MoveThrough(path);
+                CameraController.Follow(unit);
+                break;
+            case State.End:
+                unit.actionController.StopAction();
+                break;
+        }
+    }
+
     public override void SetTarget(Cell target)
     {
         path = PathSearch.BuildPathTo(target);
@@ -57,21 +72,6 @@ public class Move : CellTargetAction
             return counter == 1 ? targetCell : path[1];
         }
         return targetCell;
-    }
-
-    public override void Execute()
-    {
-        switch (state)
-        {
-            case State.Start:
-                state = State.End;
-                unit.movementController.MoveThrough(path);
-                CameraController.Follow(unit);
-                break;
-            case State.End:
-                unit.actionController.StopAction();
-                break;
-        }
     }
 
     public override void ClearTargets()
@@ -95,4 +95,41 @@ public class Move : CellTargetAction
     {
         throw new NotImplementedException();
     }
+
+    public override void AddTargetHighlight(Cell cell)
+    {
+        cell.highlight.Add(Highlight.State.SelectedTarget);
+        if (path == null)
+        {
+            while (cell.predecesor)
+            {
+                cell = cell.predecesor;
+                cell.highlight.Add(Highlight.State.AreaOfEffect);
+            }
+        }
+    }
+
+    public override void RemoveTargetHighlight(Cell cell)
+    {
+        cell.highlight.Remove(Highlight.State.SelectedTarget);
+        if (path == null)
+        {
+            while (cell.predecesor)
+            {
+                cell = cell.predecesor;
+                cell.highlight.Remove(Highlight.State.AreaOfEffect);
+            }
+        }
+        else if (path[0] == unit.cell)
+        {
+            // Si el camino ya se asignó pero la unidad está en la celda inicial, se está llamando a este método desde Turn.SelectTarget
+            int index = path.Length - 2;
+            while (index >= 0)
+            {
+                path[index].highlight.Remove(Highlight.State.AreaOfEffect);
+                index--;
+            }
+        }
+    }
+
 }

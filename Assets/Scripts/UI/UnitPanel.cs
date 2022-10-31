@@ -63,13 +63,21 @@ public class UnitPanel : Panel
     }
 
     /// <summary>
-    /// Actualiza el panel con la información de la unidad actual
+    /// Actualiza el panel con toda la información de la unidad actual
     /// </summary>
     public void UpdatePanel()
     {
         image.sprite = unit.GetUnitSprite();
-        slider.value = unit.maxHealth == 0 ? 0 : (float)unit.health / unit.maxHealth;
+        SetHealth();
         SetCommandCard(0);
+    }
+
+    /// <summary>
+    /// Hace que el panel muestre el valor de salud de la unidad actual
+    /// </summary>
+    public void SetHealth()
+    {
+        slider.value = unit.maxHealth == 0 ? 0 : (float)unit.health / unit.maxHealth;
     }
 
     /// <summary>

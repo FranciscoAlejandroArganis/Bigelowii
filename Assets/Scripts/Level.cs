@@ -28,6 +28,37 @@ public class Level : MonoBehaviour
     /// </summary>
     public static State state;
 
+    /// <summary>
+    /// La unidad que se elimina del nivel
+    /// </summary>
+    private static Unit unit;
+
+    /// <summary>
+    /// Elimina la unidad especificada
+    /// </summary>
+    /// <param name="unit">La unidad que se elimina del nivel</param>
+    public static void Kill(Unit unit)
+    {
+        Level.unit = unit;
+        Timeline.RemoveEvents(InvolvesUnit);
+        Level.unit = null;
+        if (unit.animator)
+            unit.animator.SetTrigger("Death");
+        else
+            Destroy(unit.gameObject);
+    }
+
+    /// <summary>
+    /// Predicado que determina si el evento especificado involucra a <c>unit</c>
+    /// </summary>
+    /// <param name="timelineEvent">El evento que se prueba</param>
+    /// <returns><c>true</c> si en el evento <c>unit</c> realiza la acción o <c>unit</c> es el objetivo de la acción</returns>
+    private static bool InvolvesUnit(Event timelineEvent)
+    {
+        Action action = timelineEvent.action;
+        return action.unit == unit || (action is UnitTargetAction && action.GetTarget().unit == unit);
+    }
+
     public void Start()
     {
         foreach(Unit unit in GetComponentsInChildren<Unit>())

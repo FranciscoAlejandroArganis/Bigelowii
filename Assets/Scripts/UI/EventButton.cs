@@ -39,14 +39,14 @@ public class EventButton : Button
     public int time;
 
     /// <summary>
+    /// Animador del botón
+    /// </summary>
+    public Animator animator;
+
+    /// <summary>
     /// Contiene la posición en la interfaz de usuario del botón
     /// </summary>
     private RectTransform rectTransform;
-
-    /// <summary>
-    /// Animador del botón
-    /// </summary>
-    private Animator animator;
 
     /// <summary>
     /// Posición inicial del botón antes del cambio
@@ -61,8 +61,8 @@ public class EventButton : Button
     public override void Awake()
     {
         base.Awake();
-        rectTransform = GetComponent<RectTransform>();
         animator = GetComponent<Animator>();
+        rectTransform = GetComponent<RectTransform>();
     }
 
     public void Update()

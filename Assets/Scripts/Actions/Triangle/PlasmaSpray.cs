@@ -43,7 +43,7 @@ public class PlasmaSpray : EnemyTargetAction
     {
         search = new NeighbourhoodSearch();
         this.spray = spray;
-        damage = new Damage(1);
+        damage = new Damage(11);
     }
 
     public override void Execute()
@@ -59,7 +59,14 @@ public class PlasmaSpray : EnemyTargetAction
                 spray.transform.SetPositionAndRotation(unit.transform.position, Quaternion.LookRotation(targetUnit.transform.position - unit.transform.position));
                 spray.Play();
                 damage.Apply(targetUnit);
-                Timeline.Update();
+                UI.secondaryUnit.SetHealth();
+                if (targetUnit.health == 0)
+                {
+                    Level.Kill(targetUnit);
+                    Timeline.Update();
+                }
+                else
+                    unit.actionController.StopAction();
                 break;
             case State.End:
                 unit.actionController.StopAction();

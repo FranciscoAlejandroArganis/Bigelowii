@@ -108,6 +108,14 @@ public abstract class Unit : MonoBehaviour
     public abstract void SetCommandButton(CommandButton commandButton, uint card, uint button);
 
     /// <summary>
+    /// Se manda a llamar cuando la animación de muerte de la unidad está en el último cuadro
+    /// </summary>
+    public void Destroy()
+    {
+        Destroy(gameObject);
+    }
+
+    /// <summary>
     /// Asigna las propiedades de un botón vacío
     /// </summary>
     /// <param name="commandButton">El botón al que se le asignan las propiedades</param>

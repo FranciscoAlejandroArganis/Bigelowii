@@ -55,7 +55,7 @@ public class Triangle : Unit2D
     }
 
     /// <summary>
-    /// Se manda a llamar cuando la animación del triángulo está en el cuadro donde debe disparar
+    /// Se manda a llamar cuando la animación del triángulo está en el cuadro en el que debe disparar
     /// </summary>
     public void FirePlasmaSpray()
     {
