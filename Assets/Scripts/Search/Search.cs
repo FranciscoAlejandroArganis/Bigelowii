@@ -12,7 +12,7 @@ public abstract class Search
     public List<Cell> results;
 
     /// <summary>
-    /// Construye un nuevo objeto de búsqueda
+    /// Construye una nueva búsqueda
     /// </summary>
     public Search()
     {

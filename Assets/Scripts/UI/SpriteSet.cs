@@ -26,4 +26,19 @@ public class SpriteSet : MonoBehaviour
     /// </summary>
     public Sprite cancel;
 
+    /// <summary>
+    /// Botón de atacar
+    /// </summary>
+    public Sprite attack;
+
+    /// <summary>
+    /// Ícono del tetraedro
+    /// </summary>
+    public Sprite tetrahedron;
+
+    /// <summary>
+    /// Ícono del triángulo
+    /// </summary>
+    public Sprite triangle;
+
 }

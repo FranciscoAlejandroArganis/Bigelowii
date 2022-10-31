@@ -1,5 +1,4 @@
 using UnityEngine;
-using static UnityEngine.UI.CanvasScaler;
 
 /// <summary>
 /// Unidad
@@ -57,15 +56,41 @@ public abstract class Unit : MonoBehaviour
     /// </summary>
     public ActionController actionController;
 
+    /// <summary>
+    /// Animador de la unidad
+    /// </summary>
+    public Animator animator;
+
     public void Start()
     {
         movementController = GetComponent<MovementController>();
         actionController = GetComponent<ActionController>();
+        animator = GetComponent<Animator>();
         if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, 1, Utilities.mapLayer))
         {
             cell = hit.collider.GetComponent<Cell>();
             cell.unit = this;
         }
+    }
+
+    /// <summary>
+    /// Determina si la unidad especificada es aliada
+    /// </summary>
+    /// <param name="unit">La unidad que se prueba</param>
+    /// <returns><c>true</c> si <c>unit</c> es del mismo equipo</returns>
+    public bool IsFriendly(Unit unit)
+    {
+        return player > 0 && unit.player > 0 && team == unit.team;
+    }
+
+    /// <summary>
+    /// Determina si la unidad especificada es enemiga
+    /// </summary>
+    /// <param name="unit">La unidad que se prueba</param>
+    /// <returns><c>true</c> si <c>unit</c> es de otro equipo</returns>
+    public bool IsHostile(Unit unit)
+    {
+        return player > 0 && unit.player > 0 && team != unit.team;
     }
 
     /// <summary>

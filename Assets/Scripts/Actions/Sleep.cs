@@ -10,7 +10,7 @@ public class Sleep : UntargetedAction
     /// Enumeración de los estados de la acción
     /// <list type="bullet">
     /// <item><c>Start</c>: se actualiza la línea de tiempo</item>
-    /// <item><c>End</c>: la unidad termina su turnoo</item>
+    /// <item><c>End</c>: la unidad termina su turno</item>
     /// </list>
     /// </summary>
     public enum State

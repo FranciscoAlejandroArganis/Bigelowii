@@ -3,7 +3,7 @@ using System;
 /// <summary>
 /// Acción en la que una unidad se mueve hacia la celda objetivo
 /// </summary>
-public class Move : CellTargetedAction
+public class Move : CellTargetAction
 {
 
     /// <summary>

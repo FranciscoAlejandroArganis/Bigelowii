@@ -40,7 +40,7 @@ public class CameraController : MonoBehaviour
 
     /// <summary>
     /// Valor actual de la rotación de la cámara
-    /// <para>Entre 0 y 2pi</para>
+    /// <para>Entre 0 y tau</para>
     /// </summary>
     private static float rotation;
 

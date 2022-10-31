@@ -1,7 +1,7 @@
 /// <summary>
 /// Acción que requiere de una celda objetivo
 /// </summary>
-public abstract class CellTargetedAction : TargetedAction
+public abstract class CellTargetAction : TargetedAction
 {
 
     /// <summary>
@@ -13,7 +13,7 @@ public abstract class CellTargetedAction : TargetedAction
     /// Construye una nueva acción con una celda objetivo
     /// </summary>
     /// <param name="unit">La unidad que realiza la acción</param>
-    public CellTargetedAction(Unit unit) : base(unit) { }
+    public CellTargetAction(Unit unit) : base(unit) { }
 
     public override void SetTarget(Cell target)
     {

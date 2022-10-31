@@ -1,7 +1,7 @@
 /// <summary>
 /// Acción que requiere de una unidad objetivo
 /// </summary>
-public abstract class UnitTargetedAction : TargetedAction
+public abstract class UnitTargetAction : TargetedAction
 {
 
     /// <summary>
@@ -10,10 +10,10 @@ public abstract class UnitTargetedAction : TargetedAction
     protected Unit targetUnit;
 
     /// <summary>
-    /// Construye una nueva acción con una celda objetivo
+    /// Construye una nueva acción con una unidad objetivo
     /// </summary>
     /// <param name="unit">La unidad que realiza la acción</param>
-    public UnitTargetedAction(Unit unit) : base(unit) { }
+    public UnitTargetAction(Unit unit) : base(unit) { }
 
     public override void SetTarget(Cell target)
     {

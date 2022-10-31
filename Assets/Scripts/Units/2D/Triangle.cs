@@ -1,15 +1,19 @@
 using UnityEngine;
 
 /// <summary>
-/// Tetraedro
-/// <para>Unidad de combate básica</para>
+/// Triángulo
 /// </summary>
-public class Tetrahedron : Unit3D
+public class Triangle : Unit2D
 {
+
+    /// <summary>
+    /// Sistema de partículas que se usa durante la acción <c>PlasmaSpray</c>
+    /// </summary>
+    public ParticleSystem spray;
 
     public override Sprite GetUnitSprite()
     {
-        return UI.sprites.empty;
+        return UI.sprites.triangle;
     }
 
     public override void SetCommandButton(CommandButton commandButton, uint card, uint button)
@@ -21,6 +25,12 @@ public class Tetrahedron : Unit3D
                 {
                     case 0:
                         SetMoveButton(commandButton);
+                        break;
+                    case 1:
+                        commandButton.image.sprite = UI.sprites.attack;
+                        commandButton.action = new PlasmaSpray(this, spray);
+                        commandButton.type = CommandButton.Type.Command;
+                        commandButton.transition = 1;
                         break;
                     case 15:
                         SetEndTurnButton(commandButton);
@@ -42,6 +52,14 @@ public class Tetrahedron : Unit3D
                 }
                 break;
         }
+    }
+
+    /// <summary>
+    /// Se manda a llamar cuando la animación del triángulo está en el cuadro donde debe disparar
+    /// </summary>
+    public void FirePlasmaSpray()
+    {
+        actionController.action.Execute();
     }
 
 }

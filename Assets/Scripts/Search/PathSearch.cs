@@ -31,7 +31,7 @@ public class PathSearch : BreadthFirstSearch
     private uint maxDistance;
 
     /// <summary>
-    /// Construye un nuevo objeto de búsqueda de caminos
+    /// Construye una nueva búsqueda de caminos
     /// </summary>
     /// <param name="maxDistance">La longitud máxima que puede tener cualquier camino encontrado</param>
     public PathSearch(uint maxDistance) : base()

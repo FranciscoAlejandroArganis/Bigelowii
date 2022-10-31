@@ -12,7 +12,7 @@ public abstract class BreadthFirstSearch : Search
     private Queue<Cell> queue;
 
     /// <summary>
-    /// Construye un nuevo objeto de búsqueda con recorrido BFS
+    /// Construye una nueva búsqueda con recorrido BFS
     /// </summary>
     public BreadthFirstSearch() : base()
     {
