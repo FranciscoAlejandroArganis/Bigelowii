@@ -1,3 +1,5 @@
+using UnityEngine;
+
 /// <summary>
 /// Acción en la que una unidad empieza su nuevo turno
 /// </summary>
@@ -13,6 +15,12 @@ public class Awake : UntargetedAction
     public override void Execute()
     {
         Turn.activeUnit = unit;
+        Agent agent = unit.agent;
+        if (agent != null)
+        {
+            AI.agent = agent;
+            AI.state = AI.State.Dormant;
+        }
         unit.actionController.StopAction();
     }
 
@@ -20,4 +28,5 @@ public class Awake : UntargetedAction
     {
         eventButton.image.sprite = unit.GetUnitSprite();
     }
+
 }

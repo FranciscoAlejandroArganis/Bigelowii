@@ -96,7 +96,7 @@ public class ActionController : MonoBehaviour
         if (unit == Turn.activeUnit)
         {
             Turn.SelectUnit(unit);
-            Level.state = Level.State.Human;
+            Level.state = unit.agent == null ? Level.State.Human : Level.State.AI;
         }
         else
             Level.state = Level.State.Event;

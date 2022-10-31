@@ -47,6 +47,11 @@ public abstract class Unit : MonoBehaviour
     public uint team;
 
     /// <summary>
+    /// El agente que controla la unidad
+    /// </summary>
+    public Agent agent;
+
+    /// <summary>
     /// Controlador del movimiento de la unidad
     /// </summary>
     public MovementController movementController;
@@ -61,7 +66,7 @@ public abstract class Unit : MonoBehaviour
     /// </summary>
     public Animator animator;
 
-    public void Start()
+    public virtual void Start()
     {
         movementController = GetComponent<MovementController>();
         actionController = GetComponent<ActionController>();

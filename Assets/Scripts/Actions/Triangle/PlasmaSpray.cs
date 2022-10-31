@@ -59,7 +59,7 @@ public class PlasmaSpray : EnemyTargetAction
                 spray.transform.SetPositionAndRotation(unit.transform.position, Quaternion.LookRotation(targetUnit.transform.position - unit.transform.position));
                 spray.Play();
                 damage.Apply(targetUnit);
-                UI.secondaryUnit.SetHealth();
+                //UI.secondaryUnit.SetHealth();
                 if (targetUnit.health == 0)
                 {
                     Level.Kill(targetUnit);

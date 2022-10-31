@@ -11,6 +11,12 @@ public class Triangle : Unit2D
     /// </summary>
     public ParticleSystem spray;
 
+    public override void Start()
+    {
+        base.Start();
+        agent = new TriangleAgent(this);
+    }
+
     public override Sprite GetUnitSprite()
     {
         return UI.sprites.triangle;

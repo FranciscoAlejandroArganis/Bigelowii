@@ -25,7 +25,7 @@ public class UnitPanel : Panel
     /// <summary>
     /// Arreglo con los botones de la tarjeta de comandos
     /// </summary>
-    private CommandButton[] commandCard;
+    public CommandButton[] commandCard;
 
     public void Start()
     {
