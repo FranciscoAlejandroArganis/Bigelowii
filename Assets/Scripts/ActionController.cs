@@ -78,7 +78,15 @@ public class ActionController : MonoBehaviour
         Level.state = Level.State.Standby;
         unit.cell.highlight.Add(Highlight.State.Unit);
         if (action is TargetedAction)
-            action.AddTargetHighlight(action.GetTarget());
+        {
+            Cell target = action.GetTarget();
+            action.AddTargetHighlight(target);
+            if (action is UnitTargetAction)
+            {
+                UI.secondaryUnit.unit = target.unit;
+                UI.secondaryUnit.Show();
+            }
+        }
         this.action = action;
         UI.timeline.action = action;
         state = State.Camera;
@@ -92,7 +100,12 @@ public class ActionController : MonoBehaviour
     {
         unit.cell.highlight.Remove(Highlight.State.Unit);
         if (action is TargetedAction)
-            action.RemoveTargetHighlight(action.GetTarget());
+        {
+            Cell target = action.GetTarget();
+            action.RemoveTargetHighlight(target);
+            if (action is UnitTargetAction)
+                UI.secondaryUnit.Hide();
+        }
         if (unit == Turn.activeUnit)
         {
             Turn.SelectUnit(unit);

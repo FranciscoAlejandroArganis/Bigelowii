@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -41,6 +42,11 @@ public class Cell : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
     /// Longitud del camino desde la celda donde inció el recorrido BFS hasta esta celda
     /// </summary>
     public uint distance;
+
+    /// <summary>
+    /// Lista con los conos que se encuentran sobre la celda
+    /// </summary>
+    public List<Cone> cones;
 
     public void Start()
     {

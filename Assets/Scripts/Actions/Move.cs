@@ -107,6 +107,15 @@ public class Move : CellTargetAction
                 cell.highlight.Add(Highlight.State.AreaOfEffect);
             }
         }
+        else
+        {
+            int index = path.Length - 2;
+            while (index >= 0)
+            {
+                path[index].highlight.Add(Highlight.State.AreaOfEffect);
+                index--;
+            }
+        }
     }
 
     public override void RemoveTargetHighlight(Cell cell)
@@ -120,9 +129,8 @@ public class Move : CellTargetAction
                 cell.highlight.Remove(Highlight.State.AreaOfEffect);
             }
         }
-        else if (path[0] == unit.cell)
+        else
         {
-            // Si el camino ya se asignó pero la unidad está en la celda inicial, se está llamando a este método desde Turn.SelectTarget
             int index = path.Length - 2;
             while (index >= 0)
             {

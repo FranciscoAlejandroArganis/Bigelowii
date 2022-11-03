@@ -29,6 +29,11 @@ public class Level : MonoBehaviour
     public static State state;
 
     /// <summary>
+    /// Cantidad de conos que tiene actualmente el jugador
+    /// </summary>
+    public static uint cones;
+
+    /// <summary>
     /// La unidad que se elimina del nivel
     /// </summary>
     private static Unit unit;

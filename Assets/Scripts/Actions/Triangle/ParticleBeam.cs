@@ -1,21 +1,19 @@
 using System;
 using UnityEngine;
 
-public class PlasmaSpray : EnemyTargetAction
+public class ParticleBeam : EnemyTargetAction
 {
 
     /// <summary>
     /// Enumeración de los estados de la acción
     /// <list type="bullet">
-    /// <item><c>Start</c>: el triángulo inicia la animación de atacar</item>
-    /// <item><c>Fire</c>: el triángulo dispara y se actualiza la línea de tiempo</item>
+    /// <item><c>Start</c>: el tetraedro dispara y se actualiza la línea de tiempo</item>
     /// <item><c>End</c>: termina el ataque</item>
     /// </list>
     /// </summary>
     public enum State
     {
         Start,
-        Fire,
         End
     }
 
@@ -25,25 +23,14 @@ public class PlasmaSpray : EnemyTargetAction
     private State state;
 
     /// <summary>
-    /// Sistema de partículas usado durante el ataque
-    /// </summary>
-    private ParticleSystem spray;
-
-    /// <summary>
     /// Daño que hace esta acción
     /// </summary>
     private Damage damage;
 
-    /// <summary>
-    /// Construye una nueva acción <c>PlasmaSpray</c>
-    /// </summary>
-    /// <param name="unit">El triángulo que realiza la acción</param>
-    /// <param name="spray">El sistema de partículas que se usa durante el ataque</param>
-    public PlasmaSpray(Unit unit, ParticleSystem spray) : base(unit)
+    public ParticleBeam(Unit unit) : base(unit)
     {
-        this.spray = spray;
         search = new NeighbourhoodSearch();
-        damage = new Damage(11);
+        damage = new Damage(35);
     }
 
     public override void Execute()
@@ -51,13 +38,7 @@ public class PlasmaSpray : EnemyTargetAction
         switch (state)
         {
             case State.Start:
-                state = State.Fire;
-                unit.animator.SetTrigger("Attack");
-                break;
-            case State.Fire:
                 state = State.End;
-                spray.transform.SetPositionAndRotation(unit.transform.position, Quaternion.LookRotation(targetUnit.transform.position - unit.transform.position));
-                spray.Play();
                 damage.Apply(targetUnit);
                 UI.secondaryUnit.SetHealth();
                 if (targetUnit.health == 0)
@@ -78,5 +59,4 @@ public class PlasmaSpray : EnemyTargetAction
     {
         throw new NotImplementedException();
     }
-
 }

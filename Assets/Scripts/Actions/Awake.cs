@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -20,6 +21,17 @@ public class Awake : UntargetedAction
         {
             AI.agent = agent;
             AI.state = AI.State.Dormant;
+        }
+        else if (unit is Sphere)
+        {
+            List<Cone> cones = unit.cell.cones;
+            if (cones.Count > 0)
+            {
+                Cone cone = cones[0];
+                cones.RemoveAt(0);
+                Level.cones++;
+                GameObject.Destroy(cone.gameObject);
+            }
         }
         unit.actionController.StopAction();
     }

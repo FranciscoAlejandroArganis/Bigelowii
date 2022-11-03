@@ -192,8 +192,10 @@ public class MovementController : MonoBehaviour
         {
             // Ha terminado el recorrido del camino
             path[0].unit = null;
+            path[0].highlight.Remove(Highlight.State.Unit);
             unit.cell = path[index - 1];
             path[index - 1].unit = unit;
+            path[index - 1].highlight.Add(Highlight.State.Unit);
             path = null;
             state = State.Stationary;
             unit.actionController.action.Execute();
@@ -231,10 +233,7 @@ public class MovementController : MonoBehaviour
     /// </summary>
     private void MoveThroughNextCell()
     {
-        // Actualización por salir de path[index-1] y entrar a path[index]
-        path[index - 1].highlight.Remove(Highlight.State.Unit);
-        path[index].highlight.Add(Highlight.State.Unit);
-        // Identifica el tipo del siguiente movimeinto
+        // Sale de path[index-1] y entra a path[index]
         if (index + 1 == path.Length)
         {
             // Empieza el movimiento lineal a través de la última celda del camino

@@ -22,6 +22,12 @@ public class Tetrahedron : Unit3D
                     case 0:
                         SetMoveButton(commandButton);
                         break;
+                    case 1:
+                        commandButton.image.sprite = UI.sprites.attack;
+                        commandButton.action = new ParticleBeam(this);
+                        commandButton.type = CommandButton.Type.Command;
+                        commandButton.transition = 1;
+                        break;
                     case 15:
                         SetEndTurnButton(commandButton);
                         break;
