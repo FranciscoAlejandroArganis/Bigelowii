@@ -9,6 +9,18 @@ public class Cell : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
 {
 
     /// <summary>
+    /// Regresa la celda que se encuentra debajo de la posición especificada
+    /// </summary>
+    /// <param name="position">La posición debajo de la cual se busca una celda</param>
+    /// <returns>La celda debajo de <c>position</c> o <c>null</c> si no hay ninguna celda</returns>
+    public static Cell Below(Vector3 position)
+    {
+        if (Physics.Raycast(position, Vector3.down, out RaycastHit hit, 1, Utilities.mapLayer))
+            return hit.collider.GetComponent<Cell>();
+        return null;
+    }
+
+    /// <summary>
     /// Resalte de la celda
     /// </summary>
     public Highlight highlight;
@@ -85,6 +97,15 @@ public class Cell : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
     public Vector3 UnitPosition(Unit unit)
     {
         return new Vector3(transform.position.x, unit.transform.position.y, transform.position.z);
+    }
+
+    /// <summary>
+    /// Regresa <c>true</c> si la celda está libre
+    /// </summary>
+    /// <returns><c>true</c> si la celda no es terreno y no hay ninguna unidad sobre la celda</returns>
+    public bool IsFree()
+    {
+        return !(terrain || unit);
     }
 
     public void OnPointerEnter(PointerEventData eventData)

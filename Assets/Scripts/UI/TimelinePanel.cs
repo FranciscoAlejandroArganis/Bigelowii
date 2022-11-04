@@ -100,6 +100,8 @@ public class TimelinePanel : Panel
             this.action = null;
             action.Execute();
         }
+        else
+            Level.state = Level.State.Spawning;
     }
 
     public override void Show()

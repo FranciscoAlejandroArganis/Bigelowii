@@ -41,7 +41,7 @@ public class PathSearch : BreadthFirstSearch
 
     protected override bool Edge(Cell currentCell, Cell nextCell)
     {
-        if (!(nextCell.terrain || nextCell.unit) && currentCell.distance < maxDistance)
+        if (nextCell.IsFree() && currentCell.distance < maxDistance)
         {
             nextCell.distance = currentCell.distance + 1;
             nextCell.predecesor = currentCell;

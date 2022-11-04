@@ -1,7 +1,7 @@
 using System;
 
 /// <summary>
-/// Búsqueda de la primer celda que satisface un predicado
+/// Búsqueda de un camino a la primer celda que satisface un predicado
 /// </summary>
 public class FirstMatchSearch : BreadthFirstSearch
 {
@@ -18,7 +18,7 @@ public class FirstMatchSearch : BreadthFirstSearch
     private Predicate<Cell> predicate;
 
     /// <summary>
-    /// Construye una nueva búsqueda que encuentra la primer celda que satisface un predicado
+    /// Construye una nueva búsqueda que encuentra un camino a la primer celda que satisface un predicado
     /// </summary>
     /// <param name="predicate">El predicado con el que se prueban las celdas durante la búsqueda</param>
     public FirstMatchSearch(Predicate<Cell> predicate) : base()
@@ -39,7 +39,7 @@ public class FirstMatchSearch : BreadthFirstSearch
     protected override bool Edge(Cell currentCell, Cell nextCell)
     {
         if (firstMatch) return false;
-        if (!(nextCell.terrain || nextCell.unit))
+        if (nextCell.IsFree())
         {
             nextCell.distance = currentCell.distance + 1;
             nextCell.predecesor = currentCell;

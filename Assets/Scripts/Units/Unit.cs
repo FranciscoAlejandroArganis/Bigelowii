@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 
 /// <summary>
@@ -37,14 +38,9 @@ public abstract class Unit : MonoBehaviour
     public Cell cell;
 
     /// <summary>
-    /// Identificador del jugador que controla la unidad
+    /// Jugador que controla la unidad
     /// </summary>
-    public uint player;
-
-    /// <summary>
-    /// Identificador del equipo al que pertence la unidad
-    /// </summary>
-    public uint team;
+    public Player player;
 
     /// <summary>
     /// El agente que controla la unidad
@@ -68,14 +64,13 @@ public abstract class Unit : MonoBehaviour
 
     public virtual void Start()
     {
+        player = GetComponentInParent<Player>();
         movementController = GetComponent<MovementController>();
         actionController = GetComponent<ActionController>();
         animator = GetComponent<Animator>();
-        if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, 1, Utilities.mapLayer))
-        {
-            cell = hit.collider.GetComponent<Cell>();
+        cell = Cell.Below(transform.position);
+        if (cell)
             cell.unit = this;
-        }
     }
 
     /// <summary>
@@ -85,7 +80,7 @@ public abstract class Unit : MonoBehaviour
     /// <returns><c>true</c> si <c>unit</c> es del mismo equipo</returns>
     public bool IsFriendly(Unit unit)
     {
-        return player > 0 && unit.player > 0 && team == unit.team;
+        return player && unit.player && player.team == unit.player.team;
     }
 
     /// <summary>
@@ -95,7 +90,7 @@ public abstract class Unit : MonoBehaviour
     /// <returns><c>true</c> si <c>unit</c> es de otro equipo</returns>
     public bool IsHostile(Unit unit)
     {
-        return player > 0 && unit.player > 0 && team != unit.team;
+        return player && unit.player && player.team != unit.player.team;
     }
 
     /// <summary>

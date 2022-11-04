@@ -2,6 +2,7 @@ using UnityEngine;
 
 /// <summary>
 /// Triángulo
+/// <para>Unidad rápida que ataca en grupos</para>
 /// </summary>
 public class Triangle : Unit2D
 {

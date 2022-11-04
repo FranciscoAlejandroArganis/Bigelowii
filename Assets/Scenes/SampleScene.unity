@@ -1913,6 +1913,7 @@ Transform:
   m_Children:
   - {fileID: 889459231}
   - {fileID: 1939531208}
+  - {fileID: 1505621521}
   - {fileID: 1848856985}
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -2579,14 +2580,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6f6ed34007c28f4a87b3fd3bc7bcdb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 50
   maxHealth: 100
   delay: 5
   initialDelay: 0
   movement: 3
   cell: {fileID: 0}
-  player: 1
-  team: 1
+  player: {fileID: 0}
   movementController: {fileID: 0}
   actionController: {fileID: 0}
   animator: {fileID: 0}
@@ -2597,6 +2597,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1800856387}
     m_Modifications:
+    - target: {fileID: 492525599240271820, guid: 2034d2d26fc11354496d5ff56461de32, type: 3}
+      propertyPath: terrain
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3966416732305649603, guid: 2034d2d26fc11354496d5ff56461de32, type: 3}
       propertyPath: m_Name
       value: Cell
@@ -3323,8 +3327,7 @@ MonoBehaviour:
   initialDelay: 0
   movement: 5
   cell: {fileID: 0}
-  player: 2
-  team: 2
+  player: {fileID: 0}
   movementController: {fileID: 0}
   actionController: {fileID: 0}
   animator: {fileID: 0}
@@ -11603,8 +11606,7 @@ MonoBehaviour:
   initialDelay: 0
   movement: 5
   cell: {fileID: 0}
-  player: 2
-  team: 2
+  player: {fileID: 0}
   movementController: {fileID: 0}
   actionController: {fileID: 0}
   animator: {fileID: 0}
@@ -12622,6 +12624,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1800856387}
     m_Modifications:
+    - target: {fileID: 492525599240271820, guid: 2034d2d26fc11354496d5ff56461de32, type: 3}
+      propertyPath: terrain
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3966416732305649603, guid: 2034d2d26fc11354496d5ff56461de32, type: 3}
       propertyPath: m_Name
       value: Cell
@@ -14488,6 +14494,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1499934436}
   m_CullTransparentMesh: 1
+--- !u!1 &1505621520
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1505621521}
+  m_Layer: 0
+  m_Name: Spawners
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1505621521
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1505621520}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 346883315}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1523627444
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17107,7 +17143,7 @@ Transform:
   m_Children:
   - {fileID: 322084227}
   m_Father: {fileID: 346883315}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1848856986
 MonoBehaviour:
@@ -17385,14 +17421,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6f6ed34007c28f4a87b3fd3bc7bcdb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 50
   maxHealth: 100
   delay: 5
   initialDelay: 0
   movement: 3
   cell: {fileID: 0}
-  player: 1
-  team: 1
+  player: {fileID: 0}
   movementController: {fileID: 0}
   actionController: {fileID: 0}
   animator: {fileID: 0}
@@ -17405,8 +17440,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1886585410}
+  - component: {fileID: 1886585411}
   m_Layer: 0
-  m_Name: Player 1
+  m_Name: Player (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17430,6 +17466,19 @@ Transform:
   m_Father: {fileID: 1939531208}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1886585411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1886585409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68023fd7ef3bfec4eb261db181beed30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  team: 1
 --- !u!1 &1909352343
 GameObject:
   m_ObjectHideFlags: 0
@@ -18173,8 +18222,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1988807616}
+  - component: {fileID: 1988807617}
   m_Layer: 0
-  m_Name: Player 2
+  m_Name: Player (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18196,6 +18246,19 @@ Transform:
   m_Father: {fileID: 1939531208}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1988807617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1988807615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68023fd7ef3bfec4eb261db181beed30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  team: 2
 --- !u!1001 &2005830951
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18911,6 +18974,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1800856387}
     m_Modifications:
+    - target: {fileID: 492525599240271820, guid: 2034d2d26fc11354496d5ff56461de32, type: 3}
+      propertyPath: terrain
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3966416732305649603, guid: 2034d2d26fc11354496d5ff56461de32, type: 3}
       propertyPath: m_Name
       value: Cell
@@ -19298,7 +19365,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132149289789709}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1, y: 0.75, z: -1.732051}
+  m_LocalPosition: {x: 3, y: 0.75, z: -1.732051}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1886585410}
@@ -19402,8 +19469,7 @@ MonoBehaviour:
   initialDelay: 0
   movement: 5
   cell: {fileID: 0}
-  player: 1
-  team: 1
+  player: {fileID: 0}
   movementController: {fileID: 0}
   actionController: {fileID: 0}
   animator: {fileID: 0}
@@ -19552,14 +19618,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6f6ed34007c28f4a87b3fd3bc7bcdb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 50
   maxHealth: 100
   delay: 5
   initialDelay: 0
   movement: 3
   cell: {fileID: 0}
-  player: 1
-  team: 1
+  player: {fileID: 0}
   movementController: {fileID: 0}
   actionController: {fileID: 0}
   animator: {fileID: 0}

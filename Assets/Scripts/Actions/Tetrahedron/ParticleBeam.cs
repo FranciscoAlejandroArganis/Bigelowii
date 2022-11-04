@@ -1,6 +1,8 @@
 using System;
-using UnityEngine;
 
+/// <summary>
+/// Acción en la que un tetraedro ataca
+/// </summary>
 public class ParticleBeam : EnemyTargetAction
 {
 
@@ -27,7 +29,11 @@ public class ParticleBeam : EnemyTargetAction
     /// </summary>
     private Damage damage;
 
-    public ParticleBeam(Unit unit) : base(unit)
+    /// <summary>
+    /// Construye una nueva acción <c>ParticleBeam</c>
+    /// </summary>
+    /// <param name="tetrahedron">El tetraedro que realiza la acción</param>
+    public ParticleBeam(Tetrahedron tetrahedron) : base(tetrahedron)
     {
         search = new NeighbourhoodSearch();
         damage = new Damage(35);

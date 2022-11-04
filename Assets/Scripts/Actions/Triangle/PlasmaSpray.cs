@@ -1,6 +1,9 @@
 using System;
 using UnityEngine;
 
+/// <summary>
+/// Acción en la que un triángulo ataca
+/// </summary>
 public class PlasmaSpray : EnemyTargetAction
 {
 
@@ -37,9 +40,9 @@ public class PlasmaSpray : EnemyTargetAction
     /// <summary>
     /// Construye una nueva acción <c>PlasmaSpray</c>
     /// </summary>
-    /// <param name="unit">El triángulo que realiza la acción</param>
+    /// <param name="triangle">El triángulo que realiza la acción</param>
     /// <param name="spray">El sistema de partículas que se usa durante el ataque</param>
-    public PlasmaSpray(Unit unit, ParticleSystem spray) : base(unit)
+    public PlasmaSpray(Triangle triangle, ParticleSystem spray) : base(triangle)
     {
         this.spray = spray;
         search = new NeighbourhoodSearch();

@@ -112,7 +112,7 @@ public class ActionController : MonoBehaviour
             Level.state = unit.agent == null ? Level.State.Human : Level.State.AI;
         }
         else
-            Level.state = Level.State.Event;
+            Level.state = Level.State.Spawning;
         action = null;
         state = State.Idle;
     }

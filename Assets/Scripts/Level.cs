@@ -10,6 +10,7 @@ public class Level : MonoBehaviour
     /// Enumeración de los estados de un nivel
     /// <list type="bullet">
     /// <item><c>Standby</c>: el juego no está siendo controlado ni por el jugador humano ni por la IA</item>
+    /// <item><c>Spawning</c>: el juego está evaluando si se deben generar nuevas unidades</item>
     /// <item><c>Event</c>: el juego avanza al siguiente evento</item>
     /// <item><c>Human</c>: el juego está en el turno del jugador humano</item>
     /// <item><c>AI</c>: el juego está en el turno de la IA</item>
@@ -18,6 +19,7 @@ public class Level : MonoBehaviour
     public enum State
     {
         Standby,
+        Spawning,
         Event,
         Human,
         AI
@@ -29,19 +31,24 @@ public class Level : MonoBehaviour
     public static State state;
 
     /// <summary>
-    /// Cantidad de conos que tiene actualmente el jugador
+    /// Cantidad de conos que tiene actualmente el jugador humano
     /// </summary>
     public static int cones;
+
+    /// <summary>
+    /// La cantidad de unidades de tiempo que han transcurrido desde el inicio del nivel
+    /// </summary>
+    public static int currentTime;
+
+    /// <summary>
+    /// Arreglo con los generadores de unidades del nivel
+    /// </summary>
+    private static Spawner[] spawners;
 
     /// <summary>
     /// La unidad que se elimina del nivel
     /// </summary>
     private static Unit unit;
-
-    /// <summary>
-    /// La cantidad de unidades de tiempo que han pasado desde el inicio del nivel
-    /// </summary>
-    private static int currentTime;
 
     /// <summary>
     /// Ejemplar único de <c>Level</c>
@@ -59,6 +66,23 @@ public class Level : MonoBehaviour
     }
 
     /// <summary>
+    /// Agrega una nueva unidad al nivel
+    /// </summary>
+    /// <param name="unit">La unidad plantilla usada para crear la nueva unidad</param>
+    /// <param name="player">El jugador al que pertenecerá la nueva unidad</param>
+    /// <param name="cell">La celda donde aparecerá la nueva unidad</param>
+    /// <returns>La nueva unidad creada</returns>
+    public static Unit NewUnit(Unit unit, Player player, Cell cell)
+    {
+        unit = Instantiate(unit, cell.UnitPosition(unit), Quaternion.identity, player.transform);
+        unit.player = player;
+        cell.unit = unit;
+        Awake awake = new Awake(unit);
+        Timeline.EnqueueLast(new Event(awake, unit.initialDelay));
+        return unit;
+    }
+
+    /// <summary>
     /// Elimina la unidad especificada
     /// </summary>
     /// <param name="unit">La unidad que se elimina del nivel</param>
@@ -70,7 +94,7 @@ public class Level : MonoBehaviour
         if (unit.animator)
             unit.animator.SetTrigger("Death");
         else
-            Destroy(unit.gameObject);
+            unit.Destroy();
     }
 
     /// <summary>
@@ -85,29 +109,46 @@ public class Level : MonoBehaviour
     }
 
     /// <summary>
-    /// La cantidad de unidades de tiempo que el jugador debe sobrevivir
+    /// La cantidad de unidades de tiempo que el jugador humano debe sobrevivir
     /// </summary>
     public uint timeLimit;
 
     public void Start()
     {
         instance = this;
-        foreach(Unit unit in GetComponentsInChildren<Unit>())
+        spawners = GetComponentsInChildren<Spawner>();
+        foreach (Unit unit in GetComponentsInChildren<Unit>())
         {
             Awake awake = new Awake(unit);
             Timeline.EnqueueLast(new Event(awake, unit.initialDelay));
         }
         Timeline.Update();
-        state = State.Event;
     }
 
     public void Update()
     {
-        if (state == State.Event)
+        switch (state)
         {
-            Action action = Timeline.Peek().action;
-            state = State.Standby;
-            action.unit.actionController.StartAction(action);
+            case State.Spawning:
+                bool generated = false;
+                foreach(Spawner spawner in spawners)
+                {
+                    if (currentTime - spawner.time >= spawner.cooldown && spawner.Spawn())
+                    {
+                        generated = true;
+                        spawner.time = currentTime;
+                    }
+                }
+                if (generated)
+                    Timeline.Update();
+                else
+                    state = State.Event;
+                break;
+            case State.Event:
+                Action action = Timeline.Peek().action;
+                state = State.Standby;
+                action.unit.actionController.StartAction(action);
+                break;
         }
     }
 

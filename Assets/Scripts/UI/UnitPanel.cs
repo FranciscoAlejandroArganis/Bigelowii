@@ -48,9 +48,12 @@ public class UnitPanel : Panel
 
     public override void Show()
     {
-        UpdatePanel();
-        panel.SetActive(true);
-        state = State.Visible;
+        if (unit && unit.player)
+        {
+            UpdatePanel();
+            panel.SetActive(true);
+            state = State.Visible;
+        }
     }
 
     public override void Hide()

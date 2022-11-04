@@ -8,11 +8,9 @@ public class Cone : MonoBehaviour
 
     public void Start()
     {
-        if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, 1, Utilities.mapLayer))
-        {
-            Cell cell = hit.collider.GetComponent<Cell>();
+        Cell cell = Cell.Below(transform.position);
+        if (cell)
             cell.cones.Add(this);
-        }
     }
 
 }
