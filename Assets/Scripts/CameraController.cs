@@ -29,11 +29,6 @@ public class CameraController : MonoBehaviour
     public static State state;
 
     /// <summary>
-    /// Posición actual de la cámara
-    /// </summary>
-    public static Vector3 position;
-
-    /// <summary>
     /// La posición en el mapa que está observando la cámara actualmente
     /// </summary>
     private static Vector3 anchor;
@@ -80,7 +75,7 @@ public class CameraController : MonoBehaviour
     /// <summary>
     /// Ejemplar único de <c>CameraController</c>
     /// </summary>
-    private static CameraController instance;
+    public static CameraController instance;
 
     /// <summary>
     /// Mueve la cámara para que mire a la celda especificada
@@ -189,7 +184,6 @@ public class CameraController : MonoBehaviour
         }
         Vector3 position = new Vector3(4 * sine, 8, 4 * cosine);
         transform.SetPositionAndRotation(anchor + zoom * position, Quaternion.LookRotation(-position));
-        CameraController.position = transform.position;
     }
 
     /// <summary>

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// Panel que muestra la línea de tiempo
@@ -12,6 +13,11 @@ public class TimelinePanel : Panel
     /// La acción que causa una modificación de la línea de tiempo
     /// </summary>
     public Action action;
+
+    /// <summary>
+    /// Barra de progreso del nivel
+    /// </summary>
+    public Slider slider;
 
     /// <summary>
     /// Lista de botones de evento que se mueven como resultado de cambios en la línea de tiempo
@@ -66,7 +72,7 @@ public class TimelinePanel : Panel
     /// <returns></returns>
     public Vector2 EventButtonPosition(int time)
     {
-        return new Vector2(-752 + 32 * time, -6);
+        return new Vector2(-752 + 32 * time, -12);
     }
 
     /// <summary>

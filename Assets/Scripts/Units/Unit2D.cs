@@ -8,7 +8,7 @@ public abstract class Unit2D : Unit
 
     public void Update()
     {
-        transform.rotation = Quaternion.LookRotation(CameraController.position - transform.position);
+        transform.rotation = CameraController.instance.transform.rotation;
     }
 
 }

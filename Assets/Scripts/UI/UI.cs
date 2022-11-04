@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// Componente encargado de manejar la interfaz de usario
@@ -22,6 +23,11 @@ public class UI : MonoBehaviour
     public static UnitPanel secondaryUnit;
 
     /// <summary>
+    /// Panel de recursos
+    /// </summary>
+    public static ResourcesPanel resources;
+
+    /// <summary>
     /// Conjunto de sprites
     /// </summary>
     public static SpriteSet sprites;
@@ -41,9 +47,23 @@ public class UI : MonoBehaviour
     }
 
     /// <summary>
+    /// Regresa un nuevo ícono de cono
+    /// </summary>
+    /// <returns>Un nuevo ícono de cono</returns>
+    public static Image NewConeIcon()
+    {
+        return Instantiate(instance.coneIcon, resources.content.transform);
+    }
+
+    /// <summary>
     /// El prefab de un botón de evento
     /// </summary>
     public EventButton eventButton;
+
+    /// <summary>
+    /// El prefab del ícono de un cono
+    /// </summary>
+    public Image coneIcon;
 
     public void Awake()
     {
@@ -52,6 +72,7 @@ public class UI : MonoBehaviour
         UnitPanel[] units = GetComponentsInChildren<UnitPanel>();
         primaryUnit = units[0];
         secondaryUnit = units[1];
+        resources = GetComponentInChildren<ResourcesPanel>();
         sprites = GetComponent<SpriteSet>();
     }
 

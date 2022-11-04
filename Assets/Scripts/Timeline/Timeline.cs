@@ -54,6 +54,7 @@ public class Timeline
     /// </summary>
     public static void Dequeue()
     {
+        Level.IncreaseTime(events[1].time);
         events[0].eventButton.time = -(events[1].time + 1);
         events.RemoveAt(0);
     }

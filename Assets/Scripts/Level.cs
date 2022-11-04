@@ -31,12 +31,32 @@ public class Level : MonoBehaviour
     /// <summary>
     /// Cantidad de conos que tiene actualmente el jugador
     /// </summary>
-    public static uint cones;
+    public static int cones;
 
     /// <summary>
     /// La unidad que se elimina del nivel
     /// </summary>
     private static Unit unit;
+
+    /// <summary>
+    /// La cantidad de unidades de tiempo que han pasado desde el inicio del nivel
+    /// </summary>
+    private static int currentTime;
+
+    /// <summary>
+    /// Ejemplar único de <c>Level</c>
+    /// </summary>
+    private static Level instance;
+
+    /// <summary>
+    /// Aumenta el tiempo transcurrido en la cantidad especificada
+    /// </summary>
+    /// <param name="time">La cantidad de unidades de tiempo que aumenta el tiempo transcurrido</param>
+    public static void IncreaseTime(int time)
+    {
+        currentTime += time;
+        UI.timeline.slider.value = (float)currentTime / instance.timeLimit;
+    }
 
     /// <summary>
     /// Elimina la unidad especificada
@@ -64,8 +84,14 @@ public class Level : MonoBehaviour
         return action.unit == unit || (action is UnitTargetAction && action.GetTarget().unit == unit);
     }
 
+    /// <summary>
+    /// La cantidad de unidades de tiempo que el jugador debe sobrevivir
+    /// </summary>
+    public uint timeLimit;
+
     public void Start()
     {
+        instance = this;
         foreach(Unit unit in GetComponentsInChildren<Unit>())
         {
             Awake awake = new Awake(unit);

@@ -37,7 +37,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -752, y: -6}
+  m_AnchoredPosition: {x: -752, y: -12}
   m_SizeDelta: {x: 32, y: 32}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1283516457965936254
@@ -56,6 +56,7 @@ MonoBehaviour:
   button: {fileID: 0}
   state: 0
   time: 0
+  animator: {fileID: 0}
 --- !u!222 &6585442384963770136
 CanvasRenderer:
   m_ObjectHideFlags: 0
