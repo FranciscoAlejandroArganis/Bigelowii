@@ -10,8 +10,9 @@ public class PlasmaSpray : EnemyTargetAction
     /// <summary>
     /// Enumeración de los estados de la acción
     /// <list type="bullet">
-    /// <item><c>Start</c>: el triángulo inicia la animación de atacar</item>
-    /// <item><c>Fire</c>: el triángulo dispara y se actualiza la línea de tiempo</item>
+    /// <item><c>Start</c>: el triángulo se abre</item>
+    /// <item><c>Fire</c>: el triángulo dispara</item>
+    /// <item><c>Damage</c>: el triángulo se cierra, aplica el daño y se actualiza la línea de tiempo</item>
     /// <item><c>End</c>: termina el ataque</item>
     /// </list>
     /// </summary>
@@ -19,6 +20,7 @@ public class PlasmaSpray : EnemyTargetAction
     {
         Start,
         Fire,
+        Damage,
         End
     }
 
@@ -58,9 +60,13 @@ public class PlasmaSpray : EnemyTargetAction
                 unit.animator.SetTrigger("Attack");
                 break;
             case State.Fire:
-                state = State.End;
-                spray.transform.SetPositionAndRotation(unit.transform.position, Quaternion.LookRotation(targetUnit.transform.position - unit.transform.position));
+                state = State.Damage;
+                spray.transform.rotation = Quaternion.LookRotation(targetUnit.transform.position - unit.transform.position);
                 spray.Play();
+                break;
+            case State.Damage:
+                state = State.End;
+                unit.animator.SetTrigger("Attack");
                 damage.Apply(targetUnit);
                 UI.secondaryUnit.SetHealth();
                 if (targetUnit.health == 0)

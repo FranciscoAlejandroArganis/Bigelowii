@@ -11,4 +11,9 @@ public abstract class Unit2D : Unit
         transform.rotation = CameraController.instance.transform.rotation;
     }
 
+    public override bool Rotates()
+    {
+        return false;
+    }
+
 }

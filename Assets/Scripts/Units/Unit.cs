@@ -94,6 +94,12 @@ public abstract class Unit : MonoBehaviour
     }
 
     /// <summary>
+    /// Regresa <c>true</c> si la unidad rota
+    /// </summary>
+    /// <returns><c>true</c> si la unidad rota</returns>
+    public abstract bool Rotates();
+
+    /// <summary>
     /// Regresa el sprite de la unidad
     /// </summary>
     /// <returns>El sprite de la unidad</returns>
@@ -106,6 +112,14 @@ public abstract class Unit : MonoBehaviour
     /// <param name="card">El índice de la tarjeta</param>
     /// <param name="button">El índice del botón</param>
     public abstract void SetCommandButton(CommandButton commandButton, uint card, uint button);
+
+    /// <summary>
+    /// Se manda a llamar cuando la animación de una acción se encuentra en un cuadro con un evento
+    /// </summary>
+    public void AnimationEvent()
+    {
+        actionController.action.Execute();
+    }
 
     /// <summary>
     /// Se manda a llamar cuando la animación de muerte de la unidad está en el último cuadro

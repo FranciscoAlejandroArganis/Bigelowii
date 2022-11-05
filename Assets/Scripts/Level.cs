@@ -91,6 +91,7 @@ public class Level : MonoBehaviour
         Level.unit = unit;
         Timeline.RemoveEvents(InvolvesUnit);
         Level.unit = null;
+        unit.cell.unit = null;
         if (unit.animator)
             unit.animator.SetTrigger("Death");
         else

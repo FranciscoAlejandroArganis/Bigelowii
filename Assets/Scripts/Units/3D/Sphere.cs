@@ -50,4 +50,9 @@ public class Sphere : Unit3D
         }
     }
 
+    public override bool Rotates()
+    {
+        return false;
+    }
+
 }

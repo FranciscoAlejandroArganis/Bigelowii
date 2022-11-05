@@ -24,23 +24,21 @@ public class TriangleSpawner : Spawner
             if (unit is Triangle)
                 counter += 1;
         }
-        if (counter < minimum)
+        if (minimum <= counter)
+            return false;
+        bool generated = false;
+        counter = minimum - counter;
+        while (counter > 0)
         {
-            bool generated = false;
-            counter = minimum - counter;
-            while (counter > 0)
+            Cell spawnPoint = GetSpawnLocation();
+            if (spawnPoint)
             {
-                Cell spawnPoint = GetSpawnLocation();
-                if (spawnPoint)
-                {
-                    Level.NewUnit(triangle, player, spawnPoint);
-                    generated = true;
-                }
-                counter--;
+                Level.NewUnit(triangle, player, spawnPoint);
+                generated = true;
             }
-            return generated;
+            counter--;
         }
-        return false;
+        return generated;
     }
 
 }

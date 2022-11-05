@@ -123,7 +123,7 @@ public class MovementController : MonoBehaviour
                 break;
             case State.Quadratic:
                 transform.position = center + (1 - time) * (1 - time) * (positionStart - center) + time * time * (positionEnd - center);
-                if (unit is Unit3D)
+                if (unit.Rotates())
                     transform.rotation = Quaternion.LookRotation((1 - time) * (center - positionStart) + time * (positionEnd - center));
                 time += speed * Time.deltaTime;
                 if (time >= 1)
@@ -138,7 +138,7 @@ public class MovementController : MonoBehaviour
     /// <param name="cell">La celda que la unidad va estar mirando</param>
     public void RotateTowards(Cell cell)
     {
-        if (unit is Unit3D)
+        if (unit.Rotates())
         {
             Vector3 position = cell.UnitPosition(unit); // La posición hacia donde debe mirar
             if (position != transform.position)
