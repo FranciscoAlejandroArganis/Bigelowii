@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Componente encargado de manejar el progreso del nivel
@@ -9,11 +10,12 @@ public class Level : MonoBehaviour
     /// <summary>
     /// Enumeración de los estados de un nivel
     /// <list type="bullet">
-    /// <item><c>Standby</c>: el juego no está siendo controlado ni por el jugador humano ni por la IA</item>
-    /// <item><c>Spawning</c>: el juego está evaluando si se deben generar nuevas unidades</item>
-    /// <item><c>Event</c>: el juego avanza al siguiente evento</item>
-    /// <item><c>Human</c>: el juego está en el turno del jugador humano</item>
-    /// <item><c>AI</c>: el juego está en el turno de la IA</item>
+    /// <item><c>Standby</c>: el nivel no está siendo controlado ni por el jugador humano ni por la IA</item>
+    /// <item><c>Spawning</c>: el nivel está evaluando si se deben generar nuevas unidades</item>
+    /// <item><c>Event</c>: el nivel avanza al siguiente evento</item>
+    /// <item><c>Human</c>: el nivel está en el turno del jugador humano</item>
+    /// <item><c>AI</c>: el nivel está en el turno de la IA</item>
+    /// <item><c>Completed</c>: el nivel ha terminado</item>
     /// </list>
     /// </summary>
     public enum State
@@ -22,7 +24,8 @@ public class Level : MonoBehaviour
         Spawning,
         Event,
         Human,
-        AI
+        AI,
+        Completed
     }
 
     /// <summary>
@@ -49,6 +52,11 @@ public class Level : MonoBehaviour
     /// La unidad que se elimina del nivel
     /// </summary>
     private static Unit unit;
+
+    /// <summary>
+    /// Es <c>true</c> si el juego ha terminado en victoria para el jugador humano
+    /// </summary>
+    private static bool victory;
 
     /// <summary>
     /// Ejemplar único de <c>Level</c>
@@ -105,6 +113,8 @@ public class Level : MonoBehaviour
     /// <returns><c>true</c> si en el evento <c>unit</c> realiza la acción o <c>unit</c> es el objetivo de la acción</returns>
     private static bool InvolvesUnit(Event timelineEvent)
     {
+        if (timelineEvent is VictoryEvent)
+            return false;
         Action action = timelineEvent.action;
         return action.unit == unit || (action is UnitTargetAction && action.GetTarget().unit == unit);
     }
@@ -112,7 +122,24 @@ public class Level : MonoBehaviour
     /// <summary>
     /// La cantidad de unidades de tiempo que el jugador humano debe sobrevivir
     /// </summary>
-    public uint timeLimit;
+    public int timeLimit;
+
+    /// <summary>
+    /// El jugador humano
+    /// </summary>
+    public Player human;
+
+    /// <summary>
+    /// Tiempo actual del cambio
+    /// <para>Empieza en 0 y termina en 1</para>
+    /// </summary>
+    private float time;
+
+    /// <summary>
+    /// Velocidad actual del cambio
+    /// <para>Determina qué tan rápido se completa el cambio</para>
+    /// </summary>
+    public float speed;
 
     public void Start()
     {
@@ -123,6 +150,7 @@ public class Level : MonoBehaviour
             Awake awake = new Awake(unit);
             Timeline.EnqueueLast(new Event(awake, unit.initialDelay));
         }
+        Timeline.EnqueueLast(new VictoryEvent(timeLimit));
         Timeline.Update();
     }
 
@@ -131,24 +159,46 @@ public class Level : MonoBehaviour
         switch (state)
         {
             case State.Spawning:
-                bool generated = false;
-                foreach(Spawner spawner in spawners)
-                {
-                    if (currentTime - spawner.time >= spawner.cooldown && spawner.Spawn())
-                    {
-                        generated = true;
-                        spawner.time = currentTime;
-                    }
-                }
-                if (generated)
-                    Timeline.Update();
+                if (!human.GetComponentInChildren<Unit>())
+                    state = State.Completed;
                 else
-                    state = State.Event;
+                {
+                    bool generated = false;
+                    foreach (Spawner spawner in spawners)
+                    {
+                        if (currentTime - spawner.time >= spawner.cooldown && spawner.Spawn())
+                        {
+                            generated = true;
+                            spawner.time = currentTime;
+                        }
+                    }
+                    if (generated)
+                    {
+                        state = State.Standby;
+                        Timeline.Update();
+                    }
+                    else
+                        state = State.Event;
+                }
                 break;
             case State.Event:
-                Action action = Timeline.Peek().action;
-                state = State.Standby;
-                action.unit.actionController.StartAction(action);
+                Event timelineEvent = Timeline.Peek();
+                if (timelineEvent is VictoryEvent)
+                {
+                    state = State.Completed;
+                    victory = true;
+                }
+                else
+                {
+                    Action action = timelineEvent.action;
+                    state = State.Standby;
+                    action.unit.actionController.StartAction(action);
+                }
+                break;
+            case State.Completed:
+                time += speed * Time.deltaTime;
+                if (time >= 1)
+                    SceneManager.LoadScene(victory ? "Victory" : "Defeat");
                 break;
         }
     }

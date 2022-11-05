@@ -20,7 +20,7 @@ public class Event
     public EventButton eventButton;
 
     /// <summary>
-    /// Construye un nuevo evento ccon el tiempo y acción especificados
+    /// Construye un nuevo evento con el tiempo y acción especificados
     /// </summary>
     /// <param name="time">El tiempo en el que ocurre el evento</param>
     /// <param name="action">La acción que ocurre en el evento</param>
@@ -30,7 +30,8 @@ public class Event
         this.time = time;
         eventButton = UI.NewEventButton();
         eventButton.action = action;
-        action.SetEventButton(eventButton);
+        if (action != null)
+            action.SetEventButton(eventButton);
     }
 
     public static bool operator >(Event a, Event b)

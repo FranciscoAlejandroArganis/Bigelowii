@@ -1956,7 +1956,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0f2c68a06d488349b22cf5fd18a2506, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeLimit: 88
+  timeLimit: 20
+  human: {fileID: 1886585411}
+  speed: 1
 --- !u!4 &346883315
 Transform:
   m_ObjectHideFlags: 0
@@ -8423,6 +8425,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1800856387}
     m_Modifications:
+    - target: {fileID: 492525599240271820, guid: 2034d2d26fc11354496d5ff56461de32, type: 3}
+      propertyPath: terrain
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3966416732305649603, guid: 2034d2d26fc11354496d5ff56461de32, type: 3}
       propertyPath: m_Name
       value: Cell
@@ -14316,7 +14322,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3259804021397874656, guid: 12f75b8ce06a8dd44b069c111cb60000, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.90985835
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 3259804021397874656, guid: 12f75b8ce06a8dd44b069c111cb60000, type: 3}
       propertyPath: m_LocalPosition.y
@@ -14324,7 +14330,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3259804021397874656, guid: 12f75b8ce06a8dd44b069c111cb60000, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.464167
+      value: -3.464102
       objectReference: {fileID: 0}
     - target: {fileID: 3259804021397874656, guid: 12f75b8ce06a8dd44b069c111cb60000, type: 3}
       propertyPath: m_LocalRotation.w

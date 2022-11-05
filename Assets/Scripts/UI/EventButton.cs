@@ -75,7 +75,8 @@ public class EventButton : Button
                 if (UI.timeline.InPanelBounds(rectTransform.anchoredPosition.x))
                 {
                     animator.SetTrigger("Appear");
-                    button.interactable = true;
+                    if (action != null)
+                        button.interactable = true;
                     state = State.Visible;
                 }
                 break;
