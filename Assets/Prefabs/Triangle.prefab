@@ -4946,6 +4946,7 @@ MonoBehaviour:
   delay: 3
   initialDelay: 0
   movement: 5
+  actionsTaken: 0
   cell: {fileID: 0}
   player: {fileID: 0}
   movementController: {fileID: 0}
@@ -4965,8 +4966,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
-  movementSpeed: 2
-  rotationSpeed: 256
+  movementSpeed: 4
+  rotationSpeed: 512
 --- !u!114 &3259804021397874687
 MonoBehaviour:
   m_ObjectHideFlags: 0

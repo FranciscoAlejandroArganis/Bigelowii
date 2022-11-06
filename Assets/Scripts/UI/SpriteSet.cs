@@ -32,6 +32,16 @@ public class SpriteSet : MonoBehaviour
     public Sprite attack;
 
     /// <summary>
+    /// Ícono del evento de victoria
+    /// </summary>
+    public Sprite victory;
+
+    /// <summary>
+    /// Ícono de la esfera
+    /// </summary>
+    public Sprite sphere;
+
+    /// <summary>
     /// Ícono del tetraedro
     /// </summary>
     public Sprite tetrahedron;

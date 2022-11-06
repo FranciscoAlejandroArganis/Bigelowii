@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -7,9 +8,19 @@ using UnityEngine;
 public class Sphere : Unit3D
 {
 
+    /// <summary>
+    /// Unidad plantilla usada para reclutar nuevas esferas
+    /// </summary>
+    public Unit sphere;
+
+    /// <summary>
+    /// Unidad plantilla usada para reclutar nuevos tetraedros
+    /// </summary>
+    public Unit tetrahedron;
+
     public override Sprite GetUnitSprite()
     {
-        return UI.sprites.empty;
+        return UI.sprites.sphere;
     }
 
     public override void SetCommandButton(CommandButton commandButton, uint card, uint button)
@@ -22,9 +33,15 @@ public class Sphere : Unit3D
                     case 0:
                         SetMoveButton(commandButton);
                         break;
-                    case 1:
-                        commandButton.image.sprite = UI.sprites.empty;
-                        commandButton.action = new Recruit(this, this);
+                    case 4:
+                        commandButton.image.sprite = UI.sprites.sphere;
+                        commandButton.action = new Recruit(this, sphere);
+                        commandButton.type = CommandButton.Type.Command;
+                        commandButton.transition = 1;
+                        break;
+                    case 5:
+                        commandButton.image.sprite = UI.sprites.tetrahedron;
+                        commandButton.action = new Recruit(this, tetrahedron);
                         commandButton.type = CommandButton.Type.Command;
                         commandButton.transition = 1;
                         break;

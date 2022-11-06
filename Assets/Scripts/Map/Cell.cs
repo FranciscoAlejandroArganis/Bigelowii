@@ -26,11 +26,6 @@ public class Cell : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
     public Highlight highlight;
 
     /// <summary>
-    /// <c>true</c> si la celda es terreno y no pueden haber unidades encima
-    /// </summary>
-    public bool terrain;
-
-    /// <summary>
     /// Arreglo con los vecinos de la celda
     /// </summary>
     public Cell[] neighbors;
@@ -102,10 +97,10 @@ public class Cell : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
     /// <summary>
     /// Regresa <c>true</c> si la celda está libre
     /// </summary>
-    /// <returns><c>true</c> si la celda no es terreno y no hay ninguna unidad sobre la celda</returns>
+    /// <returns><c>true</c> si la celda no hay conos ni unidades sobre la celda</returns>
     public bool IsFree()
     {
-        return !(terrain || unit);
+        return cones.Count == 0 && !unit;
     }
 
     public void OnPointerEnter(PointerEventData eventData)

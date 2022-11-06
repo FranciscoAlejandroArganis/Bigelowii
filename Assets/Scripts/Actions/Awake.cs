@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,6 +17,7 @@ public class Awake : UntargetedAction
     public override void Execute()
     {
         Turn.activeUnit = unit;
+        unit.actionsTaken = 0;
         Agent agent = unit.agent;
         if (agent != null)
         {
@@ -24,14 +26,21 @@ public class Awake : UntargetedAction
         }
         else if (unit is Sphere)
         {
-            List<Cone> cones = unit.cell.cones;
-            if (cones.Count > 0)
+            foreach (Cell neighbor in unit.cell.neighbors)
             {
-                Cone cone = cones[0];
-                cones.RemoveAt(0);
-                Level.cones++;
-                UI.resources.UpdateCones();
-                GameObject.Destroy(cone.gameObject);
+                if (neighbor)
+                {
+                    List<Cone> cones = neighbor.cones;
+                    if (cones.Count > 0)
+                    {
+                        Cone cone = cones[0];
+                        cones.RemoveAt(0);
+                        Level.cones++;
+                        UI.resources.UpdateCones();
+                        GameObject.Destroy(cone.gameObject);
+                        break;
+                    }
+                }
             }
         }
         unit.actionController.StopAction();

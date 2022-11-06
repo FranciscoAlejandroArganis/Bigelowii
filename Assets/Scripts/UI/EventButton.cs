@@ -75,8 +75,7 @@ public class EventButton : Button
                 if (UI.timeline.InPanelBounds(rectTransform.anchoredPosition.x))
                 {
                     animator.SetTrigger("Appear");
-                    if (action != null)
-                        button.interactable = true;
+                    button.interactable = true;
                     state = State.Visible;
                 }
                 break;
@@ -131,7 +130,7 @@ public class EventButton : Button
 
     public override void OnClick()
     {
-        if (Level.state == Level.State.Human)
+        if (Level.state == Level.State.Human && action != null)
         {
             if (Turn.state != Turn.State.Unit)
             {

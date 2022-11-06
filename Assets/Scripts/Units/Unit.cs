@@ -1,4 +1,4 @@
-using UnityEditor;
+using System;
 using UnityEngine;
 
 /// <summary>
@@ -31,6 +31,12 @@ public abstract class Unit : MonoBehaviour
     /// Máxima distancia que la unidad se puede mover en un turno
     /// </summary>
     public uint movement;
+
+    /// <summary>
+    /// Codifica las acciones que ha tomado la unidad en su turno actual
+    /// <para>Los primeros 16 bits indican si se ha usado la acción correspondiente de la tarjeta de comandos</para>
+    /// </summary>
+    public uint actionsTaken;
 
     /// <summary>
     /// La celda sobre la que se encuentra la unidad

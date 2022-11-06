@@ -10,8 +10,7 @@ public class VictoryEvent : Event
     /// <param name="time">El tiempo en el que el nivel termina en victoria</param>
     public VictoryEvent(int time) : base(null, time)
     {
-        eventButton.button.interactable = false;
-        eventButton.image.sprite = UI.sprites.empty;
+        eventButton.image.sprite = UI.sprites.victory;
     }
 
 }
