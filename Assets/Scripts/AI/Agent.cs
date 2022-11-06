@@ -32,10 +32,10 @@ public abstract class Agent
     /// El agente presiona un botón en la tarjeta de comandos
     /// </summary>
     /// <param name="button">El índice del botón</param>
-    public void PressButton(uint button)
+    public void PressButton(int button)
     {
         CommandButton commandButton = UI.primaryUnit.commandCard[button];
-        Turn.SelectAction(commandButton.action);
+        Turn.SelectAction(commandButton.action, button);
         UI.primaryUnit.SetCommandCard(commandButton.transition);
     }
 

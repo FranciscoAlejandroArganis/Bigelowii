@@ -40,12 +40,19 @@ public class Recruit : CellTargetAction
         this.template = template;
     }
 
+    public override bool Validate()
+    {
+        return Level.cones >= template.cost;
+    }
+
     public override void Execute()
     {
         switch (state)
         {
             case State.Start:
                 state = State.End;
+                Level.cones -= template.cost;
+                UI.resources.UpdateCones();
                 Level.NewUnit(template, unit.player, targetCell);
                 Timeline.Update();
                 break;

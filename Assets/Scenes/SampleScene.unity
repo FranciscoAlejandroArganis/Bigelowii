@@ -284,6 +284,7 @@ MonoBehaviour:
   button: {fileID: 0}
   type: 0
   transition: 0
+  index: 0
 --- !u!114 &16196975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -797,6 +798,7 @@ MonoBehaviour:
   button: {fileID: 0}
   type: 0
   transition: 0
+  index: 0
 --- !u!114 &97466319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1622,6 +1624,7 @@ MonoBehaviour:
   button: {fileID: 0}
   type: 0
   transition: 0
+  index: 0
 --- !u!114 &323271465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1810,6 +1813,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeLimit: 80
   human: {fileID: 1886585411}
+  startingCones: 2
   speed: 1
 --- !u!4 &346883315
 Transform:
@@ -2131,6 +2135,7 @@ MonoBehaviour:
   button: {fileID: 0}
   type: 0
   transition: 0
+  index: 0
 --- !u!114 &400858871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2502,6 +2507,7 @@ MonoBehaviour:
   button: {fileID: 0}
   type: 0
   transition: 0
+  index: 0
 --- !u!114 &462701679
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2779,6 +2785,7 @@ MonoBehaviour:
   button: {fileID: 0}
   type: 0
   transition: 0
+  index: 0
 --- !u!114 &528011239
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3052,6 +3059,7 @@ MonoBehaviour:
   button: {fileID: 0}
   type: 0
   transition: 0
+  index: 0
 --- !u!114 &587426625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3263,6 +3271,7 @@ MonoBehaviour:
   button: {fileID: 0}
   type: 0
   transition: 0
+  index: 0
 --- !u!114 &610533852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3448,6 +3457,7 @@ MonoBehaviour:
   button: {fileID: 0}
   type: 0
   transition: 0
+  index: 0
 --- !u!114 &653317701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4026,6 +4036,7 @@ MonoBehaviour:
   button: {fileID: 0}
   type: 0
   transition: 0
+  index: 0
 --- !u!114 &711707423
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4298,6 +4309,7 @@ MonoBehaviour:
   button: {fileID: 0}
   type: 0
   transition: 0
+  index: 0
 --- !u!114 &726129694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4695,6 +4707,7 @@ MonoBehaviour:
   button: {fileID: 0}
   type: 0
   transition: 0
+  index: 0
 --- !u!114 &740957378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5087,6 +5100,7 @@ MonoBehaviour:
   button: {fileID: 0}
   type: 0
   transition: 0
+  index: 0
 --- !u!114 &783577465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5298,6 +5312,7 @@ MonoBehaviour:
   button: {fileID: 0}
   type: 0
   transition: 0
+  index: 0
 --- !u!114 &834502081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5571,6 +5586,7 @@ MonoBehaviour:
   button: {fileID: 0}
   type: 0
   transition: 0
+  index: 0
 --- !u!114 &853778321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7234,6 +7250,7 @@ MonoBehaviour:
   button: {fileID: 0}
   type: 0
   transition: 0
+  index: 0
 --- !u!114 &1074806795
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7445,6 +7462,7 @@ MonoBehaviour:
   button: {fileID: 0}
   type: 0
   transition: 0
+  index: 0
 --- !u!114 &1130641106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7669,6 +7687,7 @@ MonoBehaviour:
   button: {fileID: 0}
   type: 0
   transition: 0
+  index: 0
 --- !u!114 &1170204604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7818,6 +7837,7 @@ MonoBehaviour:
   button: {fileID: 0}
   type: 0
   transition: 0
+  index: 0
 --- !u!114 &1173996295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8091,6 +8111,7 @@ MonoBehaviour:
   button: {fileID: 0}
   type: 0
   transition: 0
+  index: 0
 --- !u!114 &1235806677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9830,7 +9851,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1927205383699517540, guid: 9aaf09b20ed69024e923f0a6c6bc5513, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 1927205383699517540, guid: 9aaf09b20ed69024e923f0a6c6bc5513, type: 3}
       propertyPath: m_LocalPosition.y
@@ -9987,6 +10008,7 @@ MonoBehaviour:
   button: {fileID: 0}
   type: 0
   transition: 0
+  index: 0
 --- !u!114 &1539380358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10358,6 +10380,7 @@ MonoBehaviour:
   button: {fileID: 0}
   type: 0
   transition: 0
+  index: 0
 --- !u!114 &1603860857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10778,6 +10801,7 @@ MonoBehaviour:
   button: {fileID: 0}
   type: 0
   transition: 0
+  index: 0
 --- !u!114 &1645111576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10989,6 +11013,7 @@ MonoBehaviour:
   button: {fileID: 0}
   type: 0
   transition: 0
+  index: 0
 --- !u!114 &1647191124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11262,6 +11287,7 @@ MonoBehaviour:
   button: {fileID: 0}
   type: 0
   transition: 0
+  index: 0
 --- !u!114 &1691451211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12212,6 +12238,7 @@ MonoBehaviour:
   button: {fileID: 0}
   type: 0
   transition: 0
+  index: 0
 --- !u!114 &1826803085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12685,6 +12712,7 @@ MonoBehaviour:
   button: {fileID: 0}
   type: 0
   transition: 0
+  index: 0
 --- !u!114 &1909352346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13180,6 +13208,7 @@ MonoBehaviour:
   button: {fileID: 0}
   type: 0
   transition: 0
+  index: 0
 --- !u!114 &1954227944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13653,6 +13682,7 @@ MonoBehaviour:
   button: {fileID: 0}
   type: 0
   transition: 0
+  index: 0
 --- !u!114 &2033092225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13802,6 +13832,7 @@ MonoBehaviour:
   button: {fileID: 0}
   type: 0
   transition: 0
+  index: 0
 --- !u!114 &2037080030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13995,6 +14026,7 @@ MonoBehaviour:
   button: {fileID: 0}
   type: 0
   transition: 0
+  index: 0
 --- !u!114 &2062878934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14706,6 +14738,7 @@ MonoBehaviour:
   button: {fileID: 0}
   type: 0
   transition: 0
+  index: 0
 --- !u!114 &2130936024
 MonoBehaviour:
   m_ObjectHideFlags: 0

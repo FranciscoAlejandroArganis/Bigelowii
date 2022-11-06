@@ -7,12 +7,17 @@ using UnityEngine;
 public class Tetrahedron : Unit3D
 {
 
+    /// <summary>
+    /// Componente que renderiza el haz usado durante la acción <c>ParticleBeam</c>
+    /// </summary>
+    public LineRenderer beam;
+
     public override Sprite GetUnitSprite()
     {
         return UI.sprites.tetrahedron;
     }
 
-    public override void SetCommandButton(CommandButton commandButton, uint card, uint button)
+    public override void SetCommandButton(CommandButton commandButton, uint card, int button)
     {
         switch (card)
         {
@@ -24,7 +29,7 @@ public class Tetrahedron : Unit3D
                         break;
                     case 1:
                         commandButton.image.sprite = UI.sprites.attack;
-                        commandButton.action = new ParticleBeam(this);
+                        commandButton.action = new ParticleBeam(this, beam);
                         commandButton.type = CommandButton.Type.Command;
                         commandButton.transition = 1;
                         break;

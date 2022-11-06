@@ -46,9 +46,9 @@ public class PlasmaSpray : EnemyTargetAction
     /// <param name="spray">El sistema de partículas que se usa durante el ataque</param>
     public PlasmaSpray(Triangle triangle, ParticleSystem spray) : base(triangle)
     {
-        this.spray = spray;
         search = new NeighbourhoodSearch();
         damage = new Damage(11);
+        this.spray = spray;
     }
 
     public override void Execute()

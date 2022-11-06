@@ -17,7 +17,6 @@ public class Awake : UntargetedAction
     public override void Execute()
     {
         Turn.activeUnit = unit;
-        unit.actionsTaken = 0;
         Agent agent = unit.agent;
         if (agent != null)
         {

@@ -33,10 +33,15 @@ public abstract class Unit : MonoBehaviour
     public uint movement;
 
     /// <summary>
+    /// El costo de la unidad, en conos
+    /// </summary>
+    public int cost;
+
+    /// <summary>
     /// Codifica las acciones que ha tomado la unidad en su turno actual
     /// <para>Los primeros 16 bits indican si se ha usado la acción correspondiente de la tarjeta de comandos</para>
     /// </summary>
-    public uint actionsTaken;
+    public int actionsTaken;
 
     /// <summary>
     /// La celda sobre la que se encuentra la unidad
@@ -117,7 +122,7 @@ public abstract class Unit : MonoBehaviour
     /// <param name="commandButton">El botón al que se le asignan las propiedades</param>
     /// <param name="card">El índice de la tarjeta</param>
     /// <param name="button">El índice del botón</param>
-    public abstract void SetCommandButton(CommandButton commandButton, uint card, uint button);
+    public abstract void SetCommandButton(CommandButton commandButton, uint card, int button);
 
     /// <summary>
     /// Se manda a llamar cuando la animación de una acción se encuentra en un cuadro con un evento
@@ -139,7 +144,7 @@ public abstract class Unit : MonoBehaviour
     /// Asigna las propiedades de un botón vacío
     /// </summary>
     /// <param name="commandButton">El botón al que se le asignan las propiedades</param>
-    protected void SetEmptyButton(CommandButton commandButton)
+    public void SetEmptyButton(CommandButton commandButton)
     {
         commandButton.image.sprite = UI.sprites.empty;
         commandButton.action = null;

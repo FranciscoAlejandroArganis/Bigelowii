@@ -86,7 +86,7 @@ public class Level : MonoBehaviour
         unit.player = player;
         cell.unit = unit;
         Awake awake = new Awake(unit);
-        Timeline.EnqueueLast(new Event(awake, unit.initialDelay));
+        Timeline.EnqueueLast(new Event(awake, unit.delay));
         return unit;
     }
 
@@ -130,6 +130,11 @@ public class Level : MonoBehaviour
     public Player human;
 
     /// <summary>
+    /// Cantidad de conos con los que empieza el jugador
+    /// </summary>
+    public int startingCones;
+
+    /// <summary>
     /// Tiempo actual del cambio
     /// <para>Empieza en 0 y termina en 1</para>
     /// </summary>
@@ -145,6 +150,8 @@ public class Level : MonoBehaviour
     {
         instance = this;
         spawners = GetComponentsInChildren<Spawner>();
+        cones = startingCones;
+        UI.resources.UpdateCones();
         foreach (Unit unit in GetComponentsInChildren<Unit>())
         {
             Awake awake = new Awake(unit);

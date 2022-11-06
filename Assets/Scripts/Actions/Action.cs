@@ -19,6 +19,15 @@ public abstract class Action
     }
 
     /// <summary>
+    /// Determina si exísten condiciones para realizar la acción
+    /// </summary>
+    /// <returns><c>true</c> si la unidad actualmente puede realizar la acción</returns>
+    public virtual bool Validate()
+    {
+        return true;
+    }
+
+    /// <summary>
     /// Se manda a llamar cuando ocurre el efecto de la acción
     /// </summary>
     public abstract void Execute();

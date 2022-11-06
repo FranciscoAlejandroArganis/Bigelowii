@@ -23,7 +23,7 @@ public class Triangle : Unit2D
         return UI.sprites.triangle;
     }
 
-    public override void SetCommandButton(CommandButton commandButton, uint card, uint button)
+    public override void SetCommandButton(CommandButton commandButton, uint card, int button)
     {
         switch (card)
         {

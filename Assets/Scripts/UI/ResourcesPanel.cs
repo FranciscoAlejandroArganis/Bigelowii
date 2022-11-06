@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class ResourcesPanel : Panel
 {
@@ -35,9 +34,9 @@ public class ResourcesPanel : Panel
         else if (difference > 0)
         {
             // Se muestran más conos que los que tiene el jugador
-            while (true)
+            foreach(Transform child in content.transform)
             {
-                Destroy(transform.GetChild(0).gameObject);
+                Destroy(child.gameObject);
                 difference--;
                 if (difference == 0)
                     break;

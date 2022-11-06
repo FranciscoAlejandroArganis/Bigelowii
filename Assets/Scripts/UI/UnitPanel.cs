@@ -30,6 +30,12 @@ public class UnitPanel : Panel
     public void Start()
     {
         commandCard = GetComponentsInChildren<CommandButton>();
+        int index = 0;
+        while (index < commandCard.Length)
+        {
+            commandCard[index].index = index;
+            index++;
+        }
     }
 
     public void Update()
@@ -89,11 +95,14 @@ public class UnitPanel : Panel
     /// <param name="card">El índice de la tarjeta que se mostrará</param>
     public void SetCommandCard(uint card)
     {
-        uint button = 0;
+        int button = 0;
         while (button < 16)
         {
             CommandButton commandButton = commandCard[button];
-            unit.SetCommandButton(commandButton, card, button);
+            if (unit.agent == null && (unit.actionsTaken & (1 << button)) != 0)
+                unit.SetEmptyButton(commandButton);
+            else
+                unit.SetCommandButton(commandButton, card, button);
             commandButton.button.interactable = Turn.activeUnit == unit && commandButton.type != CommandButton.Type.Empty;
             button++;
         }

@@ -59,6 +59,7 @@ MonoBehaviour:
   delay: 8
   initialDelay: 0
   movement: 5
+  cost: 4
   actionsTaken: 0
   cell: {fileID: 0}
   player: {fileID: 0}

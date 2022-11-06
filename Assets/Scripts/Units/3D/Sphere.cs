@@ -23,7 +23,7 @@ public class Sphere : Unit3D
         return UI.sprites.sphere;
     }
 
-    public override void SetCommandButton(CommandButton commandButton, uint card, uint button)
+    public override void SetCommandButton(CommandButton commandButton, uint card, int button)
     {
         switch (card)
         {

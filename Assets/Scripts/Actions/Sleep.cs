@@ -43,6 +43,7 @@ public class Sleep : UntargetedAction
                 break;
             case State.End:
                 Turn.activeUnit = null;
+                unit.actionsTaken = 0;
                 unit.actionController.StopAction();
                 break;
         }

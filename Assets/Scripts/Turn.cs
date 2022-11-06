@@ -40,6 +40,11 @@ public class Turn
     public static Action action;
 
     /// <summary>
+    /// Índice del botón de la acción seleccionada
+    /// </summary>
+    public static int button;
+
+    /// <summary>
     /// Selecciona la unidad especificada
     /// </summary>
     /// <param name="unit">La unidad que se selecciona</param>
@@ -68,10 +73,11 @@ public class Turn
     /// </summary>
     /// <param name="action">La acción que se selecciona</param>
     /// <returns><c>true</c> si la acción se seleccionó porque es posible realizarla</returns>
-    public static bool SelectAction(Action action)
+    public static bool SelectAction(Action action, int button)
     {
-        if (action.SearchTargets())
+        if (action.Validate() && action.SearchTargets())
         {
+            Turn.button = button;
             Turn.action = action;
             state = State.Target;
             return true;
@@ -96,6 +102,7 @@ public class Turn
     /// <param name="target">La celda objetivo de la acción</param>
     public static void SelectTarget(Cell target)
     {
+        activeUnit.actionsTaken |= 1 << button;
         action.SetTarget(target);
         UI.primaryUnit.SetCommandCard(0);
         action.ClearTargets();
