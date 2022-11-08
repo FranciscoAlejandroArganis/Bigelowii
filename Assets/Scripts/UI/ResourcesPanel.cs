@@ -1,6 +1,9 @@
 using System;
 using UnityEngine;
 
+/// <summary>
+/// Panel que muestra los conos que tiene actualmente el jugador
+/// </summary>
 public class ResourcesPanel : Panel
 {
 

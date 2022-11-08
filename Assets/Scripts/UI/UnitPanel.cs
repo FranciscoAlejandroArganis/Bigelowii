@@ -27,8 +27,14 @@ public class UnitPanel : Panel
     /// </summary>
     public CommandButton[] commandCard;
 
+    /// <summary>
+    /// Animador del panel
+    /// </summary>
+    private Animator animator;
+
     public void Start()
     {
+        animator = GetComponent<Animator>();
         commandCard = GetComponentsInChildren<CommandButton>();
         int index = 0;
         while (index < commandCard.Length)
@@ -36,6 +42,7 @@ public class UnitPanel : Panel
             commandCard[index].index = index;
             index++;
         }
+        panel.SetActive(false);
     }
 
     public void Update()
@@ -76,6 +83,7 @@ public class UnitPanel : Panel
     /// </summary>
     public void UpdatePanel()
     {
+        animator.SetBool("Active", unit == Turn.activeUnit);
         image.sprite = unit.GetUnitSprite();
         SetHealth();
         SetCommandCard(0);

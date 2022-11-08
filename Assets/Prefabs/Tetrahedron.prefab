@@ -184,11 +184,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6f6ed34007c28f4a87b3fd3bc7bcdb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
-  maxHealth: 100
+  health: 105
+  maxHealth: 105
   delay: 5
   initialDelay: 0
-  movement: 3
+  movement: 4
   cost: 2
   actionsTaken: 0
   cell: {fileID: 0}

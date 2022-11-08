@@ -4941,11 +4941,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 396e09220e3eed145bc1970ceada81b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
-  maxHealth: 100
+  health: 68
+  maxHealth: 68
   delay: 3
   initialDelay: 0
   movement: 5
+  cost: 0
   actionsTaken: 0
   cell: {fileID: 0}
   player: {fileID: 0}
