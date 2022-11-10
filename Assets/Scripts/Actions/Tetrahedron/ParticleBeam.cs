@@ -63,7 +63,7 @@ public class ParticleBeam : EnemyTargetAction
                 UI.secondaryUnit.SetHealth();
                 if (targetUnit.health == 0)
                 {
-                    Level.Kill(targetUnit);
+                    Level.Kill(targetUnit, unit.player);
                     Timeline.Update();
                 }
                 else

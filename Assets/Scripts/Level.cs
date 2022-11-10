@@ -54,11 +54,6 @@ public class Level : MonoBehaviour
     private static Unit unit;
 
     /// <summary>
-    /// Es <c>true</c> si el juego ha terminado en victoria para el jugador humano
-    /// </summary>
-    private static bool victory;
-
-    /// <summary>
     /// Ejemplar único de <c>Level</c>
     /// </summary>
     private static Level instance;
@@ -94,8 +89,16 @@ public class Level : MonoBehaviour
     /// Elimina la unidad especificada
     /// </summary>
     /// <param name="unit">La unidad que se elimina del nivel</param>
-    public static void Kill(Unit unit)
+    /// <param name="player">El jugador al que se le atribuye la eliminación o <c>null</c> si no se le atribuye a ningún jugador</param>
+    public static void Kill(Unit unit, Player player)
     {
+        // Actualización de las unidades eliminadas y perdidas de los jugadores
+        if (player)
+            player.AddToDictionary(unit, player.unitsKilled);
+        player = unit.player;
+        if (player)
+            player.AddToDictionary(unit, player.unitsLost);
+        // Eliminación de la unidad
         Level.unit = unit;
         Timeline.RemoveEvents(InvolvesUnit);
         Level.unit = null;
@@ -118,6 +121,11 @@ public class Level : MonoBehaviour
         Action action = timelineEvent.action;
         return action.unit == unit || (action is UnitTargetAction && action.GetTarget().unit == unit);
     }
+
+    /// <summary>
+    /// El identificador del nivel actual
+    /// </summary>
+    public uint id;
 
     /// <summary>
     /// La cantidad de unidades de tiempo que el jugador humano debe sobrevivir
@@ -167,7 +175,10 @@ public class Level : MonoBehaviour
         {
             case State.Spawning:
                 if (!human.GetComponentInChildren<Unit>())
+                {
+                    ResultsScreen.SetLevelResult(false, id, human);
                     state = State.Completed;
+                }
                 else
                 {
                     bool generated = false;
@@ -192,8 +203,8 @@ public class Level : MonoBehaviour
                 Event timelineEvent = Timeline.Peek();
                 if (timelineEvent is VictoryEvent)
                 {
+                    ResultsScreen.SetLevelResult(true, id + 1, human);
                     state = State.Completed;
-                    victory = true;
                 }
                 else
                 {
@@ -205,7 +216,7 @@ public class Level : MonoBehaviour
             case State.Completed:
                 time += speed * Time.deltaTime;
                 if (time >= 1)
-                    SceneManager.LoadScene(victory ? "Victory" : "Defeat");
+                    SceneManager.LoadScene("Results Screen");
                 break;
         }
     }

@@ -11,7 +11,7 @@ public class Timeline
     /// <summary>
     /// Lista ordenada de eventos de la línea de tiempo
     /// </summary>
-    private static List<Event> events = new List<Event>();
+    public static List<Event> events = new List<Event>();
 
     /// <summary>
     /// Predicado que indica si un evento debe eliminarse

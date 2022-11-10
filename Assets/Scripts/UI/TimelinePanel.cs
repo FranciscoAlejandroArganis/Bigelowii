@@ -72,7 +72,7 @@ public class TimelinePanel : Panel
     /// <returns></returns>
     public Vector2 EventButtonPosition(int time)
     {
-        return new Vector2(-752 + 32 * time, -12);
+        return new Vector2(-752 + 32 * time, -6);
     }
 
     /// <summary>
