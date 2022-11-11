@@ -1,10 +1,9 @@
-using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
 /// Botón de la interfaz de usuario
 /// </summary>
-public abstract class Button : MonoBehaviour
+public abstract class Button : TooltipTrigger
 {
 
     /// <summary>

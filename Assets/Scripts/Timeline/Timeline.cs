@@ -72,7 +72,7 @@ public class Timeline
             timelineEvent.eventButton.time = timelineEvent.time + index;
             index++;
         }
-        UI.timeline.UpdateEventButtons();
+        UI.timeline.UpdatePanel();
     }
 
     /// <summary>

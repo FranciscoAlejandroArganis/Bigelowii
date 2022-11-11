@@ -19,6 +19,7 @@ public class Tetrahedron : Unit3D
 
     public override void SetCommandButton(CommandButton commandButton, uint card, int button)
     {
+        commandButton.active = false;
         switch (card)
         {
             case 0:

@@ -54,4 +54,9 @@ public abstract class Panel : MonoBehaviour
     /// </summary>
     public abstract void Hide();
 
+    /// <summary>
+    /// Actualiza el estado y contenido mostrado del panel
+    /// </summary>
+    public abstract void UpdatePanel();
+
 }

@@ -41,11 +41,7 @@ public class TimelinePanel : Panel
         }
     }
 
-    /// <summary>
-    /// Actualiza los botones que se muestran en el panel de la línea de tiempo
-    /// <para>Se manda a llamar desde <c>Timeline.Update</c> después de que se insertan o eliminan eventos</para>
-    /// </summary>
-    public void UpdateEventButtons()
+    public override void UpdatePanel()
     {
         foreach (EventButton eventButton in GetComponentsInChildren<EventButton>())
         {

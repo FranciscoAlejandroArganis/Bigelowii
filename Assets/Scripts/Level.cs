@@ -154,12 +154,17 @@ public class Level : MonoBehaviour
     /// </summary>
     public float speed;
 
+    /// <summary>
+    /// Manejador de las transiciones de escenas
+    /// </summary>
+    public Scene scene;
+
     public void Start()
     {
         instance = this;
         spawners = GetComponentsInChildren<Spawner>();
         cones = startingCones;
-        UI.resources.UpdateCones();
+        UI.resources.UpdatePanel();
         foreach (Unit unit in GetComponentsInChildren<Unit>())
         {
             Awake awake = new Awake(unit);
@@ -216,7 +221,7 @@ public class Level : MonoBehaviour
             case State.Completed:
                 time += speed * Time.deltaTime;
                 if (time >= 1)
-                    SceneManager.LoadScene("Results Screen");
+                    scene.GoToResultsScreen();
                 break;
         }
     }

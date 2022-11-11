@@ -25,6 +25,7 @@ public class Sphere : Unit3D
 
     public override void SetCommandButton(CommandButton commandButton, uint card, int button)
     {
+        commandButton.active = false;
         switch (card)
         {
             case 0:
@@ -34,12 +35,16 @@ public class Sphere : Unit3D
                         SetMoveButton(commandButton);
                         break;
                     case 4:
+                        commandButton.active = true;
+                        commandButton.sprite = UI.sprites.cones[sphere.cost - 1];
                         commandButton.image.sprite = UI.sprites.sphere;
                         commandButton.action = new Recruit(this, sphere);
                         commandButton.type = CommandButton.Type.Command;
                         commandButton.transition = 1;
                         break;
                     case 5:
+                        commandButton.active = true;
+                        commandButton.sprite = UI.sprites.cones[tetrahedron.cost - 1];
                         commandButton.image.sprite = UI.sprites.tetrahedron;
                         commandButton.action = new Recruit(this, tetrahedron);
                         commandButton.type = CommandButton.Type.Command;

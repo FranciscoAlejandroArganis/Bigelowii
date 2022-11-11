@@ -35,7 +35,7 @@ public class Awake : UntargetedAction
                         Cone cone = cones[0];
                         cones.RemoveAt(0);
                         Level.cones++;
-                        UI.resources.UpdateCones();
+                        UI.resources.UpdatePanel();
                         GameObject.Destroy(cone.gameObject);
                         break;
                     }

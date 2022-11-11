@@ -62,7 +62,12 @@ public class ResultsScreen : MonoBehaviour
     /// <summary>
     /// Botón de continuar
     /// </summary>
-    public ContinueButton continueButton;
+    public UnityEngine.UI.Button continueButton;
+
+    /// <summary>
+    /// Manejador de las transiciones de escenas
+    /// </summary>
+    public Scene scene;
 
     public void Start()
     {
@@ -73,7 +78,15 @@ public class ResultsScreen : MonoBehaviour
         if (nextLevel == 0)
             continueButton.gameObject.SetActive(false);
         else
-            continueButton.image.sprite = victory ? UI.sprites.empty : UI.sprites.empty;
+            continueButton.image.sprite = victory ? UI.sprites.next : UI.sprites.retry;
+    }
+
+    /// <summary>
+    /// Hace que el juego continue al siguiente nivel
+    /// </summary>
+    public void Continue()
+    {
+        scene.GoToLevel(nextLevel);
     }
 
     /// <summary>

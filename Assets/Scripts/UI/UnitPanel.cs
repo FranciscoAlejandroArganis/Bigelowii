@@ -43,6 +43,7 @@ public class UnitPanel : Panel
             index++;
         }
         panel.SetActive(false);
+        state = State.Hidden;
     }
 
     public void Update()
@@ -78,10 +79,7 @@ public class UnitPanel : Panel
         }
     }
 
-    /// <summary>
-    /// Actualiza el panel con toda la información de la unidad actual
-    /// </summary>
-    public void UpdatePanel()
+    public override void UpdatePanel()
     {
         animator.SetBool("Active", unit == Turn.activeUnit);
         image.sprite = unit.GetUnitSprite();
@@ -114,6 +112,7 @@ public class UnitPanel : Panel
             commandButton.button.interactable = Turn.activeUnit == unit && commandButton.type != CommandButton.Type.Empty;
             button++;
         }
+        UI.tooltip.UpdatePanel();
     }
 
 }

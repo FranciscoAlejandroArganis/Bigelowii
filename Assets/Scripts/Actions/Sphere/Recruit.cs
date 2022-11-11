@@ -52,7 +52,7 @@ public class Recruit : CellTargetAction
             case State.Start:
                 state = State.End;
                 Level.cones -= template.cost;
-                UI.resources.UpdateCones();
+                UI.resources.UpdatePanel();
                 Level.NewUnit(template, unit.player, targetCell);
                 Timeline.Update();
                 break;

@@ -27,6 +27,16 @@ public class SpriteSet : MonoBehaviour
     public Sprite cancel;
 
     /// <summary>
+    /// Botón de avanzar al siguiente nivel
+    /// </summary>
+    public Sprite next;
+
+    /// <summary>
+    /// Botón de reintentar el último nivel
+    /// </summary>
+    public Sprite retry;
+
+    /// <summary>
     /// Botón de atacar
     /// </summary>
     public Sprite attack;
@@ -50,5 +60,10 @@ public class SpriteSet : MonoBehaviour
     /// Ícono del triángulo
     /// </summary>
     public Sprite triangle;
+
+    /// <summary>
+    /// Arreglo con los íconos de costos en conos
+    /// </summary>
+    public Sprite[] cones;
 
 }

@@ -28,6 +28,11 @@ public class UI : MonoBehaviour
     public static ResourcesPanel resources;
 
     /// <summary>
+    /// Panel del tooltip
+    /// </summary>
+    public static TooltipPanel tooltip;
+
+    /// <summary>
     /// Conjunto de sprites
     /// </summary>
     public static SpriteSet sprites;
@@ -49,10 +54,11 @@ public class UI : MonoBehaviour
     /// <summary>
     /// Regresa un nuevo ícono de cono
     /// </summary>
+    /// <param name="transform">La transformación del objeto padre del nuevo ícono de cono</param>
     /// <returns>Un nuevo ícono de cono</returns>
-    public static Image NewConeIcon()
+    public static Image NewConeIcon(Transform transform)
     {
-        return Instantiate(instance.coneIcon, resources.content.transform);
+        return Instantiate(instance.coneIcon, transform);
     }
 
     /// <summary>
@@ -73,6 +79,7 @@ public class UI : MonoBehaviour
         primaryUnit = units[0];
         secondaryUnit = units[1];
         resources = GetComponentInChildren<ResourcesPanel>();
+        tooltip = GetComponentInChildren<TooltipPanel>();
         sprites = GetComponent<SpriteSet>();
     }
 

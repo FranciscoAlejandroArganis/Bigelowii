@@ -17,10 +17,7 @@ public class ResourcesPanel : Panel
     /// </summary>
     private int cones;
 
-    /// <summary>
-    /// Actualiza la cantidad de conos que se muestran en el panel para que coincidan con los conos que tiene actualmente el jugador
-    /// </summary>
-    public void UpdateCones()
+    public override void UpdatePanel()
     {
         int difference = cones - Level.cones;
         if (difference < 0)
@@ -28,7 +25,7 @@ public class ResourcesPanel : Panel
             // Se muestran menos conos que los que tiene el jugador
             while (true)
             {
-                UI.NewConeIcon();
+                UI.NewConeIcon(content.transform);
                 difference++;
                 if (difference == 0)
                     break;
