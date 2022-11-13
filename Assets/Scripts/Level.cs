@@ -44,6 +44,11 @@ public class Level : MonoBehaviour
     public static int currentTime;
 
     /// <summary>
+    /// Arreglo con los jugadores del nivel
+    /// </summary>
+    public static Player[] players;
+
+    /// <summary>
     /// Arreglo con los generadores de unidades del nivel
     /// </summary>
     private static Spawner[] spawners;
@@ -51,12 +56,23 @@ public class Level : MonoBehaviour
     /// <summary>
     /// La unidad que se elimina del nivel
     /// </summary>
-    private static Unit unit;
+    private static Unit unitToKill;
 
     /// <summary>
     /// Ejemplar único de <c>Level</c>
     /// </summary>
     private static Level instance;
+
+    /// <summary>
+    /// Regresa la máscara de tecnología que determina las acciones que puede realizar la unidad
+    /// <para>Cada unidad reestablece <c>actionsTaken</c> a este valor cuando termina su turno</para>
+    /// </summary>
+    /// <param name="unit">La máscara de tecnología de la unidad</param>
+    /// <returns></returns>
+    public static int TechnologyMask(Unit unit)
+    {
+        return unit is Sphere ? instance.unitsAvailable : 0;
+    }
 
     /// <summary>
     /// Aumenta el tiempo transcurrido en la cantidad especificada
@@ -99,14 +115,18 @@ public class Level : MonoBehaviour
         if (player)
             player.AddToDictionary(unit, player.unitsLost);
         // Eliminación de la unidad
-        Level.unit = unit;
+        Level.unitToKill = unit;
         Timeline.RemoveEvents(InvolvesUnit);
-        Level.unit = null;
+        Level.unitToKill = null;
         unit.cell.unit = null;
-        if (unit.animator)
-            unit.animator.SetTrigger("Death");
+        Animator animator = unit.animator;
+        if (animator)
+        {
+            Destroy(unit);
+            animator.SetTrigger("Death");
+        }
         else
-            unit.Destroy();
+            Destroy(unit.gameObject);
     }
 
     /// <summary>
@@ -119,7 +139,7 @@ public class Level : MonoBehaviour
         if (timelineEvent is VictoryEvent)
             return false;
         Action action = timelineEvent.action;
-        return action.unit == unit || (action is UnitTargetAction && action.GetTarget().unit == unit);
+        return action.unit == unitToKill || (action is UnitTargetAction && action.GetTarget().unit == unitToKill);
     }
 
     /// <summary>
@@ -131,6 +151,11 @@ public class Level : MonoBehaviour
     /// La cantidad de unidades de tiempo que el jugador humano debe sobrevivir
     /// </summary>
     public int timeLimit;
+
+    /// <summary>
+    /// La máscara de tecnología que determina las unidades que puede reclutar una esfera del jugador humano
+    /// </summary>
+    public int unitsAvailable;
 
     /// <summary>
     /// El jugador humano
@@ -162,6 +187,7 @@ public class Level : MonoBehaviour
     public void Start()
     {
         instance = this;
+        players = GetComponentsInChildren<Player>();
         spawners = GetComponentsInChildren<Spawner>();
         cones = startingCones;
         UI.resources.UpdatePanel();

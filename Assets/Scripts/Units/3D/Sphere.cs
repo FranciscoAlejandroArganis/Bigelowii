@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -61,6 +60,20 @@ public class Sphere : Unit3D
             case 1:
                 switch (button)
                 {
+                    case 15:
+                        SetCancelButton(commandButton);
+                        break;
+                    default:
+                        SetEmptyButton(commandButton);
+                        break;
+                }
+                break;
+            case 2:
+                switch (button)
+                {
+                    case 14:
+                        SetConfirmButton(commandButton);
+                        break;
                     case 15:
                         SetCancelButton(commandButton);
                         break;

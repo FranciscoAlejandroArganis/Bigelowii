@@ -53,6 +53,20 @@ public class Tetrahedron : Unit3D
                         break;
                 }
                 break;
+            case 2:
+                switch (button)
+                {
+                    case 14:
+                        SetConfirmButton(commandButton);
+                        break;
+                    case 15:
+                        SetCancelButton(commandButton);
+                        break;
+                    default:
+                        SetEmptyButton(commandButton);
+                        break;
+                }
+                break;
         }
     }
 

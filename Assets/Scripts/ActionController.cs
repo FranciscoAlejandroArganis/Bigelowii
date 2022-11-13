@@ -118,6 +118,14 @@ public class ActionController : MonoBehaviour
     }
 
     /// <summary>
+    /// Se manda a llamar cuando la animación de muerte de la unidad está en el último cuadro
+    /// </summary>
+    public void Destroy()
+    {
+        Destroy(gameObject);
+    }
+
+    /// <summary>
     /// Se manda a llamar cuando la unidad tiene la orientación correcta para inciar el efecto de la acción
     /// </summary>
     private void EnterActionState()

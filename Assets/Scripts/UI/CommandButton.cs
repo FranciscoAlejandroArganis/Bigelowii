@@ -16,6 +16,7 @@ public class CommandButton : Button
     {
         Empty,
         Command,
+        Confirm,
         Cancel
     }
 
@@ -43,7 +44,9 @@ public class CommandButton : Button
     {
         if (Level.state == Level.State.Human)
         {
-            if (type == Type.Cancel)
+            if (type == Type.Confirm)
+                Turn.SelectTarget(Turn.activeUnit.cell);
+            else if (type == Type.Cancel)
                 Turn.CancelAction();
             else if (Turn.SelectAction(action, index))
                 UI.primaryUnit.SetCommandCard(transition);

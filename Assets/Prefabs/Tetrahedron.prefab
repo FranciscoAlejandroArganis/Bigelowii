@@ -210,8 +210,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
-  movementSpeed: 4
-  rotationSpeed: 512
+  movementSpeed: 8
+  rotationSpeed: 1024
 --- !u!114 &882094552407699746
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -22,6 +22,11 @@ public class SpriteSet : MonoBehaviour
     public Sprite endTurn;
 
     /// <summary>
+    /// Botón de confirmar
+    /// </summary>
+    public Sprite confirm;
+
+    /// <summary>
     /// Botón de cancelar
     /// </summary>
     public Sprite cancel;
@@ -60,6 +65,11 @@ public class SpriteSet : MonoBehaviour
     /// Ícono del triángulo
     /// </summary>
     public Sprite triangle;
+
+    /// <summary>
+    /// Ícono del rectángulo
+    /// </summary>
+    public Sprite rectangle;
 
     /// <summary>
     /// Arreglo con los íconos de costos en conos

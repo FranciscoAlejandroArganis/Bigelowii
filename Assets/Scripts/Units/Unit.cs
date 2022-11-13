@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 /// <summary>
@@ -79,6 +78,7 @@ public abstract class Unit : MonoBehaviour
         movementController = GetComponent<MovementController>();
         actionController = GetComponent<ActionController>();
         animator = GetComponent<Animator>();
+        actionsTaken = Level.TechnologyMask(this);
         cell = Cell.Below(transform.position);
         if (cell)
             cell.unit = this;
@@ -129,15 +129,8 @@ public abstract class Unit : MonoBehaviour
     /// </summary>
     public void AnimationEvent()
     {
-        actionController.action.Execute();
-    }
-
-    /// <summary>
-    /// Se manda a llamar cuando la animación de muerte de la unidad está en el último cuadro
-    /// </summary>
-    public void Destroy()
-    {
-        Destroy(gameObject);
+        if (actionController.action != null)
+            actionController.action.Execute();
     }
 
     /// <summary>
@@ -173,7 +166,7 @@ public abstract class Unit : MonoBehaviour
         commandButton.image.sprite = UI.sprites.endTurn;
         commandButton.action = new Sleep(this);
         commandButton.type = CommandButton.Type.Command;
-        commandButton.transition = 1;
+        commandButton.transition = 2;
     }
 
     /// <summary>
@@ -185,6 +178,18 @@ public abstract class Unit : MonoBehaviour
         commandButton.image.sprite = UI.sprites.cancel;
         commandButton.action = null;
         commandButton.type = CommandButton.Type.Cancel;
+        commandButton.transition = 0;
+    }
+
+    /// <summary>
+    /// Asigna las propiedades de un botón de confirmar
+    /// </summary>
+    /// <param name="commandButton">El botón al que se le asignan las propiedades</param>
+    protected void SetConfirmButton(CommandButton commandButton)
+    {
+        commandButton.image.sprite = UI.sprites.confirm;
+        commandButton.action = null;
+        commandButton.type = CommandButton.Type.Confirm;
         commandButton.transition = 0;
     }
 

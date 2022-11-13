@@ -80,7 +80,6 @@ public class UI : MonoBehaviour
         secondaryUnit = units[1];
         resources = GetComponentInChildren<ResourcesPanel>();
         tooltip = GetComponentInChildren<TooltipPanel>();
-        sprites = GetComponent<SpriteSet>();
     }
 
 }

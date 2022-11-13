@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3259804019963128713}
+  - component: {fileID: 1143252772397755387}
   - component: {fileID: 3259804019963128714}
   - component: {fileID: 3259804019963128715}
   m_Layer: 0
@@ -32,6 +33,18 @@ Transform:
   m_Father: {fileID: 3259804021397874656}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1143252772397755387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3259804019963128716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 922b5661ad6871b418fab2f51dfc17f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!198 &3259804019963128714
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -4941,8 +4954,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 396e09220e3eed145bc1970ceada81b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 68
-  maxHealth: 68
+  health: 48
+  maxHealth: 48
   delay: 3
   initialDelay: 0
   movement: 5
@@ -4953,7 +4966,7 @@ MonoBehaviour:
   movementController: {fileID: 0}
   actionController: {fileID: 0}
   animator: {fileID: 0}
-  spray: {fileID: 3259804019963128714}
+  spray: {fileID: 1143252772397755387}
 --- !u!114 &3259804021397874686
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4967,8 +4980,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
-  movementSpeed: 4
-  rotationSpeed: 512
+  movementSpeed: 8
+  rotationSpeed: 1024
 --- !u!114 &3259804021397874687
 MonoBehaviour:
   m_ObjectHideFlags: 0

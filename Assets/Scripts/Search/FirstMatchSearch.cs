@@ -33,12 +33,14 @@ public class FirstMatchSearch : BreadthFirstSearch
             firstMatch = startingCell;
             results.Add(startingCell);
         }
-        else base.FindCells(startingCell);
+        else
+            base.FindCells(startingCell);
     }
 
     protected override bool Edge(Cell currentCell, Cell nextCell)
     {
-        if (firstMatch) return false;
+        if (firstMatch)
+            return false;
         if (nextCell.IsFree())
         {
             nextCell.distance = currentCell.distance + 1;

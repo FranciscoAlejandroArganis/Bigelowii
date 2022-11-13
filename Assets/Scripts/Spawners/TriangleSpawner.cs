@@ -12,7 +12,7 @@ public class TriangleSpawner : Spawner
     public uint minimum;
 
     /// <summary>
-    /// La plantilla que se usa para generar nuevos triángulos
+    /// Plantilla que se usa para generar nuevos triángulos
     /// </summary>
     public Triangle triangle;
 

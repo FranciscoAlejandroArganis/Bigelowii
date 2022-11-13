@@ -54,9 +54,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb82f41c02d2a0b4fb14d02d40bd601a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 255
-  maxHealth: 255
-  delay: 8
+  health: 79
+  maxHealth: 79
+  delay: 11
   initialDelay: 0
   movement: 6
   cost: 4
@@ -81,8 +81,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
-  movementSpeed: 4
-  rotationSpeed: 512
+  movementSpeed: 8
+  rotationSpeed: 1024
 --- !u!114 &1293975349147798236
 MonoBehaviour:
   m_ObjectHideFlags: 0

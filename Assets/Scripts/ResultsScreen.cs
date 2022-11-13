@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// Componente que configura la pantalla con los resultados del nivel
+/// Componente encargado de la pantalla con los resultados del nivel
 /// </summary>
 public class ResultsScreen : MonoBehaviour
 {

@@ -53,7 +53,6 @@ public class UnitPanel : Panel
             time += speed * Time.deltaTime;
             if (time >= 1)
             {
-                unit = null;
                 panel.SetActive(false);
                 state = State.Hidden;
             }

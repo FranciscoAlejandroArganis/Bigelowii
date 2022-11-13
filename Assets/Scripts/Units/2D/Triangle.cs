@@ -10,7 +10,7 @@ public class Triangle : Unit2D
     /// <summary>
     /// Sistema de partículas usado durante la acción <c>PlasmaSpray</c>
     /// </summary>
-    public ParticleSystem spray;
+    public Particle spray;
 
     public override void Start()
     {
@@ -59,12 +59,21 @@ public class Triangle : Unit2D
                         break;
                 }
                 break;
+            case 2:
+                switch (button)
+                {
+                    case 14:
+                        SetConfirmButton(commandButton);
+                        break;
+                    case 15:
+                        SetCancelButton(commandButton);
+                        break;
+                    default:
+                        SetEmptyButton(commandButton);
+                        break;
+                }
+                break;
         }
-    }
-
-    public void OnParticleSystemStopped()
-    {
-        actionController.action.Execute();
     }
 
 }
