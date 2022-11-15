@@ -1684,53 +1684,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4341570836462712185, guid: 2034d2d26fc11354496d5ff56461de32, type: 3}
   m_PrefabInstance: {fileID: 108291816}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &116193025
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 116193027}
-  - component: {fileID: 116193026}
-  m_Layer: 0
-  m_Name: Scene
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &116193026
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 116193025}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fdfeb85e72e5e1244bf2972cd9f72139, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  level: 0
-  turn: 0
-  active: {fileID: 0}
-  selected: {fileID: 0}
---- !u!4 &116193027
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 116193025}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &119267660
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4931,10 +4884,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 2
   timeLimit: 73
+  unitsAvailable: 4032
   human: {fileID: 1886585411}
   startingCones: 4
   speed: 1
-  scene: {fileID: 116193026}
 --- !u!4 &346883315
 Transform:
   m_ObjectHideFlags: 0
@@ -9079,6 +9032,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1886585410}
     m_Modifications:
+    - target: {fileID: 1293975349147798234, guid: 9aaf09b20ed69024e923f0a6c6bc5513, type: 3}
+      propertyPath: actionsTaken
+      value: 4032
+      objectReference: {fileID: 0}
     - target: {fileID: 1293975349147798238, guid: 9aaf09b20ed69024e923f0a6c6bc5513, type: 3}
       propertyPath: m_Name
       value: Sphere
@@ -17405,7 +17362,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 116193026}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Scene, Assembly-CSharp
         m_MethodName: GoToMainMenu
         m_Mode: 1

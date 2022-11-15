@@ -78,7 +78,6 @@ public abstract class Unit : MonoBehaviour
         movementController = GetComponent<MovementController>();
         actionController = GetComponent<ActionController>();
         animator = GetComponent<Animator>();
-        actionsTaken = Level.TechnologyMask(this);
         cell = Cell.Below(transform.position);
         if (cell)
             cell.unit = this;

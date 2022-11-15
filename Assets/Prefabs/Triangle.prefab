@@ -1489,7 +1489,7 @@ ParticleSystem:
     tilesY: 1
     animationType: 0
     rowIndex: 0
-    cycles: 256
+    cycles: 4096
     uvChannelMask: -1
     rowMode: 1
     sprites:

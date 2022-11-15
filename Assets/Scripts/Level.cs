@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Componente encargado de manejar el progreso del nivel
@@ -32,6 +31,11 @@ public class Level : MonoBehaviour
     /// Estado actual del nivel
     /// </summary>
     public static State state;
+
+    /// <summary>
+    /// Identificador del último nivel
+    /// </summary>
+    public static uint lastLevel;
 
     /// <summary>
     /// Cantidad de conos que tiene actualmente el jugador humano
@@ -96,6 +100,7 @@ public class Level : MonoBehaviour
         unit = Instantiate(unit, cell.UnitPosition(unit), Quaternion.identity, player.transform);
         unit.player = player;
         cell.unit = unit;
+        unit.actionsTaken = TechnologyMask(unit);
         Awake awake = new Awake(unit);
         Timeline.EnqueueLast(new Event(awake, unit.delay));
         return unit;
@@ -115,9 +120,9 @@ public class Level : MonoBehaviour
         if (player)
             player.AddToDictionary(unit, player.unitsLost);
         // Eliminación de la unidad
-        Level.unitToKill = unit;
+        unitToKill = unit;
         Timeline.RemoveEvents(InvolvesUnit);
-        Level.unitToKill = null;
+        unitToKill = null;
         unit.cell.unit = null;
         Animator animator = unit.animator;
         if (animator)
@@ -178,11 +183,6 @@ public class Level : MonoBehaviour
     /// <para>Determina qué tan rápido se completa el cambio</para>
     /// </summary>
     public float speed;
-
-    /// <summary>
-    /// Manejador de las transiciones de escenas
-    /// </summary>
-    public Scene scene;
 
     public void Start()
     {
@@ -247,7 +247,7 @@ public class Level : MonoBehaviour
             case State.Completed:
                 time += speed * Time.deltaTime;
                 if (time >= 1)
-                    scene.GoToResultsScreen();
+                    Scene.GoToResultsScreen();
                 break;
         }
     }

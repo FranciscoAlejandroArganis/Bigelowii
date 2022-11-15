@@ -35,7 +35,7 @@ public class UI : MonoBehaviour
     /// <summary>
     /// Conjunto de sprites
     /// </summary>
-    public static SpriteSet sprites;
+    public static SpritesSet sprites;
 
     /// <summary>
     /// Ejemplar único de <c>UI</c>

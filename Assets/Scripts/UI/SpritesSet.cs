@@ -3,7 +3,7 @@ using UnityEngine;
 /// <summary>
 /// Conjunto de sprites usados en la interfaz de usuario
 /// </summary>
-public class SpriteSet : MonoBehaviour
+public class SpritesSet : MonoBehaviour
 {
 
     /// <summary>
@@ -62,6 +62,11 @@ public class SpriteSet : MonoBehaviour
     public Sprite tetrahedron;
 
     /// <summary>
+    /// Ícono del octaedro
+    /// </summary>
+    public Sprite octahedron;
+
+    /// <summary>
     /// Ícono del triángulo
     /// </summary>
     public Sprite triangle;
@@ -70,6 +75,11 @@ public class SpriteSet : MonoBehaviour
     /// Ícono del rectángulo
     /// </summary>
     public Sprite rectangle;
+
+    /// <summary>
+    /// Ícono de la acción <c>Restoration</c>
+    /// </summary>
+    public Sprite restoration;
 
     /// <summary>
     /// Arreglo con los íconos de costos en conos

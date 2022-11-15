@@ -50,6 +50,8 @@ public class CommandButton : Button
                 Turn.CancelAction();
             else if (Turn.SelectAction(action, index))
                 UI.primaryUnit.SetCommandCard(transition);
+            else
+                Audio.PlayClip(Audio.sounds.invalid);
         }
     }
 

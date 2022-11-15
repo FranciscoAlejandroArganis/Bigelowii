@@ -10,12 +10,17 @@ public class Sphere : Unit3D
     /// <summary>
     /// Unidad plantilla usada para reclutar nuevas esferas
     /// </summary>
-    public Unit sphere;
+    public Sphere sphere;
 
     /// <summary>
     /// Unidad plantilla usada para reclutar nuevos tetraedros
     /// </summary>
-    public Unit tetrahedron;
+    public Tetrahedron tetrahedron;
+
+    /// <summary>
+    /// Unidad plantilla usada para reclutar nuevos octaedros
+    /// </summary>
+    public Octahedron octahedron;
 
     public override Sprite GetUnitSprite()
     {
@@ -46,6 +51,14 @@ public class Sphere : Unit3D
                         commandButton.sprite = UI.sprites.cones[tetrahedron.cost - 1];
                         commandButton.image.sprite = UI.sprites.tetrahedron;
                         commandButton.action = new Recruit(this, tetrahedron);
+                        commandButton.type = CommandButton.Type.Command;
+                        commandButton.transition = 1;
+                        break;
+                    case 6:
+                        commandButton.active = true;
+                        commandButton.sprite = UI.sprites.cones[octahedron.cost - 1];
+                        commandButton.image.sprite = UI.sprites.octahedron;
+                        commandButton.action = new Recruit(this, octahedron);
                         commandButton.type = CommandButton.Type.Command;
                         commandButton.transition = 1;
                         break;

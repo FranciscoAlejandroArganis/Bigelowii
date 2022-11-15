@@ -46,7 +46,7 @@ public class DarkMirage : EnemyTargetAction
     public DarkMirage(Rectangle rectangle, Particle mirage) : base(rectangle)
     {
         search = new NeighbourhoodSearch();
-        damage = new Damage(49);
+        damage = new Damage(47);
         this.mirage = mirage;
     }
 

@@ -64,18 +64,13 @@ public class ResultsScreen : MonoBehaviour
     /// </summary>
     public UnityEngine.UI.Button continueButton;
 
-    /// <summary>
-    /// Manejador de las transiciones de escenas
-    /// </summary>
-    public Scene scene;
-
     public void Start()
     {
         DisplayDictionaryUnits(unitsKilled, unitsKilledContent);
         DisplayDictionaryUnits(unitsLost, unitsLostContent);
         unitsKilled = null;
         unitsLost = null;
-        if (nextLevel == 0)
+        if (nextLevel > Level.lastLevel)
             continueButton.gameObject.SetActive(false);
         else
             continueButton.image.sprite = victory ? UI.sprites.next : UI.sprites.retry;
@@ -86,7 +81,7 @@ public class ResultsScreen : MonoBehaviour
     /// </summary>
     public void Continue()
     {
-        scene.GoToLevel(nextLevel);
+        Scene.GoToLevel(nextLevel);
     }
 
     /// <summary>
@@ -101,7 +96,7 @@ public class ResultsScreen : MonoBehaviour
             uint index = 1;
             while (index <= pair.Value)
             {
-                Image image = Instantiate(this.unitIcon, content.transform);
+                Image image = Instantiate(unitIcon, content.transform);
                 image.sprite = pair.Key;
                 index++;
             }
