@@ -7,6 +7,8 @@ using UnityEngine;
 public class LevelSelection : MonoBehaviour
 {
 
+    public static uint unlocked = 5;
+
     /// <summary>
     /// Arreglo con los sprites de las vistas previas de los niveles
     /// </summary>
@@ -16,6 +18,16 @@ public class LevelSelection : MonoBehaviour
     /// Imagen que muestra la vistra previa de un nivel
     /// </summary>
     public Image currentPreview;
+
+    /// <summary>
+    /// Máscara que de la vista previa que indica que el nivel está bloqueado
+    /// </summary>
+    public GameObject locked;
+
+    /// <summary>
+    /// Control deslizante que permite cambiar de nivel rápidamente
+    /// </summary>
+    public Slider slider;
 
     /// <summary>
     /// Botón de retroceder un nivel
@@ -28,9 +40,9 @@ public class LevelSelection : MonoBehaviour
     public UnityEngine.UI.Button next;
 
     /// <summary>
-    /// Identificador del último nivel
+    /// Botón de seleccionar el nivel actual
     /// </summary>
-    public uint lastLevel;
+    public UnityEngine.UI.Button select;
 
     /// <summary>
     /// Identificador del nivel del cual se muestra actualmente la vista previa
@@ -39,8 +51,7 @@ public class LevelSelection : MonoBehaviour
 
     public void Start()
     {
-        Level.lastLevel = lastLevel;
-        currentLevel = 1;
+        Level.lastLevel = (uint)slider.maxValue;
         Refresh();
     }
 
@@ -49,11 +60,8 @@ public class LevelSelection : MonoBehaviour
     /// </summary>
     public void OnNext()
     {
-        if (currentLevel != lastLevel)
-        {
-            currentLevel++;
-            Refresh();
-        }
+        if (currentLevel < Level.lastLevel)
+            slider.value = currentLevel + 1;
     }
 
     /// <summary>
@@ -61,11 +69,8 @@ public class LevelSelection : MonoBehaviour
     /// </summary>
     public void OnPrevious()
     {
-        if (currentLevel != 1)
-        {
-            currentLevel--;
-            Refresh();
-        }
+        if (currentLevel > 1)
+            slider.value = currentLevel - 1;
     }
 
     /// <summary>
@@ -73,17 +78,29 @@ public class LevelSelection : MonoBehaviour
     /// </summary>
     public void OnSelect()
     {
-        Scene.GoToLevel(currentLevel);
+        if (currentLevel <= unlocked)
+            Scene.GoToLevel(currentLevel);
     }
 
     /// <summary>
     /// Actualiza la vista previa del nivel actual
     /// </summary>
-    private void Refresh()
+    public void Refresh()
     {
+        currentLevel = (uint)slider.value;
         previous.interactable = currentLevel > 1;
-        next.interactable = currentLevel < lastLevel;
+        next.interactable = currentLevel < Level.lastLevel;
         currentPreview.sprite = previews[currentLevel - 1];
+        if (currentLevel <= unlocked)
+        {
+            select.interactable = true;
+            locked.SetActive(false);
+        }
+        else
+        {
+            select.interactable = false;
+            locked.SetActive(true);
+        }
     }
 
 }

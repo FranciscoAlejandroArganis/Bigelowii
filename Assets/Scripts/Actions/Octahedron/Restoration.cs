@@ -19,6 +19,7 @@ public class Restoration : FriendlyTargetAction
     {
         search = new EuclideanDistanceSearch(3);
         heal = new Heal(50);
+        heal.BehaviorModifiers(octahedron);
     }
 
     public override void Execute()

@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cell: {fileID: 0}
+  unit: {fileID: 3259804021397874685, guid: 12f75b8ce06a8dd44b069c111cb60000, type: 3}
   player: {fileID: 0}
   cooldown: 0
   time: 0

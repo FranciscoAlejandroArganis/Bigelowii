@@ -22619,6 +22619,10 @@ PrefabInstance:
       value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 7709276453132854357, guid: f06cad8f320ced841b160b8e959aa124, type: 3}
+      propertyPath: threshold
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7709276453132854357, guid: f06cad8f320ced841b160b8e959aa124, type: 3}
       propertyPath: targetPlayer
       value: 
       objectReference: {fileID: 1886585411}

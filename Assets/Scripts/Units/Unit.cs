@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -58,6 +59,11 @@ public abstract class Unit : MonoBehaviour
     public Agent agent;
 
     /// <summary>
+    /// Lista con los comportamientos de la unidad
+    /// </summary>
+    public List<Behavior> behaviors;
+
+    /// <summary>
     /// Controlador del movimiento de la unidad
     /// </summary>
     public MovementController movementController;
@@ -74,6 +80,7 @@ public abstract class Unit : MonoBehaviour
 
     public virtual void Start()
     {
+        behaviors = new List<Behavior>();
         player = GetComponentInParent<Player>();
         movementController = GetComponent<MovementController>();
         actionController = GetComponent<ActionController>();

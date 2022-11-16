@@ -22,6 +22,13 @@ public class Sphere : Unit3D
     /// </summary>
     public Octahedron octahedron;
 
+    public override void Start()
+    {
+        base.Start();
+        GameObject prefab = (GameObject)Resources.Load("Sphere");
+        sphere = prefab.GetComponent<Sphere>();
+    }
+
     public override Sprite GetUnitSprite()
     {
         return UI.sprites.sphere;

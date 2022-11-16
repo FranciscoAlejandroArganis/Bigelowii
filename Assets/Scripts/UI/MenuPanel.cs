@@ -1,5 +1,4 @@
 using System;
-using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Panel que muestra el botón para regresar al menú principal

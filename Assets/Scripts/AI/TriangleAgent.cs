@@ -11,37 +11,16 @@ public class TriangleAgent : HunterAgent
     /// <param name="triangle">El triángulo que controlará el agente</param>
     public TriangleAgent(Triangle triangle) : base(triangle) { }
 
-    /// <summary>
-    /// Busca un destino y asigna <c>destination</c> a esa celda
-    /// <para><c>destination</c> es <c>null</c> si no se encunentra una celda destino para el turno actual</para>
-    /// </summary>
-    protected override void SearchDestination()
+    protected override void SearchNewPrey()
     {
-        FirstMatchSearch search;
-        if (prey)
+        FirstMatchSearch search = new FirstMatchSearch(AdjacentToEnemyUnit);
+        search.FindCells(unit.cell);
+        if (search.firstMatch)
         {
-            search = new FirstMatchSearch(AdjacentToPrey);
-            search.FindCells(unit.cell);
-            if (search.firstMatch)
-            {
-                destination = search.firstMatch;
-                BestDestination();
-            }
-            else
-                prey = null;
-            ClearCells(search);
+            destination = search.firstMatch;
+            BestDestination();
         }
-        if (!destination)
-        {
-            search = new FirstMatchSearch(AdjacentToEnemyUnit);
-            search.FindCells(unit.cell);
-            if (search.firstMatch)
-            {
-                destination = search.firstMatch;
-                BestDestination();
-            }
-            ClearCells(search);
-        }
+        ClearCells(search);
     }
 
     /// <summary>
@@ -56,7 +35,7 @@ public class TriangleAgent : HunterAgent
         {
             if (neighbor && neighbor.unit && neighbor.unit.IsHostile(unit))
             {
-                prey = neighbor.unit;
+                targetUnit = neighbor.unit;
                 return true;
             }
         }

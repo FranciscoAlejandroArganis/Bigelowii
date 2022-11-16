@@ -8,47 +8,31 @@ public class RectangleAgent : HunterAgent
     /// <summary>
     /// Construye un nuevo agente de un rectángulo
     /// </summary>
-    /// <param name="rectangle"></param>
+    /// <param name="rectangle">El rectángulo que contralará el agente</param>
     public RectangleAgent(Rectangle rectangle) : base(rectangle) { }
 
-    protected override void SearchDestination()
+    protected override void SearchNewPrey()
     {
-        if (prey)
+        MinimumSearch search = new MinimumSearch(AdjacentEnemyUnitHealth);
+        search.FindCells(unit.cell);
+        if (search.value < uint.MaxValue)
         {
-            FirstMatchSearch firstMatchSearch = new FirstMatchSearch(AdjacentToPrey);
-            firstMatchSearch.FindCells(unit.cell);
-            if (firstMatchSearch.firstMatch)
+            destination = search.minimum;
+            foreach (Cell neighbor in destination.neighbors)
             {
-                destination = firstMatchSearch.firstMatch;
-                BestDestination();
-            }
-            else
-                prey = null;
-            ClearCells(firstMatchSearch);
-        }
-        if (!destination)
-        {
-            MinimumSearch minimumSearch = new MinimumSearch(AdjacentEnemyUnitHealth);
-            minimumSearch.FindCells(unit.cell);
-            if (minimumSearch.value < uint.MaxValue)
-            {
-                destination = minimumSearch.minimum;
-                foreach (Cell neighbor in destination.neighbors)
+                if (neighbor)
                 {
-                    if (neighbor)
+                    Unit unit = neighbor.unit;
+                    if (unit && unit.IsHostile(this.unit) && unit.health == search.value)
                     {
-                        Unit unit = neighbor.unit;
-                        if (unit && unit.IsHostile(this.unit) && unit.health == minimumSearch.value)
-                        {
-                            prey = unit;
-                            break;
-                        }
+                        targetUnit = unit;
+                        break;
                     }
                 }
-                BestDestination();
             }
-            ClearCells(minimumSearch);
+            BestDestination();
         }
+        ClearCells(search);
     }
 
     /// <summary>

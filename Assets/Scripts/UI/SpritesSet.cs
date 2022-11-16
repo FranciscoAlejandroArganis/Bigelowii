@@ -77,6 +77,11 @@ public class SpritesSet : MonoBehaviour
     public Sprite rectangle;
 
     /// <summary>
+    /// Ícono del rombo
+    /// </summary>
+    public Sprite rhombus;
+
+    /// <summary>
     /// Ícono de la acción <c>Restoration</c>
     /// </summary>
     public Sprite restoration;

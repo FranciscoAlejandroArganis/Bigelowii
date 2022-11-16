@@ -16,7 +16,7 @@ public class Particle : MonoBehaviour
     /// </summary>
     private ParticleSystem system;
 
-    public void Start()
+    public void Awake()
     {
         unit = GetComponentInParent<Unit>();
         system = GetComponent<ParticleSystem>();

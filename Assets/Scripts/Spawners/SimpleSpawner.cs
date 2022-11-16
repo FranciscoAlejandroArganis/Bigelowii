@@ -10,11 +10,6 @@ public class SimpleSpawner : Spawner
     /// </summary>
     public uint amount;
 
-    /// <summary>
-    /// La plantilla que se usa para generar nuevas unidades
-    /// </summary>
-    public Unit unit;
-
     public override bool Spawn()
     {
         bool generated = false;

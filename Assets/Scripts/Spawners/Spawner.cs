@@ -12,6 +12,11 @@ public abstract class Spawner : MonoBehaviour
     public Cell cell;
 
     /// <summary>
+    /// Plantilla que se usa para generar nuevas unidades
+    /// </summary>
+    public Unit unit;
+
+    /// <summary>
     /// Jugador al que pertencen las unidades generadas
     /// </summary>
     public Player player;

@@ -7,7 +7,7 @@ public class Heal : Effect
     /// <summary>
     /// La cantidad de salud que se recupera
     /// </summary>
-    private uint heal;
+    public uint heal;
 
     /// <summary>
     /// Construye un nuevo efecto de recuperar salud
@@ -20,6 +20,7 @@ public class Heal : Effect
 
     public override void Apply(Unit unit)
     {
+        BehaviorModifiers(unit);
         unit.health += heal;
         if (unit.health > unit.maxHealth)
             unit.health = unit.maxHealth;

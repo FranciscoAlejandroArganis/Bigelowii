@@ -47,6 +47,7 @@ public class DarkMirage : EnemyTargetAction
     {
         search = new NeighbourhoodSearch();
         damage = new Damage(47);
+        damage.BehaviorModifiers(rectangle);
         this.mirage = mirage;
     }
 

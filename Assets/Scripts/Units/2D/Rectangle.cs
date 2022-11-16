@@ -1,5 +1,9 @@
 using UnityEngine;
 
+/// <summary>
+/// Rectángulo
+/// <para>Unidad con salud y daño moderados</para>
+/// </summary>
 public class Rectangle : Unit2D
 {
 

@@ -45,6 +45,7 @@ public class ParticleBeam : EnemyTargetAction
     {
         search = new NeighbourhoodSearch();
         damage = new Damage(35);
+        damage.BehaviorModifiers(tetrahedron);
         this.beam = beam;
     }
 

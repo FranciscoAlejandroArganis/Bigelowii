@@ -1,3 +1,4 @@
+using UnityEngine;
 /// <summary>
 /// Agente que controla una unidad
 /// </summary>
@@ -24,11 +25,6 @@ public abstract class Agent
     }
 
     /// <summary>
-    /// El agente toma su siguiente decisión
-    /// </summary>
-    public abstract void MakeDecision();
-
-    /// <summary>
     /// El agente presiona un botón en la tarjeta de comandos
     /// </summary>
     /// <param name="button">El índice del botón</param>
@@ -49,5 +45,31 @@ public abstract class Agent
         while (destination.distance > maxDistance)
             destination = destination.predecesor;
     }
+
+    /// <summary>
+    /// Limpia las propiedades de las celdas después de que se buscó un destino
+    /// </summary>
+    /// <param name="search">La búsqueda usada para buscar un destino</param>
+    protected void ClearCells(Search search)
+    {
+        foreach (Cell cell in search.results)
+        {
+            cell.visited = false;
+            cell.distance = 0;
+            cell.predecesor = null;
+        }
+        search.results.Clear();
+    }
+
+    /// <summary>
+    /// El agente toma su siguiente decisión
+    /// </summary>
+    public abstract void MakeDecision();
+
+    /// <summary>
+    /// Busca un destino y asigna <c>destination</c> a esa celda
+    /// <para><c>destination</c> es <c>null</c> si no se encuentra una celda destino para el turno actual</para>
+    /// </summary>
+    protected abstract void SearchDestination();
 
 }

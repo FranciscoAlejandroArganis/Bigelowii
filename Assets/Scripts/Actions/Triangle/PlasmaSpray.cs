@@ -48,6 +48,7 @@ public class PlasmaSpray : EnemyTargetAction
     {
         search = new NeighbourhoodSearch();
         damage = new Damage(11);
+        damage.BehaviorModifiers(triangle);
         this.spray = spray;
     }
 

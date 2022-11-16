@@ -5,9 +5,9 @@ public class Damage : Effect
 {
 
     /// <summary>
-    /// La cantidad de daño que se aplica
+    /// La cantidad de daño que se aplica, después de las modificaciones
     /// </summary>
-    private uint damage;
+    public uint damage;
 
     /// <summary>
     /// Construye un nuevo efecto de daño
@@ -20,6 +20,7 @@ public class Damage : Effect
 
     public override void Apply(Unit unit)
     {
+        BehaviorModifiers(unit);
         if (unit.health <= damage)
             unit.health = 0;
         else

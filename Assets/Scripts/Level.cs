@@ -122,8 +122,8 @@ public class Level : MonoBehaviour
         // Eliminación de la unidad
         unitToKill = unit;
         Timeline.RemoveEvents(InvolvesUnit);
-        unitToKill = null;
-        unit.cell.unit = null;
+        foreach (Behavior behavior in unit.behaviors)
+            behavior.OnRemove();
         Animator animator = unit.animator;
         if (animator)
         {
