@@ -42,7 +42,6 @@ public class MaximumSearch : BreadthFirstSearch
             nextCell.distance = currentCell.distance + 1;
             nextCell.predecesor = currentCell;
             uint nextValue = function(nextCell);
-            nextCell.value = nextValue;
             if (nextValue > value)
             {
                 maximum = nextCell;

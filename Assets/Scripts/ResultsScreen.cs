@@ -40,6 +40,8 @@ public class ResultsScreen : MonoBehaviour
     {
         ResultsScreen.victory = victory;
         ResultsScreen.nextLevel = nextLevel;
+        if (nextLevel <= Level.lastLevel && nextLevel > PlayerPrefs.GetInt("unlocked", 1))
+            PlayerPrefs.SetInt("unlocked", (int)nextLevel);
         unitsKilled = player.unitsKilled;
         unitsLost = player.unitsLost;
     }

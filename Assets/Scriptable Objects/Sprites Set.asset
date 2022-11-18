@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd6c4b9fc0255c4e9750583a7c3e3c3, type: 3}
+  m_Name: Sprites Set
+  m_EditorClassIdentifier: 
+  empty: {fileID: 21300000, guid: 5111cb11ad256464fb59372c08cabd24, type: 3}
+  move: {fileID: 21300000, guid: 40326452227f7ef42bce39b0e41bbf16, type: 3}
+  endTurn: {fileID: 21300000, guid: 7d6e8ca68ea78664a8bb92a83d574ed2, type: 3}
+  confirm: {fileID: 21300000, guid: b09b899cf555ebb4b94630c65f6475e6, type: 3}
+  cancel: {fileID: 21300000, guid: 9a11e865a38ebc6439c5a7f2e492274f, type: 3}
+  next: {fileID: 21300000, guid: 6976ff8b55116124884c5bdb56b9f66b, type: 3}
+  retry: {fileID: 21300000, guid: ccf194b7a60719744862d93c705617c0, type: 3}
+  attack: {fileID: 21300000, guid: 5922f9793bbb76a45a1432af5e64a29c, type: 3}
+  victory: {fileID: 21300000, guid: 06caa7860044b0e4e9eab79e4ea83560, type: 3}
+  sphere: {fileID: 21300000, guid: ee12e6b423e5b1c48b216621cd5159f5, type: 3}
+  tetrahedron: {fileID: 21300000, guid: 13112a5377266b843b993b54b4cedc9a, type: 3}
+  octahedron: {fileID: 21300000, guid: c37a3c523549e0e4cbab42b85d4bab15, type: 3}
+  triangle: {fileID: 21300000, guid: 148414516faccfb4593f0cad98f148e8, type: 3}
+  rectangle: {fileID: 21300000, guid: 2c640c270b36e444dba0e5466c9c7abe, type: 3}
+  rhombus: {fileID: 21300000, guid: fc4f1f6179d4f7e46a98ac7379d53320, type: 3}
+  restoration: {fileID: 21300000, guid: 657b477a74513d84c878a6558ef9e467, type: 3}
+  cones:
+  - {fileID: 21300000, guid: 60004aaa146831747a377637bb19a411, type: 3}
+  - {fileID: 21300000, guid: b33fa3c17c6d2264eb0148fb823a741f, type: 3}
+  - {fileID: 21300000, guid: 7e6f18f62ffa21e449f222fcffd40e48, type: 3}
+  - {fileID: 21300000, guid: 789e7f06f812c1145bfc8631e7c533aa, type: 3}
+  - {fileID: 21300000, guid: ec89fdd321a1d984a8f7a002fb4769e3, type: 3}
+  previews:
+  - {fileID: 21300000, guid: b5d35dc0286efd041abaac1db63f7722, type: 3}
+  - {fileID: 21300000, guid: bc1df6416014fd3418d9529b7966fa35, type: 3}
+  - {fileID: 21300000, guid: 71fdffb2af165314fa284f6ef1c2335b, type: 3}
+  - {fileID: 21300000, guid: 35c1939218fe9294cb7485b2f81b5303, type: 3}

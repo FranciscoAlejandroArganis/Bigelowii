@@ -3,7 +3,7 @@ using UnityEngine;
 /// <summary>
 /// Conjunto de sonidos usados durante el juego
 /// </summary>
-public class SoundsSet : MonoBehaviour
+public class SoundsSet : ScriptableObject
 {
 
     /// <summary>

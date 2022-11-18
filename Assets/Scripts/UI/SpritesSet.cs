@@ -3,7 +3,7 @@ using UnityEngine;
 /// <summary>
 /// Conjunto de sprites usados en la interfaz de usuario
 /// </summary>
-public class SpritesSet : MonoBehaviour
+public class SpritesSet : ScriptableObject
 {
 
     /// <summary>
@@ -90,5 +90,10 @@ public class SpritesSet : MonoBehaviour
     /// Arreglo con los íconos de costos en conos
     /// </summary>
     public Sprite[] cones;
+
+    /// <summary>
+    /// Arreglo con las vistas previas de los niveles
+    /// </summary>
+    public Sprite[] previews;
 
 }

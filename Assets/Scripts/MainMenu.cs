@@ -12,6 +12,16 @@ public class MainMenu : MonoBehaviour
     public float speed;
 
     /// <summary>
+    /// Referencia al scriptable object que contiene el conjuto de sprites
+    /// </summary>
+    public SpritesSet sprites;
+
+    /// <summary>
+    /// Referencia al scriptable object que contiene el conjunto de sonidos
+    /// </summary>
+    public SoundsSet sounds;
+
+    /// <summary>
     /// Arreglo con las unidades 2D que se muestran en el menú principal
     /// </summary>
     public GameObject[] dummyUnits2D;
@@ -26,11 +36,11 @@ public class MainMenu : MonoBehaviour
     /// </summary>
     private Camera mainMenuCamera;
 
-    public void Start()
+    public void Awake()
     {
-        UI.sprites = GetComponent<SpritesSet>();
-        Audio.sounds = GetComponent<SoundsSet>();
         mainMenuCamera = Camera.main;
+        UI.sprites = sprites;
+        Audio.sounds = sounds;
     }
 
     public void Update()

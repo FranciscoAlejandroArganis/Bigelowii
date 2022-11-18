@@ -7,13 +7,6 @@ using UnityEngine;
 public class LevelSelection : MonoBehaviour
 {
 
-    public static uint unlocked = 5;
-
-    /// <summary>
-    /// Arreglo con los sprites de las vistas previas de los niveles
-    /// </summary>
-    public Sprite[] previews;
-
     /// <summary>
     /// Imagen que muestra la vistra previa de un nivel
     /// </summary>
@@ -78,7 +71,7 @@ public class LevelSelection : MonoBehaviour
     /// </summary>
     public void OnSelect()
     {
-        if (currentLevel <= unlocked)
+        if (currentLevel <= PlayerPrefs.GetInt("unlocked", 1))
             Scene.GoToLevel(currentLevel);
     }
 
@@ -90,8 +83,8 @@ public class LevelSelection : MonoBehaviour
         currentLevel = (uint)slider.value;
         previous.interactable = currentLevel > 1;
         next.interactable = currentLevel < Level.lastLevel;
-        currentPreview.sprite = previews[currentLevel - 1];
-        if (currentLevel <= unlocked)
+        currentPreview.sprite = UI.sprites.previews[currentLevel - 1];
+        if (currentLevel <= PlayerPrefs.GetInt("unlocked", 1))
         {
             select.interactable = true;
             locked.SetActive(false);

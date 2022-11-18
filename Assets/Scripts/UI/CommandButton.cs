@@ -1,5 +1,3 @@
-using UnityEngine;
-
 /// <summary>
 /// Botón de la tarjeta de comandos
 /// </summary>

@@ -1,4 +1,3 @@
-using UnityEngine;
 /// <summary>
 /// Agente que controla una unidad
 /// </summary>
