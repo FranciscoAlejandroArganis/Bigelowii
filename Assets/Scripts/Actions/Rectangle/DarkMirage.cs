@@ -41,13 +41,13 @@ public class DarkMirage : EnemyTargetAction
     /// <summary>
     /// Construye una nueva acción <c>DarkMirage</c>
     /// </summary>
-    /// <param name="rectangle">El rectángulo que realiza la acción</param>
+    /// <param name="unit">La unidad que realiza la acción</param>
     /// <param name="mirage">El sistema de partículas que se usa durante el ataque</param>
-    public DarkMirage(Rectangle rectangle, Particle mirage) : base(rectangle)
+    public DarkMirage(Unit unit, Particle mirage) : base(unit)
     {
         search = new NeighbourhoodSearch();
         damage = new Damage(47);
-        damage.BehaviorModifiers(rectangle);
+        damage.BehaviorModifiers(unit);
         this.mirage = mirage;
     }
 

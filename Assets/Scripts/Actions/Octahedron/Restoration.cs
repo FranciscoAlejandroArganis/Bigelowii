@@ -14,12 +14,12 @@ public class Restoration : FriendlyTargetAction
     /// <summary>
     /// Construye una nueva acción <c>Restoration</c>
     /// </summary>
-    /// <param name="octahedron">El octaedro que realiza la acción</param>
-    public Restoration(Octahedron octahedron) : base(octahedron)
+    /// <param name="unit">La unidad que realiza la acción</param>
+    public Restoration(Unit unit) : base(unit)
     {
         search = new EuclideanDistanceSearch(3);
         heal = new Heal(50);
-        heal.BehaviorModifiers(octahedron);
+        heal.BehaviorModifiers(unit);
     }
 
     public override void Execute()

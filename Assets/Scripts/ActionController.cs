@@ -76,7 +76,10 @@ public class ActionController : MonoBehaviour
     public void StartAction(Action action)
     {
         Level.state = Level.State.Standby;
+        this.action = action;
         unit.cell.highlight.Add(Highlight.State.Unit);
+        UI.primaryUnit.unit = unit;
+        UI.primaryUnit.Show();
         if (action is TargetedAction)
         {
             Cell target = action.GetTarget();
@@ -87,7 +90,6 @@ public class ActionController : MonoBehaviour
                 UI.secondaryUnit.Show();
             }
         }
-        this.action = action;
         UI.timeline.action = action;
         state = State.Camera;
         CameraController.LookAt(unit.cell);
@@ -112,7 +114,10 @@ public class ActionController : MonoBehaviour
             Level.state = unit.agent == null ? Level.State.Human : Level.State.AI;
         }
         else
+        {
+            UI.primaryUnit.Hide();
             Level.state = Level.State.Spawning;
+        }
         action = null;
         state = State.Idle;
     }

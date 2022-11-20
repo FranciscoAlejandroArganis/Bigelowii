@@ -54,6 +54,7 @@ public class Turn
         unit.cell.highlight.Add(Highlight.State.Unit);
         UI.primaryUnit.unit = unit;
         UI.primaryUnit.Show();
+        AddEventHighlight();
         state = State.Action;
     }
 
@@ -62,6 +63,7 @@ public class Turn
     /// </summary>
     public static void DeselectUnit()
     {
+        RemoveEventHighlight();
         selectedUnit.cell.highlight.Remove(Highlight.State.Unit);
         selectedUnit = null;
         UI.primaryUnit.Hide();
@@ -75,6 +77,7 @@ public class Turn
     /// <returns><c>true</c> si la acción se seleccionó porque es posible realizarla</returns>
     public static bool SelectAction(Action action, int button)
     {
+        RemoveEventHighlight();
         if (action.Validate() && action.SearchTargets())
         {
             Turn.button = button;
@@ -109,6 +112,27 @@ public class Turn
         action.RemoveTargetHighlight(target);
         activeUnit.actionController.StartAction(action);
         action = null;
+    }
+
+    /// <summary>
+    /// Agrega el resalte, si es necesario, del objetivo de una acción cuando se ha hecho click en un botón de evento
+    /// </summary>
+    private static void AddEventHighlight()
+    {
+        if (action != null && action is TargetedAction)
+            action.AddTargetHighlight(action.GetTarget());
+    }
+
+    /// <summary>
+    /// Elimina el resalte, si es necesario, del objetivo de una acción que se agregó por haber hecho click en un botón de evento
+    /// </summary>
+    private static void RemoveEventHighlight()
+    {
+        if (action != null && action is TargetedAction)
+        {
+            action.RemoveTargetHighlight(action.GetTarget());
+            action = null;
+        }
     }
 
 }

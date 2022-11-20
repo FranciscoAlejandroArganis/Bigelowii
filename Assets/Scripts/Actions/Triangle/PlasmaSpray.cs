@@ -42,13 +42,13 @@ public class PlasmaSpray : EnemyTargetAction
     /// <summary>
     /// Construye una nueva acción <c>PlasmaSpray</c>
     /// </summary>
-    /// <param name="triangle">El triángulo que realiza la acción</param>
+    /// <param name="unit">La unidad que realiza la acción</param>
     /// <param name="spray">El sistema de partículas que se usa durante el ataque</param>
-    public PlasmaSpray(Triangle triangle, Particle spray) : base(triangle)
+    public PlasmaSpray(Unit unit, Particle spray) : base(unit)
     {
         search = new NeighbourhoodSearch();
         damage = new Damage(11);
-        damage.BehaviorModifiers(triangle);
+        damage.BehaviorModifiers(unit);
         this.spray = spray;
     }
 

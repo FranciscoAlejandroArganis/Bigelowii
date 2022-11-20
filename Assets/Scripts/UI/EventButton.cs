@@ -138,6 +138,7 @@ public class EventButton : Button
                     Turn.CancelAction();
                 Turn.DeselectUnit();
             }
+            Turn.action = action;
             Turn.SelectUnit(action.unit);
         }
     }

@@ -32,9 +32,9 @@ public class Recruit : CellTargetAction
     /// <summary>
     /// Construye una nueva acción <c>Recruit</c>
     /// </summary>
-    /// <param name="sphere">La esfera que realiza la acción</param>
+    /// <param name="unit">La unidad que realiza la acción</param>
     /// <param name="template">La unidad plantilla que se usará para crear la nueva unidad</param>
-    public Recruit(Sphere sphere, Unit template) : base(sphere)
+    public Recruit(Unit unit, Unit template) : base(unit)
     {
         search = new EuclideanDistanceSearch(3);
         this.template = template;

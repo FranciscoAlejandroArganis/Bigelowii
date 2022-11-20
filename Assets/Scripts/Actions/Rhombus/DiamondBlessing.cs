@@ -46,10 +46,10 @@ public class DiamondBlessing : FriendlyTargetAction
     /// <summary>
     /// Construye una nueva acción <c>DiamondBlessed</c>
     /// </summary>
-    /// <param name="rhombus">El rombo que realiza la acción</param>
+    /// <param name="unit">La unidad que realiza la acción</param>
     /// <param name="blessing">El sistema de partículas que se usa durante la acción</param>
     /// <param name="blessedVisual">La plantilla del efecto visual del comportamiento <c>Blessed</c></param>
-    public DiamondBlessing(Rhombus rhombus, Particle blessing, ParticleSystem blessedVisual) : base(rhombus)
+    public DiamondBlessing(Unit unit, Particle blessing, ParticleSystem blessedVisual) : base(unit)
     {
         search = new EuclideanDistanceSearch(range);
         this.blessing = blessing;

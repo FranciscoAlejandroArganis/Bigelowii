@@ -7,6 +7,8 @@ using UnityEngine;
 public class Icosahedron : Unit3D
 {
 
+    public ParabolicProjectile bolt;
+
     public override Sprite GetUnitSprite()
     {
         return UI.sprites.icosahedron;
@@ -22,6 +24,12 @@ public class Icosahedron : Unit3D
                 {
                     case 0:
                         SetMoveButton(commandButton);
+                        break;
+                    case 1:
+                        commandButton.image.sprite = UI.sprites.attack;
+                        commandButton.action = new AntimatterBolt(this, bolt);
+                        commandButton.type = CommandButton.Type.Command;
+                        commandButton.transition = 1;
                         break;
                     case 15:
                         SetEndTurnButton(commandButton);

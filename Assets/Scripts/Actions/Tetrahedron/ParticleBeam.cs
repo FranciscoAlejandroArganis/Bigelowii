@@ -40,12 +40,12 @@ public class ParticleBeam : EnemyTargetAction
     /// <summary>
     /// Construye una nueva acción <c>ParticleBeam</c>
     /// </summary>
-    /// <param name="tetrahedron">El tetraedro que realiza la acción</param>
-    public ParticleBeam(Tetrahedron tetrahedron, LineRenderer beam) : base(tetrahedron)
+    /// <param name="unit">La unidad que realiza la acción</param>
+    public ParticleBeam(Unit unit, LineRenderer beam) : base(unit)
     {
         search = new NeighbourhoodSearch();
         damage = new Damage(35);
-        damage.BehaviorModifiers(tetrahedron);
+        damage.BehaviorModifiers(unit);
         this.beam = beam;
     }
 

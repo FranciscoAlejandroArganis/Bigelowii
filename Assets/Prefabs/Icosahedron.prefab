@@ -309,6 +309,7 @@ MonoBehaviour:
   movementController: {fileID: 0}
   actionController: {fileID: 0}
   animator: {fileID: 0}
+  bolt: {fileID: 2812731847143966607, guid: 1ca6533dabd72e848ab6ee005af305a7, type: 3}
 --- !u!114 &3437421054656311115
 MonoBehaviour:
   m_ObjectHideFlags: 0
