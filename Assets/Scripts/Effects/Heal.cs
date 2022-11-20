@@ -20,7 +20,6 @@ public class Heal : Effect
 
     public override void Apply(Unit unit)
     {
-        BehaviorModifiers(unit);
         unit.health += heal;
         if (unit.health > unit.maxHealth)
             unit.health = unit.maxHealth;

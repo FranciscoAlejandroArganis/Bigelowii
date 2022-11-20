@@ -20,7 +20,6 @@ public class Damage : Effect
 
     public override void Apply(Unit unit)
     {
-        BehaviorModifiers(unit);
         if (unit.health <= damage)
             unit.health = 0;
         else

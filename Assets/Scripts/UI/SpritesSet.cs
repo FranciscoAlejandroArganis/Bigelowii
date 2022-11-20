@@ -67,6 +67,11 @@ public class SpritesSet : ScriptableObject
     public Sprite octahedron;
 
     /// <summary>
+    /// Ícono del icosaedro
+    /// </summary>
+    public Sprite icosahedron;
+
+    /// <summary>
     /// Ícono del triángulo
     /// </summary>
     public Sprite triangle;

@@ -24,6 +24,7 @@ MonoBehaviour:
   sphere: {fileID: 21300000, guid: ee12e6b423e5b1c48b216621cd5159f5, type: 3}
   tetrahedron: {fileID: 21300000, guid: 13112a5377266b843b993b54b4cedc9a, type: 3}
   octahedron: {fileID: 21300000, guid: c37a3c523549e0e4cbab42b85d4bab15, type: 3}
+  icosahedron: {fileID: 21300000, guid: 76caf5399852ceb47915a3496981c655, type: 3}
   triangle: {fileID: 21300000, guid: 148414516faccfb4593f0cad98f148e8, type: 3}
   rectangle: {fileID: 21300000, guid: 2c640c270b36e444dba0e5466c9c7abe, type: 3}
   rhombus: {fileID: 21300000, guid: fc4f1f6179d4f7e46a98ac7379d53320, type: 3}
@@ -39,3 +40,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: bc1df6416014fd3418d9529b7966fa35, type: 3}
   - {fileID: 21300000, guid: 71fdffb2af165314fa284f6ef1c2335b, type: 3}
   - {fileID: 21300000, guid: 35c1939218fe9294cb7485b2f81b5303, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
