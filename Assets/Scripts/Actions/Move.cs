@@ -50,7 +50,7 @@ public class Move : CellTargetAction
             case State.Start:
                 state = State.End;
                 unit.movementController.MoveThrough(path);
-                CameraController.Follow(unit);
+                CameraController.FollowUnit(unit);
                 break;
             case State.End:
                 unit.actionController.StopAction();

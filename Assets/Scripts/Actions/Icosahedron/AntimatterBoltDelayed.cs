@@ -62,6 +62,7 @@ public class AntimatterBoltDelayed : CellTargetAction
                 bolt.positionStart = bolt.transform.position;
                 bolt.positionEnd = targetCell.UnitPosition(unit);
                 bolt.action = this;
+                CameraController.FollowProjectile(bolt);
                 break;
             case State.Impact:
                 state = State.End;
@@ -90,7 +91,6 @@ public class AntimatterBoltDelayed : CellTargetAction
                 unit.actionController.StopAction();
                 break;
         }
-
     }
 
     public override void AddTargetHighlight(Cell cell)

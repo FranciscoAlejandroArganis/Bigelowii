@@ -20,7 +20,8 @@ public class CameraController : MonoBehaviour
         Input,
         Fixed,
         Cell,
-        Unit
+        Unit,
+        Projectile
     }
 
     /// <summary>
@@ -73,6 +74,11 @@ public class CameraController : MonoBehaviour
     private static Unit unit;
 
     /// <summary>
+    /// Proyectil que sigue actualmente la cámara
+    /// </summary>
+    private static Projectile projectile;
+
+    /// <summary>
     /// Ejemplar único de <c>CameraController</c>
     /// </summary>
     public static CameraController instance;
@@ -98,10 +104,20 @@ public class CameraController : MonoBehaviour
     /// Hace que la cámara siga a una unidad hasta que termine de moverse
     /// </summary>
     /// <param name="unit">La unidad que seguirá la cámara</param>
-    public static void Follow(Unit unit)
+    public static void FollowUnit(Unit unit)
     {
         CameraController.unit = unit;
         state = State.Unit;
+    }
+
+    /// <summary>
+    /// Hace que la cámara siga la trayectoria un projectil
+    /// </summary>
+    /// <param name="projectile">El proyectil que seguirá la cámara</param>
+    public static void FollowProjectile(Projectile projectile)
+    {
+        CameraController.projectile = projectile;
+        state = State.Projectile;
     }
 
     /// <summary>
@@ -180,6 +196,12 @@ public class CameraController : MonoBehaviour
                     unit = null;
                     state = State.Fixed;
                 }
+                break;
+            case State.Projectile:
+                if (projectile)
+                    anchor = new Vector3(projectile.transform.position.x, 0, projectile.transform.position.z);
+                else
+                    state = State.Fixed;
                 break;
         }
         Vector3 position = new Vector3(4 * sine, 8, 4 * cosine);

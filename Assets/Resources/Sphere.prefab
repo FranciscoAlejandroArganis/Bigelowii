@@ -69,6 +69,7 @@ MonoBehaviour:
   sphere: {fileID: 0}
   tetrahedron: {fileID: 882094552407699756, guid: a40a7f701f684324d9fd4a818b6c13c3, type: 3}
   octahedron: {fileID: 7428074099681854399, guid: ffd7e5cf97e9b884b98b37f4b53ee44d, type: 3}
+  icosahedron: {fileID: 3437421054656311114, guid: 5d9d7008e7fe7324bbdbd02360810459, type: 3}
 --- !u!114 &1293975349147798237
 MonoBehaviour:
   m_ObjectHideFlags: 0

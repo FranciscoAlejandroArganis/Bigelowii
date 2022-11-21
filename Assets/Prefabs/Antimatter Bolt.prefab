@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   positionStart: {x: 0, y: 0, z: 0}
   positionEnd: {x: 0, y: 0, z: 0}
-  speed: 0.25
+  speed: 0.5
   height: 5
 --- !u!2083052967 &7624624520540491554
 VisualEffect:

@@ -22,6 +22,11 @@ public class Sphere : Unit3D
     /// </summary>
     public Octahedron octahedron;
 
+    /// <summary>
+    /// Unidad plantilla usada para reclutar nuevos icosaedros
+    /// </summary>
+    public Icosahedron icosahedron;
+
     public override void Start()
     {
         base.Start();
@@ -66,6 +71,14 @@ public class Sphere : Unit3D
                         commandButton.sprite = UI.sprites.cones[octahedron.cost - 1];
                         commandButton.image.sprite = UI.sprites.octahedron;
                         commandButton.action = new Recruit(this, octahedron);
+                        commandButton.type = CommandButton.Type.Command;
+                        commandButton.transition = 1;
+                        break;
+                    case 7:
+                        commandButton.active = true;
+                        commandButton.sprite = UI.sprites.cones[icosahedron.cost - 1];
+                        commandButton.image.sprite = UI.sprites.icosahedron;
+                        commandButton.action = new Recruit(this, icosahedron);
                         commandButton.type = CommandButton.Type.Command;
                         commandButton.transition = 1;
                         break;

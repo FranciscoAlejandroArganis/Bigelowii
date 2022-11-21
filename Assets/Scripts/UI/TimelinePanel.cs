@@ -91,11 +91,7 @@ public class TimelinePanel : Panel
         eventButtons.Clear();
         state = State.Visible;
         if (action != null)
-        {
-            Action action = this.action;
-            this.action = null;
             action.Execute();
-        }
         else
             Level.state = Level.State.Spawning;
     }

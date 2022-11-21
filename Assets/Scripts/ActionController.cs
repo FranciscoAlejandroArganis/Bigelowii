@@ -118,6 +118,7 @@ public class ActionController : MonoBehaviour
             UI.primaryUnit.Hide();
             Level.state = Level.State.Spawning;
         }
+        UI.timeline.action = null;
         action = null;
         state = State.Idle;
     }
