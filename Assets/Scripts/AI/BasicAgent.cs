@@ -33,7 +33,7 @@ public abstract class BasicAgent : Agent
     /// <summary>
     /// Estado actual del agente
     /// </summary>
-    public State state;
+    protected State state;
 
     /// <summary>
     /// El índice del botón de la acción distinguida

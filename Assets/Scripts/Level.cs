@@ -65,7 +65,7 @@ public class Level : MonoBehaviour
     /// <summary>
     /// Ejemplar único de <c>Level</c>
     /// </summary>
-    private static Level instance;
+    public static Level instance;
 
     /// <summary>
     /// Regresa la máscara de tecnología que determina las acciones que puede realizar la unidad
