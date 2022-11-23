@@ -24,7 +24,7 @@ public class TimelinePanel : Panel
     /// </summary>
     private List<EventButton> eventButtons;
 
-    public void Start()
+    public void Awake()
     {
         eventButtons = new List<EventButton>();
     }
