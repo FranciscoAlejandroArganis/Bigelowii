@@ -32,6 +32,12 @@ public abstract class Spawner : MonoBehaviour
     public int time;
 
     /// <summary>
+    /// Último tiempo en el que se generarán unidades
+    /// <para>Si no es un valor positivo, entonces se generan unidades eternamente</para>
+    /// </summary>
+    public int end;
+
+    /// <summary>
     /// Búsqueda de un punto de aparición
     /// </summary>
     protected FirstMatchSearch search;

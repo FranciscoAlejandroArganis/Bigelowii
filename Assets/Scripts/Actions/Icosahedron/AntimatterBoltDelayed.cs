@@ -120,7 +120,7 @@ public class AntimatterBoltDelayed : CellTargetAction
 
     public override void SetEventButton(EventButton eventButton)
     {
-        eventButton.image.sprite = UI.sprites.attack;
+        eventButton.image.sprite = UI.sprites.antimatterBolt;
     }
 
 }

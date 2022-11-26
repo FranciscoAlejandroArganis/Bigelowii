@@ -124,6 +124,7 @@ public class Level : MonoBehaviour
         Timeline.RemoveEvents(InvolvesUnit);
         foreach (Behavior behavior in unit.behaviors)
             behavior.OnRemove();
+        unit.cell.unit = null;
         Animator animator = unit.animator;
         if (animator)
         {
@@ -215,7 +216,7 @@ public class Level : MonoBehaviour
                     bool generated = false;
                     foreach (Spawner spawner in spawners)
                     {
-                        if (currentTime - spawner.time >= spawner.cooldown && spawner.Spawn())
+                        if (currentTime - spawner.time >= spawner.cooldown && (spawner.end <= 0 || currentTime <= spawner.end) && spawner.Spawn())
                         {
                             generated = true;
                             spawner.time = currentTime;

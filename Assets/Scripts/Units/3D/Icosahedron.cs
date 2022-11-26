@@ -26,7 +26,7 @@ public class Icosahedron : Unit3D
                         SetMoveButton(commandButton);
                         break;
                     case 1:
-                        commandButton.image.sprite = UI.sprites.attack;
+                        commandButton.image.sprite = UI.sprites.antimatterBolt;
                         commandButton.action = new AntimatterBolt(this, bolt);
                         commandButton.type = CommandButton.Type.Command;
                         commandButton.transition = 1;

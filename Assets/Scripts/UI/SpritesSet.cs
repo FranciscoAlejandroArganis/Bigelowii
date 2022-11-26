@@ -92,6 +92,11 @@ public class SpritesSet : ScriptableObject
     public Sprite restoration;
 
     /// <summary>
+    /// Ícono de la acción <c>AntimatterBolt</c>
+    /// </summary>
+    public Sprite antimatterBolt;
+
+    /// <summary>
     /// Arreglo con los íconos de costos en conos
     /// </summary>
     public Sprite[] cones;

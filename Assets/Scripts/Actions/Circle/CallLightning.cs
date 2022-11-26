@@ -9,7 +9,7 @@ public class CallLightning : CellTargetAction
         End
     }
 
-    private static int delay = 9;
+    private static int delay = 6;
 
     /// <summary>
     /// Estado actual de la acción
