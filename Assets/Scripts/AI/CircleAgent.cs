@@ -65,15 +65,10 @@ public class CircleAgent : Agent
                 EnterDelayed2State();
                 break;
             case State.Delayed2:
-                if (delayedTarget)
-                {
-                    Turn.SelectTarget(delayedTarget);
-                    state = State.Heal1;
-                    destination = null;
-                    delayedTarget = null;
-                }
-                else
-                    Turn.SelectTarget(unit.cell);
+                Turn.SelectTarget(delayedTarget ? delayedTarget : unit.cell);
+                state = State.Heal1;
+                destination = null;
+                delayedTarget = null;
                 break;
         }
     }
@@ -178,7 +173,8 @@ public class CircleAgent : Agent
     /// <returns><c>true</c> si el evento es el inicio de turno de una unidad enemiga </returns>
     private bool EnemyUnitAwake(Event timelineEvent)
     {
-        return timelineEvent.action is Awake && timelineEvent.action.unit.IsHostile(unit);
+        Action action = timelineEvent.action;
+        return action is Awake && action.unit.IsHostile(unit) && !action.unit.cell.actionFlags.HasFlag(Cell.ActionFlags.CallLightning);
     }
 
 }

@@ -64,7 +64,7 @@ public class Recruit : CellTargetAction
 
     protected override bool ValidTarget(Cell cell)
     {
-        return cell.IsFree();
+        return cell.IsFree() && !cell.actionFlags.HasFlag(Cell.ActionFlags.Recruit);
     }
 
     public override void SetEventButton(EventButton eventButton)

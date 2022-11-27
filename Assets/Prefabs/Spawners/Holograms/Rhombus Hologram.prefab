@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3776955196861457899}
   - component: {fileID: 3776955196861457900}
   m_Layer: 0
-  m_Name: Circle Hologram
+  m_Name: Rhombus Hologram
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1482,14 +1482,14 @@ ParticleSystem:
     uvChannelMask: -1
     rowMode: 1
     sprites:
-    - sprite: {fileID: -7405338092526149538, guid: ce2fb2e7e1b419d4cb2490b35cc5c484, type: 3}
-    - sprite: {fileID: 5987585868457800265, guid: ce2fb2e7e1b419d4cb2490b35cc5c484, type: 3}
-    - sprite: {fileID: -8639598172180117916, guid: ce2fb2e7e1b419d4cb2490b35cc5c484, type: 3}
-    - sprite: {fileID: -7469172375468303817, guid: ce2fb2e7e1b419d4cb2490b35cc5c484, type: 3}
-    - sprite: {fileID: 4069515739202373672, guid: ce2fb2e7e1b419d4cb2490b35cc5c484, type: 3}
-    - sprite: {fileID: 3012846507903691979, guid: ce2fb2e7e1b419d4cb2490b35cc5c484, type: 3}
-    - sprite: {fileID: 5256810558706811660, guid: ce2fb2e7e1b419d4cb2490b35cc5c484, type: 3}
-    - sprite: {fileID: -4412078969601203270, guid: ce2fb2e7e1b419d4cb2490b35cc5c484, type: 3}
+    - sprite: {fileID: 4535530618842808282, guid: ce2fb2e7e1b419d4cb2490b35cc5c484, type: 3}
+    - sprite: {fileID: 8093108669087708842, guid: ce2fb2e7e1b419d4cb2490b35cc5c484, type: 3}
+    - sprite: {fileID: -4345726867348783378, guid: ce2fb2e7e1b419d4cb2490b35cc5c484, type: 3}
+    - sprite: {fileID: -3080036852568682693, guid: ce2fb2e7e1b419d4cb2490b35cc5c484, type: 3}
+    - sprite: {fileID: -7738822870026723493, guid: ce2fb2e7e1b419d4cb2490b35cc5c484, type: 3}
+    - sprite: {fileID: 2605750560830609149, guid: ce2fb2e7e1b419d4cb2490b35cc5c484, type: 3}
+    - sprite: {fileID: 4577169452942210189, guid: ce2fb2e7e1b419d4cb2490b35cc5c484, type: 3}
+    - sprite: {fileID: -4633897072816621091, guid: ce2fb2e7e1b419d4cb2490b35cc5c484, type: 3}
     flipU: 0
     flipV: 0
   VelocityModule:

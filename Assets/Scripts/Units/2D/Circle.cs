@@ -11,7 +11,7 @@ public class Circle : Unit2D
 
     public override Sprite GetUnitSprite()
     {
-        return UI.sprites.empty;
+        return UI.sprites.circle;
     }
 
     public override void SetCommandButton(CommandButton commandButton, uint card, int button)

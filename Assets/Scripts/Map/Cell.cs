@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -7,6 +8,14 @@ using UnityEngine.EventSystems;
 /// </summary>
 public class Cell : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
+
+    [Flags]
+    public enum ActionFlags
+    {
+        None = 0,
+        Recruit = 1,
+        CallLightning = 2
+    }
 
     /// <summary>
     /// Regresa la celda que se encuentra debajo de la posición especificada
@@ -34,6 +43,8 @@ public class Cell : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
     /// Unidad que se encuentra sobre la celda
     /// </summary>
     public Unit unit;
+
+    public ActionFlags actionFlags;
 
     /// <summary>
     /// <c>true</c> si la celda ha pasado por la cola del recorrido BFS

@@ -30,6 +30,7 @@ public class CallLightningDelayed : CellTargetAction
         {
             case State.Start:
                 state = State.End;
+                targetCell.actionFlags &= ~Cell.ActionFlags.CallLightning;
                 Unit targetUnit = targetCell.unit;
                 if (targetUnit && targetUnit.IsHostile(unit))
                 {
@@ -55,5 +56,10 @@ public class CallLightningDelayed : CellTargetAction
     {
         eventButton.image.sprite = UI.sprites.attack;
     }
-    
+
+    public override void OnEventDestroy()
+    {
+        targetCell.actionFlags &= ~Cell.ActionFlags.CallLightning;
+    }
+
 }

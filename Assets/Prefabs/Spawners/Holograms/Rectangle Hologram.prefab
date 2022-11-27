@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3776955196861457899}
   - component: {fileID: 3776955196861457900}
   m_Layer: 0
-  m_Name: Circle Hologram
+  m_Name: Rectangle Hologram
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1482,14 +1482,14 @@ ParticleSystem:
     uvChannelMask: -1
     rowMode: 1
     sprites:
-    - sprite: {fileID: -7405338092526149538, guid: ce2fb2e7e1b419d4cb2490b35cc5c484, type: 3}
-    - sprite: {fileID: 5987585868457800265, guid: ce2fb2e7e1b419d4cb2490b35cc5c484, type: 3}
-    - sprite: {fileID: -8639598172180117916, guid: ce2fb2e7e1b419d4cb2490b35cc5c484, type: 3}
-    - sprite: {fileID: -7469172375468303817, guid: ce2fb2e7e1b419d4cb2490b35cc5c484, type: 3}
-    - sprite: {fileID: 4069515739202373672, guid: ce2fb2e7e1b419d4cb2490b35cc5c484, type: 3}
-    - sprite: {fileID: 3012846507903691979, guid: ce2fb2e7e1b419d4cb2490b35cc5c484, type: 3}
-    - sprite: {fileID: 5256810558706811660, guid: ce2fb2e7e1b419d4cb2490b35cc5c484, type: 3}
-    - sprite: {fileID: -4412078969601203270, guid: ce2fb2e7e1b419d4cb2490b35cc5c484, type: 3}
+    - sprite: {fileID: 2282158099541123767, guid: ce2fb2e7e1b419d4cb2490b35cc5c484, type: 3}
+    - sprite: {fileID: 8657879357349577286, guid: ce2fb2e7e1b419d4cb2490b35cc5c484, type: 3}
+    - sprite: {fileID: 7673561625681503656, guid: ce2fb2e7e1b419d4cb2490b35cc5c484, type: 3}
+    - sprite: {fileID: -7653900943365161386, guid: ce2fb2e7e1b419d4cb2490b35cc5c484, type: 3}
+    - sprite: {fileID: -2449008646671409231, guid: ce2fb2e7e1b419d4cb2490b35cc5c484, type: 3}
+    - sprite: {fileID: 3436823192464455144, guid: ce2fb2e7e1b419d4cb2490b35cc5c484, type: 3}
+    - sprite: {fileID: 5225557610932907933, guid: ce2fb2e7e1b419d4cb2490b35cc5c484, type: 3}
+    - sprite: {fileID: -4538352718898094963, guid: ce2fb2e7e1b419d4cb2490b35cc5c484, type: 3}
     flipU: 0
     flipV: 0
   VelocityModule:

@@ -87,6 +87,11 @@ public class SpritesSet : ScriptableObject
     public Sprite rhombus;
 
     /// <summary>
+    /// Ícono del círculo
+    /// </summary>
+    public Sprite circle;
+
+    /// <summary>
     /// Ícono de la acción <c>Restoration</c>
     /// </summary>
     public Sprite restoration;

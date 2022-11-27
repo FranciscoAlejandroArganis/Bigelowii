@@ -136,6 +136,7 @@ public class Timeline
     {
         if (predicate(timelineEvent))
         {
+            timelineEvent.action.OnEventDestroy();
             timelineEvent.eventButton.animator.SetTrigger("Disappear");
             GameObject.Destroy(timelineEvent.eventButton.gameObject, 1);
             return true;

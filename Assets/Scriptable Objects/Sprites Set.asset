@@ -28,6 +28,7 @@ MonoBehaviour:
   triangle: {fileID: 21300000, guid: 148414516faccfb4593f0cad98f148e8, type: 3}
   rectangle: {fileID: 21300000, guid: 2c640c270b36e444dba0e5466c9c7abe, type: 3}
   rhombus: {fileID: 21300000, guid: fc4f1f6179d4f7e46a98ac7379d53320, type: 3}
+  circle: {fileID: 21300000, guid: a073fcb8a8981f64e9cef52c425667b0, type: 3}
   restoration: {fileID: 21300000, guid: 657b477a74513d84c878a6558ef9e467, type: 3}
   antimatterBolt: {fileID: 21300000, guid: a464d13341f401d4ebbeb348b298670b, type: 3}
   cones:
@@ -45,5 +46,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: de543540244b14443bef5e22491b2609, type: 3}
   - {fileID: 21300000, guid: a19f5bf089f12cc46bf8405bc8ad287d, type: 3}
   - {fileID: 21300000, guid: 2a83a4fd41cb8dc4cae75e28e9161f69, type: 3}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

@@ -27,6 +27,7 @@ public class CallLightning : CellTargetAction
         {
             case State.Start:
                 state = State.End;
+                targetCell.actionFlags |= Cell.ActionFlags.CallLightning;
                 CallLightningDelayed delayed = new CallLightningDelayed(unit, targetCell);
                 Timeline.EnqueueLast(new Event(delayed, unit.delay < delay ? unit.delay : delay));
                 Awake awake = new Awake(unit);
@@ -49,7 +50,7 @@ public class CallLightning : CellTargetAction
 
     protected override bool ValidTarget(Cell cell)
     {
-        return true;
+        return !cell.actionFlags.HasFlag(Cell.ActionFlags.CallLightning);
     }
 
 }

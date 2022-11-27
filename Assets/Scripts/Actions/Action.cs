@@ -79,4 +79,6 @@ public abstract class Action
         cell.highlight.Remove(Highlight.State.SelectedTarget);
     }
 
+    public virtual void OnEventDestroy() { }
+
 }
