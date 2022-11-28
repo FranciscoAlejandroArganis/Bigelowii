@@ -21,6 +21,7 @@ MonoBehaviour:
   retry: {fileID: 21300000, guid: ccf194b7a60719744862d93c705617c0, type: 3}
   attack: {fileID: 21300000, guid: 5922f9793bbb76a45a1432af5e64a29c, type: 3}
   victory: {fileID: 21300000, guid: 06caa7860044b0e4e9eab79e4ea83560, type: 3}
+  defeat: {fileID: 21300000, guid: cfde6c658d604e946bf64d40f9f0b292, type: 3}
   sphere: {fileID: 21300000, guid: ee12e6b423e5b1c48b216621cd5159f5, type: 3}
   tetrahedron: {fileID: 21300000, guid: 13112a5377266b843b993b54b4cedc9a, type: 3}
   octahedron: {fileID: 21300000, guid: c37a3c523549e0e4cbab42b85d4bab15, type: 3}

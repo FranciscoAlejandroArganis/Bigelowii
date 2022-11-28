@@ -41,7 +41,7 @@ public class MainMenu : MonoBehaviour
         mainMenuCamera = Camera.main;
         UI.sprites = sprites;
         Audio.sounds = sounds;
-        Time.timeScale = 8;
+        //Time.timeScale = 8;
     }
 
     public void Update()

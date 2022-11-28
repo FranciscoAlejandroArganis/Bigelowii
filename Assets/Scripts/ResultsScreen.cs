@@ -51,6 +51,8 @@ public class ResultsScreen : MonoBehaviour
     /// </summary>
     public Image unitIcon;
 
+    public Image result;
+
     /// <summary>
     /// Objeto que contiene los íconos de las unidades eliminadas
     /// </summary>
@@ -72,6 +74,7 @@ public class ResultsScreen : MonoBehaviour
         DisplayDictionaryUnits(unitsLost, unitsLostContent);
         unitsKilled = null;
         unitsLost = null;
+        result.sprite = victory ? UI.sprites.victory : UI.sprites.defeat;
         if (nextLevel > Level.lastLevel)
             continueButton.gameObject.SetActive(false);
         else

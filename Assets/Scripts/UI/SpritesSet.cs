@@ -47,9 +47,14 @@ public class SpritesSet : ScriptableObject
     public Sprite attack;
 
     /// <summary>
-    /// Ícono del evento de victoria
+    /// Ícono de victoria
     /// </summary>
     public Sprite victory;
+
+    /// <summary>
+    /// Ícono de derrota
+    /// </summary>
+    public Sprite defeat;
 
     /// <summary>
     /// Ícono de la esfera
