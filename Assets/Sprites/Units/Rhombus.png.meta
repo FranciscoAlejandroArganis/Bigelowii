@@ -120,6 +120,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -186,6 +187,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -881,6 +894,39 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Rhombus_23: -358523451761677750
+      Rhombus_30: -1811139485457731325
+      Rhombus_24: 5348732995551741553
+      Rhombus_16: -8932921436748673750
+      Rhombus_13: -392374907672880322
+      Rhombus_4: 4928572965389729225
+      Rhombus_9: -6141576935333083959
+      Rhombus_14: -2471152527835675260
+      Rhombus_31: -8591981353552468855
+      Rhombus_18: -2833393050431748422
+      Rhombus_15: -4670748786252807074
+      Rhombus_26: 1460384714065452620
+      Rhombus_0: -4844302619169255131
+      Rhombus_29: -8368297701898929802
+      Rhombus_22: 4979464053270966579
+      Rhombus_5: 4810701711024534364
+      Rhombus_6: -1828764366619959257
+      Rhombus_11: -300769955175813993
+      Rhombus_2: 5488173602442426367
+      Rhombus_10: -6060607713182387282
+      Rhombus_8: 4492056199691227546
+      Rhombus_12: -3393858624618002697
+      Rhombus_27: -3981548363208350398
+      Rhombus_25: 9149161887238881551
+      Rhombus_3: 9218845048113918762
+      Rhombus_1: 6966305265623744121
+      Rhombus_7: -1134525036515270269
+      Rhombus_19: 5401563457055210615
+      Rhombus_20: 6160189725891338694
+      Rhombus_21: -719460472156815693
+      Rhombus_17: -2830149797125812398
+      Rhombus_28: -8998582287698531120
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -14,6 +14,7 @@ public class Bird : Critter
 
     public override void StartNewMovement()
     {
+        positionStart = transform.position;
         positionEnd = new Vector3(Random.Range(lower.x, upper.x), Random.Range(lower.y, upper.y), Random.Range(lower.z, upper.z));
         speed = positionStart == positionEnd ? float.PositiveInfinity : movementSpeed / Vector3.Magnitude(positionEnd - positionStart);
     }

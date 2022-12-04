@@ -3,6 +3,8 @@ using UnityEngine;
 public class Circle : Unit2D
 {
 
+    public PrismaticDischargeVFX discharge;
+
     public override void Start()
     {
         base.Start();
@@ -27,7 +29,7 @@ public class Circle : Unit2D
                         break;
                     case 1:
                         commandButton.image.sprite = UI.sprites.attack;
-                        commandButton.action = new PrismaticDischarge(this);
+                        commandButton.action = new PrismaticDischarge(this, discharge);
                         commandButton.type = CommandButton.Type.Command;
                         commandButton.transition = 1;
                         break;

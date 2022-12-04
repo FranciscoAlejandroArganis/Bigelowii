@@ -34,7 +34,6 @@ public abstract class Critter : MonoBehaviour
         if (time >= 1)
         {
             transform.position = positionEnd;
-            positionStart = positionEnd;
             time = 0;
             StartNewMovement();
         }
@@ -44,7 +43,7 @@ public abstract class Critter : MonoBehaviour
 
     /// <summary>
     /// Establece los parámetros para empezar un nuevo movimiento
-    /// <para>Asigna los valores de <c>positionEnd</c> y <c>speed</c></para>
+    /// <para>Asigna los valores de <c>positionStart</c>, <c>positionEnd</c> y <c>speed</c></para>
     /// </summary>
     public abstract void StartNewMovement();
 

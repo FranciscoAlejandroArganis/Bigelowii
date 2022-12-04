@@ -144,6 +144,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -210,6 +211,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -1073,6 +1086,47 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Triangle_24: -5609098049355706530
+      Triangle_15: -7387136537745804573
+      Triangle_5: 53599416958914453
+      Triangle_35: -4199616854337253644
+      Triangle_20: -7649355336705075294
+      Triangle_19: 700405631514852554
+      Triangle_6: -4217156652427353145
+      Triangle_37: -875723525418997884
+      Triangle_22: 8377516878049998170
+      Triangle_25: 1180541575272940462
+      Triangle_27: 479754913226604209
+      Triangle_30: -2905617796906174419
+      Triangle_9: 3790822174849897451
+      Triangle_28: 4184787091506424903
+      Triangle_36: 4595333142089340670
+      Triangle_29: 7613724849200036394
+      Triangle_7: -8750543626990220208
+      Triangle_13: 4796259011904428776
+      Triangle_14: 4238131787691699411
+      Triangle_23: 1700170436014657306
+      Triangle_0: -3795437932344149621
+      Triangle_31: 804811019291940075
+      Triangle_4: 3652577100807765725
+      Triangle_38: -1067969017270626304
+      Triangle_34: -7981500722120815016
+      Triangle_16: -1238206530486803064
+      Triangle_21: 807894446771648556
+      Triangle_10: -514413688752395544
+      Triangle_39: -7335528655419187483
+      Triangle_2: -3551481356922152301
+      Triangle_1: 8478971034556875350
+      Triangle_8: -1888252278754814000
+      Triangle_11: -2045472139539299508
+      Triangle_26: 7384541459007871515
+      Triangle_3: -9030794893281870120
+      Triangle_12: -5215826029226751069
+      Triangle_32: -8667530828070835417
+      Triangle_18: 837501191014086556
+      Triangle_17: 3868931784342439723
+      Triangle_33: -6747950188183742181
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

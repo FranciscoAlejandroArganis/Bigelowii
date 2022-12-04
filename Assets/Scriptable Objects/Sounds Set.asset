@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Sounds Set
   m_EditorClassIdentifier: 
   invalid: {fileID: 8300000, guid: 933208c2914ea564baef061c634c982c, type: 3}
+  prismaticDischarge: {fileID: 8300000, guid: 5c8899e8ddc3f2e46a900ccaeb4d44ca, type: 3}

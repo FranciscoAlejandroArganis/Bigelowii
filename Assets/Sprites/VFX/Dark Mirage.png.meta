@@ -96,6 +96,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -162,6 +163,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -689,6 +702,31 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Dark Mirage_10: -2595068801658399260
+      Dark Mirage_5: 8373025177263661203
+      Dark Mirage_3: -5890350752363145550
+      Dark Mirage_4: -1688931243624509543
+      Dark Mirage_18: -741901806837644383
+      Dark Mirage_23: -7189653106283894891
+      Dark Mirage_1: -1958453880902150726
+      Dark Mirage_0: 3697977271571533243
+      Dark Mirage_7: -4292709591237359640
+      Dark Mirage_8: -4148914225753510242
+      Dark Mirage_19: -5589321981577620005
+      Dark Mirage_20: -6807125803104444160
+      Dark Mirage_11: -6000828626462245498
+      Dark Mirage_14: 8707636874169592829
+      Dark Mirage_6: -7566381019017314374
+      Dark Mirage_15: 34020781750639971
+      Dark Mirage_22: 2153091629658081601
+      Dark Mirage_9: 7353973282104922246
+      Dark Mirage_13: -4121777303693829714
+      Dark Mirage_16: 1802943006890629467
+      Dark Mirage_12: -1809696702051628346
+      Dark Mirage_21: 509737343580258322
+      Dark Mirage_2: 6591608540386107916
+      Dark Mirage_17: 3843820778586423661
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

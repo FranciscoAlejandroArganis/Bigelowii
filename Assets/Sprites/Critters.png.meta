@@ -120,6 +120,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -186,6 +187,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -881,6 +894,39 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Critters_1: 8284314860745005947
+      Critters_5: -5182852536626546424
+      Critters_10: 3145938775797369395
+      Critters_2: -470287392025552640
+      Critters_28: 3948954031903915240
+      Critters_29: 8859440670865015162
+      Critters_12: 8413420543575173892
+      Critters_16: -554916911276148101
+      Critters_21: 4010801221453738288
+      Critters_24: 4330051263910851000
+      Critters_6: -5709617426248474824
+      Critters_30: -2109560090051709115
+      Critters_22: -1096700755376192185
+      Critters_27: 4935807533325493120
+      Critters_3: -6796122139405644106
+      Critters_15: -2641908255265352178
+      Critters_26: -5521331469908297011
+      Critters_0: -934795218633191390
+      Critters_4: 4896353276849117607
+      Critters_9: -6662500671578159162
+      Critters_7: 1862976239284933615
+      Critters_11: 6278644610052598154
+      Critters_23: 842883629452074227
+      Critters_17: 1913405333815517841
+      Critters_19: 1211103684768795281
+      Critters_14: 3558626963838772645
+      Critters_8: 502755791302228289
+      Critters_25: -3991824046589836397
+      Critters_18: 6882909585654135832
+      Critters_20: 5258509883048983181
+      Critters_31: -6630025001094504567
+      Critters_13: 5341680209027073406
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

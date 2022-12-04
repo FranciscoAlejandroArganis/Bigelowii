@@ -120,6 +120,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -186,6 +187,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -881,6 +894,39 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Holograms_11: -7653900943365161386
+      Holograms_17: 8093108669087708842
+      Holograms_21: 2605750560830609149
+      Holograms_31: -4412078969601203270
+      Holograms_5: -4737412165538595636
+      Holograms_19: -3080036852568682693
+      Holograms_15: -4538352718898094963
+      Holograms_8: 2282158099541123767
+      Holograms_0: -2663191047641475153
+      Holograms_6: -4522546221968558596
+      Holograms_3: 6478083095749980732
+      Holograms_26: -8639598172180117916
+      Holograms_30: 5256810558706811660
+      Holograms_18: -4345726867348783378
+      Holograms_24: -7405338092526149538
+      Holograms_13: 3436823192464455144
+      Holograms_2: -794006371342310683
+      Holograms_12: -2449008646671409231
+      Holograms_23: -4633897072816621091
+      Holograms_14: 5225557610932907933
+      Holograms_28: 4069515739202373672
+      Holograms_4: -6856243478985603024
+      Holograms_9: 8657879357349577286
+      Holograms_29: 3012846507903691979
+      Holograms_10: 7673561625681503656
+      Holograms_16: 4535530618842808282
+      Holograms_22: 4577169452942210189
+      Holograms_20: -7738822870026723493
+      Holograms_1: -1636093667014231146
+      Holograms_27: -7469172375468303817
+      Holograms_7: -3698721612426113128
+      Holograms_25: 5987585868457800265
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

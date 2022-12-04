@@ -240,6 +240,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -306,6 +307,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -1841,6 +1854,79 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Circle_19: 6881863965417224319
+      Circle_60: -4286552589319872498
+      Circle_67: 1162360065253349475
+      Circle_1: -69633717937323671
+      Circle_24: 7205631789807107230
+      Circle_20: -6072315209520744217
+      Circle_55: -1941049155514676935
+      Circle_57: -3880854748102228108
+      Circle_68: -1100081701021839848
+      Circle_8: -6521572231323058918
+      Circle_4: -2151546024747117495
+      Circle_27: -3510242948703357541
+      Circle_33: 3019617446562448386
+      Circle_23: -831214766400108162
+      Circle_7: 7475949116365363080
+      Circle_48: 8017640061201882379
+      Circle_70: 6978261550758489909
+      Circle_37: 5485236911900494125
+      Circle_65: 36657286103807149
+      Circle_66: -5108217872613312104
+      Circle_40: 5265760198460894617
+      Circle_28: -8765600691231959294
+      Circle_29: -7468049809166771269
+      Circle_46: -9202593495243087288
+      Circle_15: -2269872466933350391
+      Circle_53: -7536514462524088926
+      Circle_38: -1114438349474389446
+      Circle_56: 4701291014940085910
+      Circle_14: 6509273871590174019
+      Circle_30: 7758240573658579808
+      Circle_25: 3877253070871145230
+      Circle_18: -3963835127267065259
+      Circle_41: 4417259961551131967
+      Circle_35: -4468065831544914565
+      Circle_0: -2413806693520163455
+      Circle_59: 929445604910538991
+      Circle_52: 4406557105833364380
+      Circle_42: 738857609878457978
+      Circle_71: 8010958387484410185
+      Circle_31: -1335125523916501844
+      Circle_26: 3408327945079096066
+      Circle_21: -8927561943101517867
+      Circle_34: -4180676682606015622
+      Circle_2: 6028514777731885727
+      Circle_9: 4701679801236757989
+      Circle_69: 2999635141912734750
+      Circle_6: -3811420746324869748
+      Circle_12: 7997356112030476167
+      Circle_50: 7759961990353389248
+      Circle_62: 5646278177980989422
+      Circle_54: -7004378545082244948
+      Circle_51: -2763511768866727889
+      Circle_16: 8128037654089578304
+      Circle_58: 1241100209214901995
+      Circle_49: 1162973885836994434
+      Circle_5: -4113252536856610984
+      Circle_61: -7775535660862738537
+      Circle_63: 5092723740174001779
+      Circle_11: -3777432574343379134
+      Circle_32: 6243755729675645027
+      Circle_47: -6422844843924588280
+      Circle_44: 4628038050038974774
+      Circle_43: 5514578197793583409
+      Circle_45: 2955110159763164386
+      Circle_10: 3931291928306655124
+      Circle_36: -8549133486491545513
+      Circle_3: -7854038422876232552
+      Circle_64: -9134774174163108955
+      Circle_17: 1112921811262012114
+      Circle_22: -6079370297773772415
+      Circle_39: -2921478198640565264
+      Circle_13: -8908885206420517932
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

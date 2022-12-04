@@ -144,6 +144,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -210,6 +211,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -1073,6 +1086,47 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Rectangle_15: -3850629805380135989
+      Rectangle_37: -2521006520197958433
+      Rectangle_4: 5783777184687361953
+      Rectangle_13: -5747688597443782712
+      Rectangle_25: -5737823599273554761
+      Rectangle_3: 6925197794509294880
+      Rectangle_10: 6358122578475711488
+      Rectangle_36: 6053753587118541637
+      Rectangle_22: 5635951262351073191
+      Rectangle_38: 1449356442531788741
+      Rectangle_32: 1903459524898360597
+      Rectangle_8: 509418050882750557
+      Rectangle_27: -6265199107522775284
+      Rectangle_12: 6621175554518889611
+      Rectangle_17: 7016880383020302735
+      Rectangle_29: 8066444016912779591
+      Rectangle_30: -3837554182593891524
+      Rectangle_9: -7605613370989541278
+      Rectangle_26: -5250682617901254310
+      Rectangle_11: -8537692067554384710
+      Rectangle_18: 7426880536777828600
+      Rectangle_23: -8345508498559057631
+      Rectangle_24: -8949186340952679924
+      Rectangle_33: 8086917814913676149
+      Rectangle_20: 7630637984707152008
+      Rectangle_7: 5716520241216084931
+      Rectangle_2: -2434560999320271495
+      Rectangle_1: 320147255234652826
+      Rectangle_21: 6869291150795563513
+      Rectangle_16: 6910324593326670403
+      Rectangle_28: -3856156163840037278
+      Rectangle_31: 8447574564294521935
+      Rectangle_0: 7890246350005439881
+      Rectangle_14: -7110377265423407423
+      Rectangle_39: -1000215144440265987
+      Rectangle_6: -8389265357981332074
+      Rectangle_34: 5917471686468813608
+      Rectangle_5: 5828573106448406744
+      Rectangle_19: 2337661443636544467
+      Rectangle_35: 3760326049006669308
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

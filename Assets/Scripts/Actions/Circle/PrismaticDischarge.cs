@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PrismaticDischarge : UntargetedAction
@@ -11,6 +12,8 @@ public class PrismaticDischarge : UntargetedAction
     public enum State
     {
         Start,
+        Fire,
+        Damage,
         End
     }
 
@@ -18,10 +21,15 @@ public class PrismaticDischarge : UntargetedAction
 
     private Damage damage;
 
-    public PrismaticDischarge(Unit unit) : base(unit)
+    private PrismaticDischargeVFX discharge;
+
+    private List<Unit> targets;
+
+    public PrismaticDischarge(Unit unit, PrismaticDischargeVFX discharge) : base(unit)
     {
         damage = new Damage(baseDamage);
         damage.BehaviorModifiers(unit);
+        this.discharge = discharge;
     }
 
     public override void Execute()
@@ -29,22 +37,37 @@ public class PrismaticDischarge : UntargetedAction
         switch (state)
         {
             case State.Start:
-                state = State.End;
-                bool kills = false;
-                foreach (Collider collider in Physics.OverlapSphere(unit.cell.transform.position, range, Utilities.mapLayer))
+                state = State.Fire;
+                unit.animator.SetTrigger("Attack");
+                break;
+            case State.Fire:
+                state = State.Damage;
+                FindTargets();
+                discharge.points = new Vector3[targets.Count];
+                int index = 0;
+                while (index < targets.Count)
                 {
-                    Cell cell = collider.GetComponent<Cell>();
-                    Unit unit = cell.unit;
-                    if (unit && unit.IsHostile(this.unit))
+                    discharge.points[index] = targets[index].transform.position;
+                    index++;
+                }
+                discharge.Play();
+                discharge.Timer(1, this);
+                break;
+            case State.Damage:
+                state = State.End;
+                unit.animator.SetTrigger("Attack");
+                discharge.Stop();
+                bool kills = false;
+                foreach (Unit unit in targets)
+                {
+                    damage.Apply(unit);
+                    if (unit.health == 0)
                     {
-                        damage.Apply(unit);
-                        if (unit.health == 0)
-                        {
-                            kills = true;
-                            Level.Kill(unit, this.unit.player);
-                        }
+                        kills = true;
+                        Level.Kill(unit, this.unit.player);
                     }
                 }
+                targets = null;
                 if (kills)
                     Timeline.Update();
                 else
@@ -74,4 +97,17 @@ public class PrismaticDischarge : UntargetedAction
     {
         throw new NotImplementedException();
     }
+
+    private void FindTargets()
+    {
+        targets = new List<Unit>();
+        foreach (Collider collider in Physics.OverlapSphere(unit.cell.transform.position, range, Utilities.mapLayer))
+        {
+            Cell cell = collider.GetComponent<Cell>();
+            Unit unit = cell.unit;
+            if (unit && unit.IsHostile(this.unit))
+                targets.Add(unit);
+        }
+    }
+
 }

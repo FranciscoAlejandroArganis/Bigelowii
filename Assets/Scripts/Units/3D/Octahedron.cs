@@ -7,6 +7,8 @@ using UnityEngine;
 public class Octahedron : Unit3D
 {
 
+    public RestorationVFX restoration;
+
     public override Sprite GetUnitSprite()
     {
         return UI.sprites.octahedron;
@@ -25,7 +27,7 @@ public class Octahedron : Unit3D
                         break;
                     case 2:
                         commandButton.image.sprite = UI.sprites.restoration;
-                        commandButton.action = new Restoration(this);
+                        commandButton.action = new Restoration(this, restoration);
                         commandButton.type = CommandButton.Type.Command;
                         commandButton.transition = 1;
                         break;
