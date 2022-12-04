@@ -3,8 +3,10 @@ using UnityEngine;
 /// <summary>
 /// Envoltura de un sistema de partículas
 /// </summary>
-public class Particle : MonoBehaviour
+public class ParticleSystemWrapper : Wrapper
 {
+
+    public AudioSource audioSource;
 
     /// <summary>
     /// Unidad que genera el sistema de partículas
@@ -25,14 +27,21 @@ public class Particle : MonoBehaviour
     /// <summary>
     /// Empieza el sistema de partículas
     /// </summary>
-    public void Play()
+    public override void Play()
     {
         system.Play();
+        if (audioSource)
+            audioSource.Play();
     }
 
     public void OnParticleSystemStopped()
     {
         unit.actionController.action.Execute();
+    }
+
+    public override void Stop()
+    {
+        system.Stop();
     }
 
 }

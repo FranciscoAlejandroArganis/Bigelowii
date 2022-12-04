@@ -10,7 +10,7 @@ public class Triangle : Unit2D
     /// <summary>
     /// Sistema de partículas usado durante la acción <c>PlasmaSpray</c>
     /// </summary>
-    public Particle spray;
+    public ParticleSystemWrapper spray;
 
     public override void Start()
     {

@@ -36,7 +36,7 @@ public class DiamondBlessing : FriendlyTargetAction
     /// <summary>
     /// Sistema de partículas usado durante la acción
     /// </summary>
-    private Particle blessing;
+    private ParticleSystemWrapper blessing;
 
     /// <summary>
     /// Plantilla usada para generar el efecto visual del comportamiento <c>Blessed</c>
@@ -49,7 +49,7 @@ public class DiamondBlessing : FriendlyTargetAction
     /// <param name="unit">La unidad que realiza la acción</param>
     /// <param name="blessing">El sistema de partículas que se usa durante la acción</param>
     /// <param name="blessedVisual">La plantilla del efecto visual del comportamiento <c>Blessed</c></param>
-    public DiamondBlessing(Unit unit, Particle blessing, ParticleSystem blessedVisual) : base(unit)
+    public DiamondBlessing(Unit unit, ParticleSystemWrapper blessing, ParticleSystem blessedVisual) : base(unit)
     {
         search = new EuclideanDistanceSearch(range);
         this.blessing = blessing;

@@ -10,7 +10,7 @@ public class Rhombus : Unit2D
     /// <summary>
     /// Plantilla usada para generar sistemas de partículas durante la acción <c>DiamondBlessing</c>
     /// </summary>
-    public Particle blessing;
+    public ParticleSystemWrapper blessing;
 
     /// <summary>
     /// Sistema de partículas usado durante la acción <c>DiamondBlessing</c>

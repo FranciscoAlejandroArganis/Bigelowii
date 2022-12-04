@@ -31,7 +31,7 @@ public class DarkMirage : EnemyTargetAction
     /// <summary>
     /// Sistema de partículas usado durante el ataque
     /// </summary>
-    private Particle mirage;
+    private ParticleSystemWrapper mirage;
 
     /// <summary>
     /// Daño que hace esta acción
@@ -43,7 +43,7 @@ public class DarkMirage : EnemyTargetAction
     /// </summary>
     /// <param name="unit">La unidad que realiza la acción</param>
     /// <param name="mirage">El sistema de partículas que se usa durante el ataque</param>
-    public DarkMirage(Unit unit, Particle mirage) : base(unit)
+    public DarkMirage(Unit unit, ParticleSystemWrapper mirage) : base(unit)
     {
         search = new NeighbourhoodSearch();
         damage = new Damage(47);

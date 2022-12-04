@@ -32,7 +32,7 @@ public class PlasmaSpray : EnemyTargetAction
     /// <summary>
     /// Sistema de partículas usado durante el ataque
     /// </summary>
-    private Particle spray;
+    private ParticleSystemWrapper spray;
 
     /// <summary>
     /// Daño que hace esta acción
@@ -44,7 +44,7 @@ public class PlasmaSpray : EnemyTargetAction
     /// </summary>
     /// <param name="unit">La unidad que realiza la acción</param>
     /// <param name="spray">El sistema de partículas que se usa durante el ataque</param>
-    public PlasmaSpray(Unit unit, Particle spray) : base(unit)
+    public PlasmaSpray(Unit unit, ParticleSystemWrapper spray) : base(unit)
     {
         search = new NeighbourhoodSearch();
         damage = new Damage(11);

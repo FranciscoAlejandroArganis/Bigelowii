@@ -10,7 +10,7 @@ public class Rectangle : Unit2D
     /// <summary>
     /// Sistema de partículas usado durante la acción <c>DarkMiragey</c>
     /// </summary>
-    public Particle mirage;
+    public ParticleSystemWrapper mirage;
 
     public override void Start()
     {
