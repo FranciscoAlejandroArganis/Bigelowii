@@ -7,10 +7,7 @@ using UnityEngine;
 public class Tetrahedron : Unit3D
 {
 
-    /// <summary>
-    /// Componente que renderiza el haz usado durante la acción <c>ParticleBeam</c>
-    /// </summary>
-    public LineRenderer beam;
+    public ParticleBeamVFX beam;
 
     public override Sprite GetUnitSprite()
     {

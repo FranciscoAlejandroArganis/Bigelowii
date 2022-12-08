@@ -41,7 +41,7 @@ public class Restoration : FriendlyTargetAction
                 state = State.End;
                 restoration.transform.position = targetUnit.transform.position;
                 restoration.Play();
-                restoration.Timer(3, this);
+                restoration.Timer(2, this);
                 break;
             case State.End:
                 restoration.Stop();

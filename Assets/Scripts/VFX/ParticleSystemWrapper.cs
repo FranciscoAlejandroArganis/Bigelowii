@@ -30,8 +30,7 @@ public class ParticleSystemWrapper : Wrapper
     public override void Play()
     {
         system.Play();
-        if (audioSource)
-            audioSource.Play();
+        audioSource.Play();
     }
 
     public void OnParticleSystemStopped()
@@ -42,6 +41,7 @@ public class ParticleSystemWrapper : Wrapper
     public override void Stop()
     {
         system.Stop();
+        audioSource.Stop();
     }
 
 }

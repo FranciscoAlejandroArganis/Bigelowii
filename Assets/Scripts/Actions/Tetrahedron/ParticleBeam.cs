@@ -30,7 +30,7 @@ public class ParticleBeam : EnemyTargetAction
     /// <summary>
     /// Componente que renderiza el haz usado durante el ataque
     /// </summary>
-    private LineRenderer beam;
+    private ParticleBeamVFX beam;
 
     /// <summary>
     /// Daño que hace esta acción
@@ -41,7 +41,7 @@ public class ParticleBeam : EnemyTargetAction
     /// Construye una nueva acción <c>ParticleBeam</c>
     /// </summary>
     /// <param name="unit">La unidad que realiza la acción</param>
-    public ParticleBeam(Unit unit, LineRenderer beam) : base(unit)
+    public ParticleBeam(Unit unit, ParticleBeamVFX beam) : base(unit)
     {
         search = new NeighbourhoodSearch();
         damage = new Damage(35);
@@ -55,11 +55,12 @@ public class ParticleBeam : EnemyTargetAction
         {
             case State.Start:
                 state = State.Damage;
-                beam.SetPosition(1, Vector3.forward);
-                unit.animator.SetTrigger("Attack");
+                beam.Play();
+                beam.Timer(1, this);
                 break;
             case State.Damage:
                 state = State.End;
+                beam.Stop();
                 damage.Apply(targetUnit);
                 UI.secondaryUnit.SetHealth();
                 if (targetUnit.health == 0)

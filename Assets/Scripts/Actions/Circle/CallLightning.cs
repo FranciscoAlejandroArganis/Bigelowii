@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 public class CallLightning : CellTargetAction
 {
@@ -16,9 +17,15 @@ public class CallLightning : CellTargetAction
     /// </summary>
     private State state;
 
-    public CallLightning(Unit unit) : base(unit)
+    private ParticleSystem call;
+
+    private CallLightningVFX lightning;
+
+    public CallLightning(Unit unit, ParticleSystem call, CallLightningVFX lightning) : base(unit)
     {
         search = new FullMapSearch();
+        this.call = call;
+        this.lightning = lightning;
     }
 
     public override void Execute()
@@ -28,7 +35,8 @@ public class CallLightning : CellTargetAction
             case State.Start:
                 state = State.End;
                 targetCell.actionFlags |= Cell.ActionFlags.CallLightning;
-                CallLightningDelayed delayed = new CallLightningDelayed(unit, targetCell);
+                ParticleSystem call = GameObject.Instantiate(this.call, new Vector3(targetCell.transform.position.x, .75f, targetCell.transform.position.z), Quaternion.identity);
+                CallLightningDelayed delayed = new CallLightningDelayed(unit, targetCell, call, lightning);
                 Timeline.EnqueueLast(new Event(delayed, unit.delay < delay ? unit.delay : delay));
                 Awake awake = new Awake(unit);
                 Timeline.EnqueueLast(new Event(awake, unit.delay));

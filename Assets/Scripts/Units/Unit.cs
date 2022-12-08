@@ -78,6 +78,8 @@ public abstract class Unit : MonoBehaviour
     /// </summary>
     public Animator animator;
 
+    public AudioSource audioSource;
+
     public virtual void Start()
     {
         behaviors = new List<Behavior>();
@@ -85,6 +87,7 @@ public abstract class Unit : MonoBehaviour
         movementController = GetComponent<MovementController>();
         actionController = GetComponent<ActionController>();
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
         cell = Cell.Below(transform.position);
         if (cell)
             cell.unit = this;

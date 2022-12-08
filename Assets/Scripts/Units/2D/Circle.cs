@@ -5,6 +5,10 @@ public class Circle : Unit2D
 
     public PrismaticDischargeVFX discharge;
 
+    public ParticleSystem call;
+
+    public CallLightningVFX lightning;
+
     public override void Start()
     {
         base.Start();
@@ -40,8 +44,8 @@ public class Circle : Unit2D
                         commandButton.transition = 1;
                         break;
                     case 3:
-                        commandButton.image.sprite = UI.sprites.attack;
-                        commandButton.action = new CallLightning(this);
+                        commandButton.image.sprite = UI.sprites.callLightning;
+                        commandButton.action = new CallLightning(this, call, lightning);
                         commandButton.type = CommandButton.Type.Command;
                         commandButton.transition = 1;
                         break;

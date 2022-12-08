@@ -9,7 +9,7 @@ public abstract class Wrapper : MonoBehaviour
 
     private float speed;
 
-    public void Update()
+    public virtual void Update()
     {
         if (action != null)
         {

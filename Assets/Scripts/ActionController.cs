@@ -101,12 +101,11 @@ public class ActionController : MonoBehaviour
     public void StopAction()
     {
         unit.cell.highlight.Remove(Highlight.State.Unit);
+        UI.secondaryUnit.Hide();
         if (action is TargetedAction)
         {
             Cell target = action.GetTarget();
             action.RemoveTargetHighlight(target);
-            if (action is UnitTargetAction)
-                UI.secondaryUnit.Hide();
         }
         if (unit == Turn.activeUnit)
         {

@@ -126,6 +126,8 @@ public class Level : MonoBehaviour
             behavior.OnRemove();
         unit.cell.unit = null;
         Animator animator = unit.animator;
+        if (unit.audioSource)
+            unit.audioSource.Play();
         if (animator)
         {
             Destroy(unit);
