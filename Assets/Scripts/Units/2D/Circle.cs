@@ -5,6 +5,8 @@ public class Circle : Unit2D
 
     public PrismaticDischargeVFX discharge;
 
+    public ParticleSystemWrapper momentOfClarity;
+
     public ParticleSystem call;
 
     public CallLightningVFX lightning;
@@ -38,8 +40,8 @@ public class Circle : Unit2D
                         commandButton.transition = 1;
                         break;
                     case 2:
-                        commandButton.image.sprite = UI.sprites.restoration;
-                        commandButton.action = new MomentOfClarity(this);
+                        commandButton.image.sprite = UI.sprites.momentOfClarity;
+                        commandButton.action = new MomentOfClarity(this, momentOfClarity);
                         commandButton.type = CommandButton.Type.Command;
                         commandButton.transition = 1;
                         break;

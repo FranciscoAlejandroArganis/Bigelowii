@@ -12,7 +12,7 @@ public class DiamondUnblessing : BehaviorExpire
 
     public override void SetEventButton(EventButton eventButton)
     {
-        eventButton.image.sprite = UI.sprites.empty;
+        eventButton.image.sprite = UI.sprites.diamondBlessing;
     }
 
 }

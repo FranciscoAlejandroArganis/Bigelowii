@@ -40,7 +40,7 @@ public class Rhombus : Unit2D
                         SetMoveButton(commandButton);
                         break;
                     case 2:
-                        commandButton.image.sprite = UI.sprites.empty;
+                        commandButton.image.sprite = UI.sprites.diamondBlessing;
                         commandButton.action = new DiamondBlessing(this, blessing, blessedVisual);
                         commandButton.type = CommandButton.Type.Command;
                         commandButton.transition = 1;

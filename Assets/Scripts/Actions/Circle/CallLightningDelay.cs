@@ -37,6 +37,7 @@ public class CallLightningDelayed : CellTargetAction
         {
             case State.Start:
                 state = State.Impact;
+                unit.animator.SetTrigger("Lightning");
                 CameraController.LookAt(targetCell);
                 lightning.positionStart = targetCell.transform.position + new Vector3(0, 8, 0);
                 lightning.positionEnd = targetCell.transform.position + new Vector3(0, .5f, 0);
@@ -45,6 +46,7 @@ public class CallLightningDelayed : CellTargetAction
                 break;
             case State.Impact:
                 state = State.End;
+                unit.animator.SetTrigger("Lightning");
                 lightning.Stop();
                 OnEventDestroy();
                 Unit targetUnit = targetCell.unit;

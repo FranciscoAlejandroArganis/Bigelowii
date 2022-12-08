@@ -106,6 +106,10 @@ public class SpritesSet : ScriptableObject
     /// </summary>
     public Sprite antimatterBolt;
 
+    public Sprite diamondBlessing;
+
+    public Sprite momentOfClarity;
+
     public Sprite callLightning;
 
     /// <summary>

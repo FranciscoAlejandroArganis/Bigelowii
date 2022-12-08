@@ -32,6 +32,8 @@ MonoBehaviour:
   circle: {fileID: 21300000, guid: a073fcb8a8981f64e9cef52c425667b0, type: 3}
   restoration: {fileID: 21300000, guid: 657b477a74513d84c878a6558ef9e467, type: 3}
   antimatterBolt: {fileID: 21300000, guid: a464d13341f401d4ebbeb348b298670b, type: 3}
+  diamondBlessing: {fileID: 21300000, guid: efb0ccffbe2add0499a4501d8723d2d2, type: 3}
+  momentOfClarity: {fileID: 21300000, guid: 3ddf63f613fdbfe48bfa3367970ab4d8, type: 3}
   callLightning: {fileID: 21300000, guid: fa66bebfc926a924f8d56b480f3e5be7, type: 3}
   cones:
   - {fileID: 21300000, guid: 60004aaa146831747a377637bb19a411, type: 3}
