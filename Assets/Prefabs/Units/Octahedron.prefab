@@ -175,7 +175,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5247240620367832695}
-  - component: {fileID: 5314759350663945857}
+  - component: {fileID: 290450634674221779}
   - component: {fileID: 8676483608063294967}
   m_Layer: 0
   m_Name: Restoration
@@ -199,7 +199,7 @@ Transform:
   m_Father: {fileID: 6365687161427254779}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5314759350663945857
+--- !u!114 &290450634674221779
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -208,11 +208,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1751211081337143831}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e0c396175519544495537053f92e185, type: 3}
+  m_Script: {fileID: 11500000, guid: aa3a8a72418f2174890f67e25a58fbd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 8676483608063294967}
   template: {fileID: 7325874450674094797, guid: 3278f3a52d59d1541839eea3e21a3939, type: 3}
+  instance: {fileID: 0}
 --- !u!82 &8676483608063294967
 AudioSource:
   m_ObjectHideFlags: 0
@@ -711,7 +712,7 @@ MonoBehaviour:
   actionController: {fileID: 0}
   animator: {fileID: 0}
   audioSource: {fileID: 0}
-  restoration: {fileID: 5314759350663945857}
+  restoration: {fileID: 290450634674221779}
 --- !u!114 &5988844207221147486
 MonoBehaviour:
   m_ObjectHideFlags: 0

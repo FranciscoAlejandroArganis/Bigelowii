@@ -34,10 +34,12 @@ public class MomentOfClarity : UntargetedAction
                 break;
             case State.Cast:
                 state = State.End;
-                momentOfClarity.transform.rotation = Quaternion.identity;
+                momentOfClarity = GameObject.Instantiate(momentOfClarity, unit.transform.position - new Vector3(0, .24609375f, 0), Quaternion.identity);
+                momentOfClarity.unit = unit;
                 momentOfClarity.Play();
                 break;
             case State.End:
+                GameObject.Destroy(momentOfClarity.gameObject);
                 unit.animator.SetTrigger("Heal");
                 heal.Apply(unit);
                 unit.actionController.StopAction();

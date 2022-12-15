@@ -27,6 +27,8 @@ public class Sphere : Unit3D
     /// </summary>
     public Icosahedron icosahedron;
 
+    public VFXWrapper spawnEffect;
+
     public override void Start()
     {
         base.Start();
@@ -54,7 +56,7 @@ public class Sphere : Unit3D
                         commandButton.active = true;
                         commandButton.sprite = UI.sprites.cones[sphere.cost - 1];
                         commandButton.image.sprite = UI.sprites.sphere;
-                        commandButton.action = new Recruit(this, sphere);
+                        commandButton.action = new Recruit(this, sphere, spawnEffect);
                         commandButton.type = CommandButton.Type.Command;
                         commandButton.transition = 1;
                         break;
@@ -62,7 +64,7 @@ public class Sphere : Unit3D
                         commandButton.active = true;
                         commandButton.sprite = UI.sprites.cones[tetrahedron.cost - 1];
                         commandButton.image.sprite = UI.sprites.tetrahedron;
-                        commandButton.action = new Recruit(this, tetrahedron);
+                        commandButton.action = new Recruit(this, tetrahedron, spawnEffect);
                         commandButton.type = CommandButton.Type.Command;
                         commandButton.transition = 1;
                         break;
@@ -70,7 +72,7 @@ public class Sphere : Unit3D
                         commandButton.active = true;
                         commandButton.sprite = UI.sprites.cones[octahedron.cost - 1];
                         commandButton.image.sprite = UI.sprites.octahedron;
-                        commandButton.action = new Recruit(this, octahedron);
+                        commandButton.action = new Recruit(this, octahedron, spawnEffect);
                         commandButton.type = CommandButton.Type.Command;
                         commandButton.transition = 1;
                         break;
@@ -78,7 +80,7 @@ public class Sphere : Unit3D
                         commandButton.active = true;
                         commandButton.sprite = UI.sprites.cones[icosahedron.cost - 1];
                         commandButton.image.sprite = UI.sprites.icosahedron;
-                        commandButton.action = new Recruit(this, icosahedron);
+                        commandButton.action = new Recruit(this, icosahedron, spawnEffect);
                         commandButton.type = CommandButton.Type.Command;
                         commandButton.transition = 1;
                         break;

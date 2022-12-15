@@ -1,3 +1,4 @@
+using System.ComponentModel;
 /// <summary>
 /// Botón de la tarjeta de comandos
 /// </summary>
@@ -42,6 +43,7 @@ public class CommandButton : Button
 
     public override void OnClick()
     {
+        bool invalid = false;
         if (Level.state == Level.State.Human)
         {
             if (type == Type.Confirm)
@@ -51,7 +53,8 @@ public class CommandButton : Button
             else if (Turn.SelectAction(action, index))
                 UI.primaryUnit.SetCommandCard(transition);
             else
-                Audio.PlayClip(Audio.sounds.invalid);
+                invalid = true;
+            Audio.PlayClip(invalid ? Audio.sounds.invalid : Audio.sounds.click);
         }
     }
 

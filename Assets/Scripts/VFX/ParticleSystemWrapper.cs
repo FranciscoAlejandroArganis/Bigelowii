@@ -11,7 +11,7 @@ public class ParticleSystemWrapper : Wrapper
     /// <summary>
     /// Unidad que genera el sistema de partículas
     /// </summary>
-    private Unit unit;
+    public Unit unit;
 
     /// <summary>
     /// Sistema de partículas

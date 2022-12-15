@@ -62,11 +62,13 @@ public class PlasmaSpray : EnemyTargetAction
                 break;
             case State.Fire:
                 state = State.Damage;
-                spray.transform.rotation = Quaternion.LookRotation(targetUnit.transform.position - unit.transform.position);
+                spray = GameObject.Instantiate(spray, unit.transform.position, Quaternion.LookRotation(targetUnit.transform.position - unit.transform.position));
+                spray.unit = unit;
                 spray.Play();
                 break;
             case State.Damage:
                 state = State.End;
+                GameObject.Destroy(spray.gameObject);
                 unit.animator.SetTrigger("Attack");
                 damage.Apply(targetUnit);
                 UI.secondaryUnit.SetHealth();

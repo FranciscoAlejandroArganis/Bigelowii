@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 /// <summary>
 /// Acción en la que un rectángulo ataca
@@ -61,11 +62,13 @@ public class DarkMirage : EnemyTargetAction
                 break;
             case State.Fire:
                 state = State.Damage;
-                mirage.transform.position = targetUnit.transform.position;
+                mirage = GameObject.Instantiate(mirage, targetUnit.transform.position, Quaternion.identity);
+                mirage.unit = unit;
                 mirage.Play();
                 break;
             case State.Damage:
                 state = State.End;
+                GameObject.Destroy(mirage.gameObject);
                 unit.animator.SetTrigger("Attack");
                 damage.Apply(targetUnit);
                 UI.secondaryUnit.SetHealth();

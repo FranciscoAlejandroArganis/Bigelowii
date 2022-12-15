@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 /// <summary>
 /// Acción en la que una esfera recluta una nueva unidad
@@ -9,13 +10,15 @@ public class Recruit : CellTargetAction
     /// <summary>
     /// Enumeración de los estados de la acción
     /// <list type="bullet">
-    /// <item><c>Start</c>: se actualiza la línea de tiempo</item>
+    /// <item><c>Start</c>: aparece la nueva unidad en el mapa</item>
+    /// <item><c>Update</c>: se actualiza la línea de tiempo</item>
     /// <item><c>End</c>: la unidad termina su turno</item>
     /// </list>
     /// </summary>
     public enum State
     {
         Start,
+        Update,
         End
     }
 
@@ -29,15 +32,18 @@ public class Recruit : CellTargetAction
     /// </summary>
     private Unit template;
 
+    private VFXWrapper spawnEffect;
+
     /// <summary>
     /// Construye una nueva acción <c>Recruit</c>
     /// </summary>
     /// <param name="unit">La unidad que realiza la acción</param>
     /// <param name="template">La unidad plantilla que se usará para crear la nueva unidad</param>
-    public Recruit(Unit unit, Unit template) : base(unit)
+    public Recruit(Unit unit, Unit template, VFXWrapper spawnEffect) : base(unit)
     {
         search = new EuclideanDistanceSearch(3);
         this.template = template;
+        this.spawnEffect = spawnEffect;
     }
 
     public override bool Validate()
@@ -50,10 +56,17 @@ public class Recruit : CellTargetAction
         switch (state)
         {
             case State.Start:
-                state = State.End;
+                state = State.Update;
                 Level.cones -= template.cost;
                 UI.resources.UpdatePanel();
                 Level.NewUnit(template, unit.player, targetCell);
+                spawnEffect.transform.position = new Vector3(targetCell.transform.position.x, .5f, targetCell.transform.position.z);
+                spawnEffect.Play();
+                spawnEffect.Timer(2, this);
+                break;
+            case State.Update:
+                state = State.End;
+                spawnEffect.Stop();
                 Timeline.Update();
                 break;
             case State.End:

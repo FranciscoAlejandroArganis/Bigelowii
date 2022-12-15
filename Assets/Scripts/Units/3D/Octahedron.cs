@@ -7,7 +7,7 @@ using UnityEngine;
 public class Octahedron : Unit3D
 {
 
-    public RestorationVFX restoration;
+    public VFXWrapper restoration;
 
     public override Sprite GetUnitSprite()
     {

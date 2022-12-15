@@ -11,4 +11,10 @@ public class SoundsSet : ScriptableObject
     /// </summary>
     public AudioClip invalid;
 
+    public AudioClip click;
+
+    public AudioClip victory;
+
+    public AudioClip defeat;
+
 }

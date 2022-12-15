@@ -35,17 +35,20 @@ public class AntimatterBolt : CellTargetAction
     /// <summary>
     /// Plantilla usada para generar el proyectil del ataque
     /// </summary>
-    protected ParabolicProjectile bolt;
+    private ParabolicProjectile bolt;
+
+    private AntimatterBoltImpactVFX impact;
 
     /// <summary>
     /// Construye una nueva acción <c>AntimaterBolt</c>
     /// </summary>
     /// <param name="unit">La unidad que realiza la acción</param>
     /// <param name="bolt">La plantilla usada para generar el proyectil del ataque</param>
-    public AntimatterBolt(Unit unit, ParabolicProjectile bolt) : base(unit)
+    public AntimatterBolt(Unit unit, ParabolicProjectile bolt, AntimatterBoltImpactVFX impact) : base(unit)
     {
         search = new EuclideanDistanceSearch(4);
         this.bolt = bolt;
+        this.impact = impact;
     }
 
     public override void Execute()
@@ -54,7 +57,7 @@ public class AntimatterBolt : CellTargetAction
         {
             case State.Start:
                 state = State.End;
-                AntimatterBoltDelayed delayed = new AntimatterBoltDelayed(unit, targetCell, bolt);
+                AntimatterBoltDelayed delayed = new AntimatterBoltDelayed(unit, targetCell, bolt, impact);
                 Timeline.EnqueueLast(new Event(delayed, unit.delay < delay ? unit.delay : delay));
                 Awake awake = new Awake(unit);
                 Timeline.EnqueueLast(new Event(awake, unit.delay));

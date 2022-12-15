@@ -140,6 +140,7 @@ public class EventButton : Button
             }
             Turn.action = action;
             Turn.SelectUnit(action.unit);
+            Audio.PlayClip(Audio.sounds.click);
         }
     }
 

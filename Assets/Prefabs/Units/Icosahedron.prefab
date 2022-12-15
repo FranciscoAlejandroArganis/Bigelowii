@@ -319,6 +319,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   audioSource: {fileID: 0}
   bolt: {fileID: 2812731847143966607, guid: 1ca6533dabd72e848ab6ee005af305a7, type: 3}
+  impact: {fileID: 2252510787022714082, guid: 642f76008bf0b6f4d880d842a04477a6, type: 3}
 --- !u!114 &3437421054656311115
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -9,6 +9,8 @@ public class Icosahedron : Unit3D
 
     public ParabolicProjectile bolt;
 
+    public AntimatterBoltImpactVFX impact;
+
     public override Sprite GetUnitSprite()
     {
         return UI.sprites.icosahedron;
@@ -27,7 +29,7 @@ public class Icosahedron : Unit3D
                         break;
                     case 1:
                         commandButton.image.sprite = UI.sprites.antimatterBolt;
-                        commandButton.action = new AntimatterBolt(this, bolt);
+                        commandButton.action = new AntimatterBolt(this, bolt, impact);
                         commandButton.type = CommandButton.Type.Command;
                         commandButton.transition = 1;
                         break;

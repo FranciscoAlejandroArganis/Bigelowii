@@ -17,7 +17,7 @@ public class Audio
     /// <param name="clip">El audio que se reproduce</param>
     public static void PlayClip(AudioClip clip)
     {
-        AudioSource.PlayClipAtPoint(clip, CameraController.instance.transform.position);
+        AudioSource.PlayClipAtPoint(clip, Camera.main.transform.position);
     }
 
 }

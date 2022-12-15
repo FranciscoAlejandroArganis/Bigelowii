@@ -51,11 +51,7 @@ public class CircleAgent : Agent
                 state = State.Attack1;
                 break;
             case State.Attack1:
-                // damageLastTurn ya se actualizó al daño del turno actual
-                if (damageLastTurn > 0)
-                    EnterAttack2State();
-                else
-                    EnterDelayed2State();
+                EnterAttack2State();
                 break;
             case State.Attack2:
                 Turn.SelectTarget(unit.cell);
@@ -92,8 +88,14 @@ public class CircleAgent : Agent
 
     private void EnterAttack2State()
     {
-        PressButton(1);
-        state = State.Attack2;
+        // damageLastTurn ya se actualizó al daño del turno actual
+        if (damageLastTurn > 0)
+        {
+            PressButton(1);
+            state = State.Attack2;
+        }
+        else
+            EnterDelayed2State();
     }
 
     private void EnterDelayed2State()

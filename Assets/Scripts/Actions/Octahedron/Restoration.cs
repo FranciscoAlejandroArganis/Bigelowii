@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 /// <summary>
 /// Acción en la que un octaedro recupera la salud de otra unidad aliada
@@ -19,13 +20,13 @@ public class Restoration : FriendlyTargetAction
     /// </summary>
     private Heal heal;
 
-    private RestorationVFX restoration;
+    private VFXWrapper restoration;
 
     /// <summary>
     /// Construye una nueva acción <c>Restoration</c>
     /// </summary>
     /// <param name="unit">La unidad que realiza la acción</param>
-    public Restoration(Unit unit, RestorationVFX restoration) : base(unit)
+    public Restoration(Unit unit, VFXWrapper restoration) : base(unit)
     {
         search = new EuclideanDistanceSearch(3);
         heal = new Heal(50);
@@ -39,7 +40,7 @@ public class Restoration : FriendlyTargetAction
         {
             case State.Start:
                 state = State.End;
-                restoration.transform.position = targetUnit.transform.position;
+                restoration.transform.position = targetUnit.transform.position + new Vector3(0, .00390625f, 0);
                 restoration.Play();
                 restoration.Timer(2, this);
                 break;

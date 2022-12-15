@@ -79,6 +79,7 @@ public class ResultsScreen : MonoBehaviour
             continueButton.gameObject.SetActive(false);
         else
             continueButton.image.sprite = victory ? UI.sprites.next : UI.sprites.retry;
+        Audio.PlayClip(victory ? Audio.sounds.victory : Audio.sounds.defeat);
     }
 
     /// <summary>
