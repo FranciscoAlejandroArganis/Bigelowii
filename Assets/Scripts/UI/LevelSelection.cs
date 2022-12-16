@@ -54,7 +54,10 @@ public class LevelSelection : MonoBehaviour
     public void OnNext()
     {
         if (currentLevel < Level.lastLevel)
+        {
+            Audio.PlayClip(Audio.sounds.click2);
             slider.value = currentLevel + 1;
+        }
     }
 
     /// <summary>
@@ -63,7 +66,10 @@ public class LevelSelection : MonoBehaviour
     public void OnPrevious()
     {
         if (currentLevel > 1)
+        {
+            Audio.PlayClip(Audio.sounds.click2);
             slider.value = currentLevel - 1;
+        }
     }
 
     /// <summary>
@@ -72,7 +78,10 @@ public class LevelSelection : MonoBehaviour
     public void OnSelect()
     {
         if (currentLevel <= PlayerPrefs.GetInt("unlocked", 1))
+        {
+            Audio.PlayClip(Audio.sounds.click2);
             Scene.GoToLevel(currentLevel);
+        }
     }
 
     /// <summary>

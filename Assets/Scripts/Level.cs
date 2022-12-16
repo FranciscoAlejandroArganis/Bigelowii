@@ -101,6 +101,11 @@ public class Level : MonoBehaviour
         unit.player = player;
         cell.unit = unit;
         unit.actionsTaken = TechnologyMask(unit);
+        if (unit is Unit2D)
+        {
+            AudioSource[] sources = unit.GetComponents<AudioSource>();
+            sources[1].Play();
+        }
         Awake awake = new Awake(unit);
         Timeline.EnqueueLast(new Event(awake, unit.delay));
         return unit;

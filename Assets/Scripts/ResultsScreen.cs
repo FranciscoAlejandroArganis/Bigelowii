@@ -87,7 +87,14 @@ public class ResultsScreen : MonoBehaviour
     /// </summary>
     public void Continue()
     {
+        Audio.PlayClip(Audio.sounds.click2);
         Scene.GoToLevel(nextLevel);
+    }
+
+    public void Home()
+    {
+        Audio.PlayClip(Audio.sounds.click2);
+        Scene.GoToMainMenu();
     }
 
     /// <summary>

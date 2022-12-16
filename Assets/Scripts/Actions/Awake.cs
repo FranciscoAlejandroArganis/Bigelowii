@@ -31,6 +31,7 @@ public class Awake : UntargetedAction
                     List<Cone> cones = neighbor.cones;
                     if (cones.Count > 0)
                     {
+                        Audio.PlayClip(Audio.sounds.collectCone);
                         Cone cone = cones[0];
                         cones.RemoveAt(0);
                         Level.cones++;

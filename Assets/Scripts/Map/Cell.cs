@@ -184,7 +184,7 @@ public class Cell : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
                     if (unit)
                     {
                         Turn.SelectUnit(unit);
-                        Audio.PlayClip(Audio.sounds.click);
+                        Audio.PlayClip(Audio.sounds.click1);
                     }
                     break;
                 case Turn.State.Action:
@@ -194,7 +194,7 @@ public class Cell : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
                         {
                             Turn.DeselectUnit();
                             Turn.SelectUnit(unit);
-                            Audio.PlayClip(Audio.sounds.click);
+                            Audio.PlayClip(Audio.sounds.click1);
                         }
                     }
                     else
@@ -204,7 +204,7 @@ public class Cell : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
                     if (highlight.state.HasFlag(Highlight.State.Target))
                     {
                         Turn.SelectTarget(this);
-                        Audio.PlayClip(Audio.sounds.click);
+                        Audio.PlayClip(Audio.sounds.click1);
                     }
                     else
                         Turn.CancelAction();

@@ -6,6 +6,8 @@ using UnityEngine;
 public class MainMenu : MonoBehaviour
 {
 
+    public static bool init;
+
     /// <summary>
     /// Velocidad con la que gira la cámara en el menú principal
     /// </summary>
@@ -20,6 +22,8 @@ public class MainMenu : MonoBehaviour
     /// Referencia al scriptable object que contiene el conjunto de sonidos
     /// </summary>
     public SoundsSet sounds;
+
+    public GameObject welcomeScreen;
 
     /// <summary>
     /// Arreglo con las unidades 2D que se muestran en el menú principal
@@ -41,7 +45,12 @@ public class MainMenu : MonoBehaviour
         mainMenuCamera = Camera.main;
         UI.sprites = sprites;
         Audio.sounds = sounds;
-        //Time.timeScale = 8;
+    }
+
+    public void Start()
+    {
+        if (init)
+            welcomeScreen.SetActive(false);
     }
 
     public void Update()
@@ -60,7 +69,15 @@ public class MainMenu : MonoBehaviour
     /// </summary>
     public void OnExit()
     {
+        Audio.PlayClip(Audio.sounds.click2);
         Application.Quit();
+    }
+
+    public void OnPlay()
+    {
+        Audio.PlayClip(Audio.sounds.click2);
+        init = true;
+        welcomeScreen.SetActive(false);
     }
 
 }

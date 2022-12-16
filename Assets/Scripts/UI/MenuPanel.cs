@@ -13,6 +13,7 @@ public class MenuPanel : Panel
 
     public override void Show()
     {
+        Audio.PlayClip(Audio.sounds.click2);
         panel.SetActive(true);
         menuButton.interactable = false;
         state = State.Visible;
@@ -20,9 +21,16 @@ public class MenuPanel : Panel
 
     public override void Hide()
     {
+        Audio.PlayClip(Audio.sounds.click2);
         panel.SetActive(false);
         menuButton.interactable = true;
         state = State.Hidden;
+    }
+
+    public void Home()
+    {
+        Audio.PlayClip(Audio.sounds.click2);
+        Scene.GoToMainMenu();
     }
 
     public override void UpdatePanel()

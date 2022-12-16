@@ -54,7 +54,7 @@ public class CommandButton : Button
                 UI.primaryUnit.SetCommandCard(transition);
             else
                 invalid = true;
-            Audio.PlayClip(invalid ? Audio.sounds.invalid : Audio.sounds.click);
+            Audio.PlayClip(invalid ? Audio.sounds.invalid : Audio.sounds.click1);
         }
     }
 

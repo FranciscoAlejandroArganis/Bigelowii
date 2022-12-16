@@ -39,7 +39,7 @@ public class CallLightningDelayed : CellTargetAction
                 state = State.Impact;
                 unit.animator.SetTrigger("Lightning");
                 CameraController.LookAt(targetCell);
-                lightning.positionStart = targetCell.transform.position + new Vector3(0, 8, 0);
+                lightning.positionStart = targetCell.transform.position + new Vector3(0, 9, 0);
                 lightning.positionEnd = targetCell.transform.position + new Vector3(0, .5f, 0);
                 lightning.Play();
                 lightning.Timer(2, this);
